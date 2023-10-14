@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 import com.ma7moud27.onlinebookshop.model.work.Description
 
 data class Book(
-    val key: String = "",
+    var key: String = "",
     val title: String = "",
     val description: Description? = null,
 

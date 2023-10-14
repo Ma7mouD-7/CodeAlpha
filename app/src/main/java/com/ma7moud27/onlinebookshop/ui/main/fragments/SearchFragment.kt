@@ -12,7 +12,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.ma7moud27.onlinebookshop.R
 import com.ma7moud27.onlinebookshop.network.openlibrary.OpenLibApiClient
 import com.ma7moud27.onlinebookshop.repository.search.SearchRepoImpl
-import com.ma7moud27.onlinebookshop.utils.enums.BookSearch
 import com.ma7moud27.onlinebookshop.viewmodel.SearchViewModel
 import com.ma7moud27.onlinebookshop.viewmodel.factory.SearchViewModelFactory
 
@@ -25,7 +24,7 @@ class SearchFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         val view = inflater.inflate(R.layout.fragment_search, container, false)
         prepareViewModel()

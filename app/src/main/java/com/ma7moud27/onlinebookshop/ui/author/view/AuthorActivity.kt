@@ -1,8 +1,7 @@
-package com.ma7moud27.onlinebookshop.ui.author
+package com.ma7moud27.onlinebookshop.ui.author.view
 
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
-import android.graphics.Bitmap
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -18,25 +17,20 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
-import com.bumptech.glide.request.target.Target
 import com.google.android.material.appbar.AppBarLayout
-import com.google.android.material.color.utilities.TonalPalette
 import com.ma7moud27.onlinebookshop.R
 import com.ma7moud27.onlinebookshop.model.author.Author
 import com.ma7moud27.onlinebookshop.network.openlibrary.OpenLibApiClient
-import com.ma7moud27.onlinebookshop.repository.author.AuthorRepoImpl
+import com.ma7moud27.onlinebookshop.ui.author.repository.AuthorRepoImpl
+import com.ma7moud27.onlinebookshop.ui.author.viewmodel.AuthorViewModel
+import com.ma7moud27.onlinebookshop.ui.author.viewmodel.AuthorViewModelFactory
 import com.ma7moud27.onlinebookshop.utils.Constants.Companion.AUTHOR_KEY
 import com.ma7moud27.onlinebookshop.utils.UtilMethods
 import com.ma7moud27.onlinebookshop.utils.UtilMethods.Companion.clearSources
 import com.ma7moud27.onlinebookshop.utils.enums.CoverKey
 import com.ma7moud27.onlinebookshop.utils.enums.CoverSize
-import com.ma7moud27.onlinebookshop.viewmodel.AuthorViewModel
-import com.ma7moud27.onlinebookshop.viewmodel.factory.AuthorViewModelFactory
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlin.math.abs
 import kotlin.math.roundToInt
@@ -116,7 +110,8 @@ class AuthorActivity : AppCompatActivity() {
     private fun prepareViewModel() {
         val authorRepo = AuthorRepoImpl(OpenLibApiClient)
         val authorViewModelFactory = AuthorViewModelFactory(authorRepo)
-        authorViewModel = ViewModelProvider(this, authorViewModelFactory)[AuthorViewModel::class.java]
+        authorViewModel =
+            ViewModelProvider(this, authorViewModelFactory)[AuthorViewModel::class.java]
     }
 
     private fun initComponents() {
@@ -142,7 +137,8 @@ class AuthorActivity : AppCompatActivity() {
         authorDeathDateTextView = findViewById(R.id.author_death_date_tv)
         authorBioPlaceholder = findViewById(R.id.author_placeholder_bio_tv)
         authorBioTextView = findViewById(R.id.author_bio_tv)
-        authorAlternativeNamesPlaceholder = findViewById(R.id.author_placeholder_alternative_Names_tv)
+        authorAlternativeNamesPlaceholder =
+            findViewById(R.id.author_placeholder_alternative_Names_tv)
         authorAlternativeNamesArrowImageView = findViewById(R.id.author_alter_names_arrows_iv)
         authorAlternativeNamesTextView = findViewById(R.id.author_alternative_Names_tv)
 
@@ -178,45 +174,55 @@ class AuthorActivity : AppCompatActivity() {
             )
             .apply(RequestOptions.bitmapTransform(BlurTransformation(2, 3)))
             .into(authorBannerImageView)
-           /* .listener(object : RequestListener<Bitmap> {
-                override fun onLoadFailed(
-                    e: GlideException?,
-                    model: Any?,
-                    target: Target<Bitmap>,
-                    isFirstResource: Boolean
-                ): Boolean {
-                    this@AuthorActivity.startPostponedEnterTransition()
-                }
+        /* .listener(object : RequestListener<Bitmap> {
+             override fun onLoadFailed(
+                 e: GlideException?,
+                 model: Any?,
+                 target: Target<Bitmap>,
+                 isFirstResource: Boolean
+             ): Boolean {
+                 this@AuthorActivity.startPostponedEnterTransition()
+             }
 
-                override fun onResourceReady(
-                    resource: Bitmap,
-                    model: Any,
-                    target: Target<Bitmap>?,
-                    dataSource: DataSource,
-                    isFirstResource: Boolean
-                ): Boolean {
-                    this@AuthorActivity.startPostponedEnterTransition()
-                    if(resource !=null){
-                         TonalPalette.
-                    }
-                }
+             override fun onResourceReady(
+                 resource: Bitmap,
+                 model: Any,
+                 target: Target<Bitmap>?,
+                 dataSource: DataSource,
+                 isFirstResource: Boolean
+             ): Boolean {
+                 this@AuthorActivity.startPostponedEnterTransition()
+                 if(resource !=null){
+                      TonalPalette.
+                 }
+             }
 
-            })*/
+         })*/
 
         authorPersonalNameTextView.apply {
             if (author.personalName.isNotEmpty()) {
                 text = author.personalName
-            } else { visibility = View.GONE; authorPersonalNamePlaceholder.visibility = View.GONE }
+            } else {
+                visibility = View.GONE; authorPersonalNamePlaceholder.visibility = View.GONE
+            }
         }
         authorBirthDateTextView.apply {
-            if (author.birthDate.isEmpty()) { visibility = View.GONE; authorBirthDatePlaceholder.visibility = View.GONE }
+            if (author.birthDate.isEmpty()) {
+                visibility = View.GONE; authorBirthDatePlaceholder.visibility = View.GONE
+            }
         }
 
         if (author.deathDate.isNotEmpty()) {
             authorBirthDateTextView.text = author.birthDate
-            authorDeathDateTextView.text = "${author.deathDate}${UtilMethods.calculateAge(author.birthDate,author.deathDate) ?: ""}"
+            authorDeathDateTextView.text = "${author.deathDate}${
+                UtilMethods.calculateAge(
+                    author.birthDate,
+                    author.deathDate,
+                ) ?: ""
+            }"
         } else {
-            authorBirthDateTextView.text = "${author.birthDate}${UtilMethods.calculateAge(author.birthDate) ?: ""}"
+            authorBirthDateTextView.text =
+                "${author.birthDate}${UtilMethods.calculateAge(author.birthDate) ?: ""}"
             authorDeathDateTextView.visibility = View.GONE
             authorDeathDatePlaceholder.visibility = View.GONE
         }
@@ -224,7 +230,9 @@ class AuthorActivity : AppCompatActivity() {
         authorBioTextView.apply {
             if (author.bio.value.isNotEmpty()) {
                 text = author.bio.value.clearSources()
-            } else { visibility = View.GONE; authorBioPlaceholder.visibility = View.GONE }
+            } else {
+                visibility = View.GONE; authorBioPlaceholder.visibility = View.GONE
+            }
         }
         authorAlternativeNamesTextView.apply {
             if (author.alternateNames.isNotEmpty()) {
@@ -247,7 +255,10 @@ class AuthorActivity : AppCompatActivity() {
 
         /*Collapsed/expended sizes for views*/
         val result: Pair<Int, Int> = when {
-            percentOffset < ABROAD -> Pair(TO_EXPANDED_STATE, cashCollapseState?.second ?: WAIT_FOR_SWITCH)
+            percentOffset < ABROAD -> Pair(
+                TO_EXPANDED_STATE,
+                cashCollapseState?.second ?: WAIT_FOR_SWITCH,
+            )
             else -> Pair(TO_COLLAPSED_STATE, cashCollapseState?.second ?: WAIT_FOR_SWITCH)
         }
 
@@ -266,29 +277,43 @@ class AuthorActivity : AppCompatActivity() {
 
                             authorFullNameTextView.visibility = View.VISIBLE
                             authorNameTextView.visibility = View.INVISIBLE
-                            background.setBackgroundColor(ContextCompat.getColor(this@AuthorActivity, R.color.color_transparent))
+                            background.setBackgroundColor(
+                                ContextCompat.getColor(
+                                    this@AuthorActivity,
+                                    R.color.color_transparent,
+                                ),
+                            )
 
                             authorPicImageView.translationX = 0f
                         }
 
                         TO_COLLAPSED_STATE -> {
-                            background.setBackgroundColor(ContextCompat.getColor(this@AuthorActivity, R.color.primary_color))
+                            background.setBackgroundColor(
+                                ContextCompat.getColor(
+                                    this@AuthorActivity,
+                                    R.color.primary_color,
+                                ),
+                            )
                             currentImageSize = COLLAPSE_IMAGE_SIZE.toInt()
-                            translationY = appBarLayout.totalScrollRange.toFloat() - (toolbar.height - COLLAPSE_IMAGE_SIZE) / 2
+                            translationY =
+                                appBarLayout.totalScrollRange.toFloat() - (toolbar.height - COLLAPSE_IMAGE_SIZE) / 2
                             headContainerHeight = toolbar.height.toFloat()
-                            translationX = appBarLayout.width / 2f - COLLAPSE_IMAGE_SIZE / 2 - margin * 2
+                            translationX =
+                                appBarLayout.width / 2f - COLLAPSE_IMAGE_SIZE / 2 - margin * 2
 
-                            ValueAnimator.ofFloat(authorPicImageView.translationX, translationX).apply {
-                                addUpdateListener {
-                                    if (cashCollapseState!!.first == TO_COLLAPSED_STATE) {
-                                        authorPicImageView.translationX = it.animatedValue as Float
+                            ValueAnimator.ofFloat(authorPicImageView.translationX, translationX)
+                                .apply {
+                                    addUpdateListener {
+                                        if (cashCollapseState!!.first == TO_COLLAPSED_STATE) {
+                                            authorPicImageView.translationX =
+                                                it.animatedValue as Float
+                                        }
                                     }
+                                    interpolator = AnticipateOvershootInterpolator()
+                                    startDelay = 69
+                                    duration = 350
+                                    start()
                                 }
-                                interpolator = AnticipateOvershootInterpolator()
-                                startDelay = 69
-                                duration = 350
-                                start()
-                            }
 
                             authorFullNameTextView.visibility = View.INVISIBLE
                             authorNameTextView.apply {
@@ -321,8 +346,10 @@ class AuthorActivity : AppCompatActivity() {
                     /* Collapse avatar img*/
                     authorPicImageView.apply {
                         if (percentOffset > startAvatarAnimatePointY) {
-                            val animateOffset = (percentOffset - startAvatarAnimatePointY) * animateWeight
-                            val avatarSize = EXPAND_AVATAR_SIZE - (EXPAND_AVATAR_SIZE - COLLAPSE_IMAGE_SIZE) * animateOffset
+                            val animateOffset =
+                                (percentOffset - startAvatarAnimatePointY) * animateWeight
+                            val avatarSize =
+                                EXPAND_AVATAR_SIZE - (EXPAND_AVATAR_SIZE - COLLAPSE_IMAGE_SIZE) * animateOffset
 
                             this.layoutParams.also {
                                 if (it.height != avatarSize.roundToInt()) {

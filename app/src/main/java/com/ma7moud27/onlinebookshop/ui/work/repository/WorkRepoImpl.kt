@@ -1,4 +1,4 @@
-package com.ma7moud27.onlinebookshop.repository.work
+package com.ma7moud27.onlinebookshop.ui.work.repository
 
 import com.ma7moud27.onlinebookshop.model.work.Work
 import com.ma7moud27.onlinebookshop.network.RemoteDataSource

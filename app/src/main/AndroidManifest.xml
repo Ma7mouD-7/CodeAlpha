@@ -28,14 +28,14 @@
         </activity>
 
         <activity
-            android:name=".ui.work.WorkActivity"
+            android:name=".ui.work.view.WorkActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.author.AuthorActivity"
+            android:name=".ui.author.view.AuthorActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

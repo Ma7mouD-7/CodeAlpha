@@ -7,14 +7,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
 import com.ma7moud27.onlinebookshop.R
-import com.ma7moud27.onlinebookshop.ui.main.fragments.home.view.HomeFragment
 import com.ma7moud27.onlinebookshop.ui.main.fragments.SearchFragment
-
+import com.ma7moud27.onlinebookshop.ui.main.fragments.home.view.HomeFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var home: Fragment
     lateinit var categories: Fragment
-    lateinit var search: Fragment
+    private lateinit var search: Fragment
     private lateinit var lists: Fragment
     private lateinit var profile: Fragment
 
@@ -25,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         initComponents()
 
-        chipBottomNavBar.setOnItemSelectedListener{
+        chipBottomNavBar.setOnItemSelectedListener {
             when (it) {
                 R.id.main_menu_home -> replaceFragment(home)
                 R.id.main_menu_search -> replaceFragment(search)
@@ -34,13 +33,12 @@ class MainActivity : AppCompatActivity() {
                 else -> Toast.makeText(this, "Item no selected", Toast.LENGTH_SHORT).show()
             }
         }
-}
+    }
 
     private fun initComponents() {
         initFragments()
         chipBottomNavBar = findViewById(R.id.menu)
-        replaceFragment(home,R.id.main_menu_home)
-
+        replaceFragment(home, R.id.main_menu_home)
     }
 
     private fun initFragments() {
@@ -57,7 +55,6 @@ class MainActivity : AppCompatActivity() {
             setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             commit()
         }
-        if(mainMenuHome!=null) chipBottomNavBar.setItemSelected(mainMenuHome, true)
+        if (mainMenuHome != null) chipBottomNavBar.setItemSelected(mainMenuHome, true)
     }
-
 }

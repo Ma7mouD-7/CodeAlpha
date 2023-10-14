@@ -7,15 +7,15 @@ import com.ma7moud27.onlinebookshop.utils.enums.Category
 import okhttp3.ResponseBody
 
 interface HomeRepository {
-    fun getCategoryList(numOfItems:Int) : List<Category>
+    fun getCategoryList(numOfItems: Int): List<Category>
     suspend fun getTrending(
         trendTime: String,
         page: Int,
-        limit: Int
+        limit: Int,
     ): SearchBookResponse
-    suspend fun getWork(workID:String): Work
+    suspend fun getWork(workID: String): Work
     suspend fun getAuthors(): List<Author>
-    suspend fun getRandomWork() : ResponseBody
+    suspend fun getRandomWork(): ResponseBody
     suspend fun searchBooks(
         query: String,
         mode: String,
@@ -23,6 +23,6 @@ interface HomeRepository {
         isFullText: Boolean,
         sort: String,
         language: String,
-        limit: Int
+        limit: Int,
     ): SearchBookResponse
 }

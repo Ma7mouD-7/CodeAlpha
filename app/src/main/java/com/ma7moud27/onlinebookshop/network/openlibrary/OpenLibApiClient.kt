@@ -2,12 +2,11 @@ package com.ma7moud27.onlinebookshop.network.openlibrary
 
 import com.ma7moud27.onlinebookshop.model.BookShelf
 import com.ma7moud27.onlinebookshop.model.SearchAuthorResponse
-import com.ma7moud27.onlinebookshop.model.author.Author
 import com.ma7moud27.onlinebookshop.model.SearchBookResponse
+import com.ma7moud27.onlinebookshop.model.author.Author
 import com.ma7moud27.onlinebookshop.model.rating.Rating
 import com.ma7moud27.onlinebookshop.model.work.Work
 import com.ma7moud27.onlinebookshop.network.RemoteDataSource
-import okhttp3.Call
 import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.create
@@ -16,17 +15,14 @@ object OpenLibApiClient : RemoteDataSource {
     override suspend fun getAuthor(authorId: String): Response<Author> =
         OpenLibRetrofit.retrofit.create(OpenLibApiService::class.java).authorResponse(authorId)
 
-
     override suspend fun getWork(workId: String): Response<Work> =
         OpenLibRetrofit.retrofit.create(OpenLibApiService::class.java).workResponse(workId)
-
 
     override suspend fun getRating(workId: String): Response<Rating> =
         OpenLibRetrofit.retrofit.create(OpenLibApiService::class.java).ratingResponse(workId)
 
     override suspend fun getBookShelf(workId: String): Response<BookShelf> =
         OpenLibRetrofit.retrofit.create(OpenLibApiService::class.java).bookShelfResponse(workId)
-
 
     override suspend fun searchBooks(
         query: String,
@@ -35,11 +31,10 @@ object OpenLibApiClient : RemoteDataSource {
         isFullText: Boolean,
         sort: String,
         language: String,
-        limit: Int
+        limit: Int,
     ): Response<SearchBookResponse> =
         OpenLibRetrofit.retrofit.create(OpenLibApiService::class.java)
-            .searchBooksResponse(query, mode, page, isFullText, sort, language,limit)
-
+            .searchBooksResponse(query, mode, page, isFullText, sort, language, limit)
 
     override suspend fun searchAuthors(
         query: String,
@@ -49,13 +44,12 @@ object OpenLibApiClient : RemoteDataSource {
         OpenLibRetrofit.retrofit.create(OpenLibApiService::class.java)
             .searchAuthorsResponse(query, page, sort)
 
-
     override suspend fun getTrending(
         trendTime: String,
         page: Int,
-        limit: Int
+        limit: Int,
     ): Response<SearchBookResponse> =
         OpenLibRetrofit.retrofit.create(OpenLibApiService::class.java).trendingResponse(trendTime, page, limit)
 
-    override suspend fun getRandomWork() : ResponseBody = OpenLibRetrofit.retrofit.create(OpenLibApiService::class.java).getRandomWork()
+    override suspend fun getRandomWork(): ResponseBody = OpenLibRetrofit.retrofit.create(OpenLibApiService::class.java).getRandomWork()
 }

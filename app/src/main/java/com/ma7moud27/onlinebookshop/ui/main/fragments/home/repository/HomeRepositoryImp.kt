@@ -10,7 +10,7 @@ import okhttp3.ResponseBody
 
 class HomeRepositoryImp(
     private val remoteDataSource: RemoteDataSource,
-    private val localDataSource: LocalDataSource
+    private val localDataSource: LocalDataSource,
 ) : HomeRepository {
     override fun getCategoryList(numOfItems: Int): List<Category> = Category.values().take(numOfItems)
 
@@ -28,8 +28,6 @@ class HomeRepositoryImp(
         isFullText: Boolean,
         sort: String,
         language: String,
-        limit: Int
-    ): SearchBookResponse = remoteDataSource.searchBooks(query, mode, page,isFullText, sort, language,limit).body()?: SearchBookResponse()
-
-
+        limit: Int,
+    ): SearchBookResponse = remoteDataSource.searchBooks(query, mode, page, isFullText, sort, language, limit).body() ?: SearchBookResponse()
 }

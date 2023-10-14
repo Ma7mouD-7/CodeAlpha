@@ -1,9 +1,8 @@
-package com.ma7moud27.onlinebookshop.viewmodel.factory
+package com.ma7moud27.onlinebookshop.ui.work.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.ma7moud27.onlinebookshop.repository.work.WorkRepo
-import com.ma7moud27.onlinebookshop.viewmodel.WorkViewModel
+import com.ma7moud27.onlinebookshop.ui.work.repository.WorkRepo
 
 class WorkViewModelFactory(private val workRepo: WorkRepo) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

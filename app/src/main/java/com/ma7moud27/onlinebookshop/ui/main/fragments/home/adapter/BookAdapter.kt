@@ -2,8 +2,6 @@ package com.ma7moud27.onlinebookshop.ui.main.fragments.home.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Bitmap
-import android.transition.Transition
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,30 +16,44 @@ import com.ma7moud27.onlinebookshop.utils.UtilMethods
 import com.ma7moud27.onlinebookshop.utils.enums.CoverKey
 import com.ma7moud27.onlinebookshop.utils.enums.CoverSize
 
-
 class BookAdapter(
     private var bookItems: List<SearchBookItem>,
     private val listener: OnBookItemClickListener,
-    private val context: Context
+    private val context: Context,
 ) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder =
-        BookViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_book, parent, false))
-
+        BookViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.item_book, parent, false),
+        )
 
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
-        holder.itemView.setOnClickListener{listener.onBookItemClick(position)}
+        holder.itemView.setOnClickListener { listener.onBookItemClick(position) }
 
-        holder.titleTextView.text = "${bookItems[position].title} (${bookItems[position].publishYear})"
+        holder.titleTextView.text =
+            "${bookItems[position].title} (${bookItems[position].publishYear})"
         holder.authorTextView.text = bookItems[position].authorName.joinToString(", ")
 
         Glide.with(context)
             .asBitmap()
             .diskCacheStrategy(DiskCacheStrategy.DATA)
-            .load(bookItems[position].let {
-                if (it.lendingEditionKey != "") UtilMethods.createCoverUrl(it.lendingEditionKey,CoverKey.OLID.name.lowercase(),CoverSize.MEDIUM.query)
-                else UtilMethods.createCoverUrl(it.coverID.toString(),CoverKey.ID.name.lowercase(),CoverSize.MEDIUM.query)
-            })
+            .load(
+                bookItems[position].let {
+                    if (it.lendingEditionKey != "") {
+                        UtilMethods.createCoverUrl(
+                            it.lendingEditionKey,
+                            CoverKey.OLID.name.lowercase(),
+                            CoverSize.MEDIUM.query,
+                        )
+                    } else {
+                        UtilMethods.createCoverUrl(
+                            it.coverID.toString(),
+                            CoverKey.ID.name.lowercase(),
+                            CoverSize.MEDIUM.query,
+                        )
+                    }
+                },
+            )
             .into(holder.coverImageView)
 
         /*object : SimpleTarget<Bitmap>() {
@@ -122,15 +134,15 @@ class BlurTransformation(private val radius: Float) : Transformation<Bitmap> {
         return outputBitmap
     }
 }*/
-
     }
 
     override fun getItemCount(): Int = bookItems.size
 
     class BookViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val titleTextView : TextView
-        val authorTextView : TextView
-        val coverImageView : ImageView
+        val titleTextView: TextView
+        val authorTextView: TextView
+        val coverImageView: ImageView
+
         init {
             titleTextView = itemView.findViewById(R.id.item_book_title_tv)
             authorTextView = itemView.findViewById(R.id.item_book_author_tv)
@@ -139,11 +151,10 @@ class BlurTransformation(private val radius: Float) : Transformation<Bitmap> {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setDataToAdapter(bookItems : List<SearchBookItem>) {
+    fun setDataToAdapter(bookItems: List<SearchBookItem>) {
         this.bookItems = bookItems
         notifyDataSetChanged()
     }
-
 }
 
 interface OnBookItemClickListener {

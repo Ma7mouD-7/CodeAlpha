@@ -1,9 +1,8 @@
-package com.ma7moud27.onlinebookshop.viewmodel.factory
+package com.ma7moud27.onlinebookshop.ui.author.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.ma7moud27.onlinebookshop.repository.author.AuthorRepo
-import com.ma7moud27.onlinebookshop.viewmodel.AuthorViewModel
+import com.ma7moud27.onlinebookshop.ui.author.repository.AuthorRepo
 
 class AuthorViewModelFactory(private val authorRepo: AuthorRepo) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

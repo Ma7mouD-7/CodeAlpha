@@ -1,4 +1,4 @@
-package com.ma7moud27.onlinebookshop.ui.work
+package com.ma7moud27.onlinebookshop.ui.work.view
 
 import android.os.Bundle
 import android.widget.TextView
@@ -6,9 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.ma7moud27.onlinebookshop.R
 import com.ma7moud27.onlinebookshop.network.openlibrary.OpenLibApiClient
-import com.ma7moud27.onlinebookshop.repository.work.WorkRepoImpl
-import com.ma7moud27.onlinebookshop.viewmodel.WorkViewModel
-import com.ma7moud27.onlinebookshop.viewmodel.factory.WorkViewModelFactory
+import com.ma7moud27.onlinebookshop.ui.work.repository.WorkRepoImpl
+import com.ma7moud27.onlinebookshop.ui.work.viewmodel.WorkViewModel
+import com.ma7moud27.onlinebookshop.ui.work.viewmodel.WorkViewModelFactory
 
 class WorkActivity : AppCompatActivity() {
     private lateinit var textView: TextView

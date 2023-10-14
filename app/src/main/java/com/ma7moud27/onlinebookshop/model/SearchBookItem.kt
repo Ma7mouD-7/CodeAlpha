@@ -1,7 +1,6 @@
 package com.ma7moud27.onlinebookshop.model
 
 import com.google.gson.annotations.SerializedName
-import com.ma7moud27.onlinebookshop.utils.Constants
 
 data class SearchBookItem(
     val key: String = "",

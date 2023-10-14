@@ -10,9 +10,9 @@ import androidx.lifecycle.viewModelScope
 import com.ma7moud27.onlinebookshop.model.SearchBookResponse
 import com.ma7moud27.onlinebookshop.model.author.Author
 import com.ma7moud27.onlinebookshop.model.work.Work
-import com.ma7moud27.onlinebookshop.ui.author.AuthorActivity
+import com.ma7moud27.onlinebookshop.ui.author.view.AuthorActivity
 import com.ma7moud27.onlinebookshop.ui.main.fragments.home.repository.HomeRepository
-import com.ma7moud27.onlinebookshop.ui.work.WorkActivity
+import com.ma7moud27.onlinebookshop.ui.work.view.WorkActivity
 import com.ma7moud27.onlinebookshop.utils.Constants.Companion.AUTHOR_KEY
 import com.ma7moud27.onlinebookshop.utils.Constants.Companion.BOOK_KEY
 import com.ma7moud27.onlinebookshop.utils.enums.*
@@ -48,7 +48,7 @@ class HomeViewModel(private val repository: HomeRepository) : ViewModel() {
 
     fun fetchRandomBook() {
         viewModelScope.launch {
-            val workID = repository.searchBooks(
+            val searchBookItem = repository.searchBooks(
                 (BookSearch.TITLE.query + "\"${('a'..'z').random()}\""),
                 "ebooks",
                 1,
@@ -56,9 +56,13 @@ class HomeViewModel(private val repository: HomeRepository) : ViewModel() {
                 BookSort.TOP_RATED.query,
                 Language.ALL.query,
                 5,
-            ).items[(0..4).random()].key.substringAfterLast("/")
+            ).items[(0..4).random()]
+            val workID = searchBookItem.key.substringAfterLast("/")
             viewModelScope.launch {
-                _randomBookListLiveData.value = repository.getWork(workID)
+                var work = repository.getWork(workID)
+                if(searchBookItem.lendingEditionKey.isNotEmpty()) work.book.key = searchBookItem.lendingEditionKey
+                if(searchBookItem.coverEditionKey.isNotEmpty()) work.book.key = searchBookItem.coverEditionKey
+                _randomBookListLiveData.value = work
             }
         }
     }
@@ -87,7 +91,7 @@ class HomeViewModel(private val repository: HomeRepository) : ViewModel() {
 
     fun handelAuthorItemClick(context: Context, position: Int) {
         context.startActivity(
-            Intent(context,AuthorActivity::class.java).apply {
+            Intent(context, AuthorActivity::class.java).apply {
                 putExtra(AUTHOR_KEY,
                     _authorsListLiveData.value?.get(position)?.key?.substringAfterLast("/")
                 )

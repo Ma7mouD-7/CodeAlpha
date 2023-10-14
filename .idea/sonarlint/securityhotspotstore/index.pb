@@ -47,3 +47,5 @@ Eapp/src/main/java/com/ma7moud27/onlinebookshop/model/author/Author.kt,4\0\40c2
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 Œ
 \app/src/main/java/com/ma7moud27/onlinebookshop/ui/main/fragments/home/adapter/BookAdapter.kt,f\b\fb5cfbc5864d1c45a3b1bde3d762d90af05e5f2a
+q
+Aapp/src/main/java/com/ma7moud27/onlinebookshop/model/book/Book.kt,1\5\15da190f46271e0862ccf07dfdc8120ce50b79c7
