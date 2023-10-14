@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_color">#DECEBD</color>
+    <color name="primary_variant_color">#E7DFD4</color>
+    <color name="on_variant_color">#B37B66</color>
+    <color name="secondary_color">#6D7A71</color>
+    <color name="secondary_variant_color">#CCD8C4</color>
+    <color name="on_secondary_color">#A4A5A4</color>
+    <color name="item_book_background">#FFFBF7</color>
+    <color name="font_color">#D4D4D4</color>
+</resources>

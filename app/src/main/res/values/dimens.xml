@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="horizontal_padding">24dp</dimen>
+    <dimen name="vertical_padding">30dp</dimen>
+    <dimen name="top_head_height">220dp</dimen>
+    <dimen name="top_head_background_height">160dp</dimen>
+    <dimen name="default_expanded_image_size">135dp</dimen>
+    <dimen name="avatar_margin">8dp</dimen>
+    <dimen name="activity_margin">24dp</dimen>
+    <dimen name="default_collapsed_image_size">45dp</dimen>
+</resources>

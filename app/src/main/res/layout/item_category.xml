@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="bottom"
+    app:layout_anchorGravity="bottom"
+    android:layout_marginStart="0dp"
+    android:layout_marginEnd="1dp">
+
+    <ImageView
+        android:id="@+id/item_category_cover_iv"
+        android:layout_width="47dp"
+        android:layout_height="250dp"
+        android:background="@color/book"
+        android:contentDescription="@string/category"
+        android:tintMode="multiply"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:srcCompat="@drawable/boook"
+        app:tint="@color/book" />
+
+    <TextView
+        android:id="@+id/item_category_name_tv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/alegreya_sc_bold"
+        android:gravity="center"
+        android:text="L\nI\nT\nE\nR\nA\nT\nU"
+        android:textAlignment="center"
+        android:textColor="#C9FFD728"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="@+id/item_category_cover_iv"
+        app:layout_constraintEnd_toEndOf="@+id/item_category_cover_iv"
+        app:layout_constraintStart_toStartOf="@+id/item_category_cover_iv"
+        app:layout_constraintTop_toTopOf="@+id/item_category_cover_iv" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

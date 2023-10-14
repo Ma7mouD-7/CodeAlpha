@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <ImageView
+        android:id="@+id/work_banner_iv"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:adjustViewBounds="true"
+        android:foreground="@color/shadow"
+        android:foregroundTintMode="add"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/ol26992991m_m" />
+
+    <ImageView
+        android:id="@+id/work_s_curve"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-14dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/work_banner_iv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:srcCompat="@drawable/s_curve" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/work_title_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="16dp"
+        android:autoSizeMaxTextSize="18sp"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/alegreya_sc_bold"
+        android:gravity="start|bottom"
+        android:lineSpacingExtra="0sp"
+        android:maxLines="3"
+        android:text="Harry Potter and the deathly Hallow"
+        android:textAlignment="gravity"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/work_author_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/work_cover_iv"
+        app:layout_constraintTop_toTopOf="@+id/work_cover_iv"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/work_author_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:autoSizeMaxTextSize="12sp"
+        android:autoSizeMinTextSize="11sp"
+        android:autoSizeTextType="uniform"
+        android:maxLines="3"
+        android:text="by Mahmoud Mohammed"
+        android:fontFamily="@font/averia_sans_libre_bold"
+        android:textColor="@color/font_color"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/work_year_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/work_cover_iv"
+        app:layout_constraintTop_toBottomOf="@+id/work_title_tv" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/work_year_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:autoSizeMaxTextSize="12sp"
+        android:autoSizeMinTextSize="11sp"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/averia_sans_libre"
+        android:maxLines="1"
+        android:text="(2001)"
+        android:textColor="@color/font_color"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/ratingBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/work_cover_iv"
+        app:layout_constraintTop_toBottomOf="@+id/work_author_tv" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginBottom="72dp"
+        android:max="5"
+        android:numStars="5"
+        android:progress="1"
+        android:stepSize="1"
+        android:theme="@style/rating_bar_style"
+        app:layout_constraintBottom_toBottomOf="@+id/work_cover_iv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/work_cover_iv"
+        app:layout_constraintTop_toBottomOf="@+id/work_year_tv" />
+
+    <ScrollView
+        android:id="@+id/work_details_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/book_details_background"
+        android:paddingHorizontal="@dimen/horizontal_padding"
+        android:paddingVertical="@dimen/vertical_padding"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/work_s_curve">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="ScrollViewSize">
+
+            <TextView
+                android:id="@+id/work_description_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos  sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam recusandae alias error harum maxime adipisci amet laborum. Perspiciatis  minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit  quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur  fugiat, temporibus enim commodi iusto libero magni deleniti quod quam  consequuntur! Commodi minima excepturi repudiandae velit hic maxime doloremque. Quaerat provident commodi consectetur veniam similique ad  earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo  fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore  suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab laudantium modi minima sunt esse temporibus sint culpa, recusandae aliquam numquam  totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam  quasi aliquam eligendi, placeat qui corporis!"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/work_cover_iv"
+        android:layout_width="140dp"
+        android:layout_height="220dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:elevation="4dp"
+        android:maxWidth="140dp"
+        android:maxHeight="220dp"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearance="@style/curved_image_view"
+        app:strokeColor="#CFCFCF"
+        app:strokeWidth="4dp"
+        tools:srcCompat="@drawable/ol26992991m_m" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="8dp"
+        android:drawableStart="@drawable/ic_round_format_list_bulleted_24"
+        android:fontFamily="@font/md_grotesk_regular"
+        android:text="Add to List"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="@+id/work_cover_iv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/work_cover_iv" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="(4.5)"
+        android:fontFamily="@font/averia_sans_libre_bold"
+        android:textColor="@color/font_color"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ratingBar"
+        app:layout_constraintStart_toEndOf="@+id/ratingBar"
+        app:layout_constraintTop_toTopOf="@+id/ratingBar" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

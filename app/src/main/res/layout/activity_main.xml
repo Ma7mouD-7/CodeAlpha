@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.MainActivity">
+
+
+    <me.ibrahimsn.lib.SmoothBottomBar
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:elevation="10dp"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom|center_horizontal"
+        app:backgroundColor="@color/purple_500"
+        app:cornerRadius="36dp"
+        app:duration="750"
+        app:iconMargin="0dp"
+        app:iconSize="22dp"
+        app:textSize="11sp"
+        app:menu="@menu/main_menu_bottom_nav"
+        app:sideMargins="6dp"
+        android:visibility="gone"
+        app:textColor="@color/white" />
+
+    <FrameLayout
+        android:id="@+id/fragment_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+
+    <com.ismaeldivita.chipnavigation.ChipNavigationBar
+        android:id="@+id/menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:background="@drawable/bottom_navigation_background"
+        android:elevation="4dp"
+        android:minHeight="48dp"
+        android:paddingTop="10dp"
+        android:layout_marginBottom="8dp"
+        android:paddingBottom="10dp"
+        app:cnb_addBottomInset="true"
+        app:cnb_addLeftInset="false"
+        app:cnb_textAppearance="@style/chip_nav_text_style"
+        app:cnb_addRightInset="false"
+        app:cnb_addTopInset="true"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+        app:cnb_animationDuration="750"
+        app:cnb_badgeColor="@color/purple_700"
+        app:cnb_iconSize="24dp"
+        app:cnb_menuResource="@menu/main_menu_bottom_nav"
+        app:cnb_orientationMode="horizontal"
+        app:cnb_radius="15dp"
+        app:cnb_unselectedColor="@color/secondary_color" />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

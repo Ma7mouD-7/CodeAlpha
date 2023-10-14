@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="chip_nav_text_style">
+        <item name="fontFamily">@font/averia_sans_libre_bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="circle_image_view">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+    <style name="curved_image_view">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">10%</item>
+        <item name="cornerSizeTopRight">10%</item>
+        <item name="cornerSizeBottomLeft">10%</item>
+        <item name="cornerSizeBottomRight">10%</item>
+    </style>
+    <style name="rating_bar_style">
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/primary_color</item>
+    </style>
+</resources>

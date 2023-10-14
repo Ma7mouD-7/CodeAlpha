@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/main_menu_home"
+        android:icon="@drawable/ic_round_house_24"
+        android:title="@string/home"
+        app:cnb_backgroundColor="@color/primary_variant_color"
+        app:cnb_iconColor="@color/on_variant_color"
+        app:cnb_iconTintMode="src_in"
+        app:cnb_textColor="@color/on_variant_color" />
+
+    <item
+        android:id="@+id/main_menu_search"
+        android:icon="@drawable/ic_round_search_24"
+        android:title="@string/search"
+        app:cnb_backgroundColor="@color/primary_variant_color"
+        app:cnb_iconColor="@color/on_variant_color"
+        app:cnb_iconTintMode="src_in"
+        app:cnb_textColor="@color/on_variant_color" />
+
+    <item
+        android:id="@+id/main_menu_categories"
+        android:icon="@drawable/ic_round_category_24"
+        android:title="@string/categories"
+        app:cnb_backgroundColor="@color/primary_variant_color"
+        app:cnb_iconColor="@color/on_variant_color"
+        app:cnb_iconTintMode="src_in"
+        app:cnb_textColor="@color/on_variant_color" />
+
+    <item
+        android:id="@+id/main_menu_lists"
+        android:icon="@drawable/ic_round_bookmarks_24"
+        android:title="@string/lists"
+        app:cnb_backgroundColor="@color/primary_variant_color"
+        app:cnb_iconColor="@color/on_variant_color"
+        app:cnb_iconTintMode="src_in"
+        app:cnb_textColor="@color/on_variant_color" />
+
+
+</menu>

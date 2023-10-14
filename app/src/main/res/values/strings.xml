@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Online Bookshop</string>
+    <string name="home">Home</string>
+    <string name="categories">Categories</string>
+    <string name="lists">Lists</string>
+    <string name="profile">Profile</string>
+    <string name="greetings">Good Morning, Mahmoud!</string>
+    <string name="let_s_find_books">Let\'s Find Books</string>
+    <string name="top_categories">Top Categories</string>
+    <string name="view_all">View all</string>
+    <string name="trending_books_today">Trending Books Today</string>
+    <string name="our_best_authors">Our Best Authors</string>
+    <string name="random">Confused? There is a random book</string>
+    <string name="book_title">Book Title</string>
+    <string name="description">Description</string>
+    <string name="more_info">More Info</string>
+    <string name="search">Search</string>
+    <string name="category">C\na\nt\ne\ng\no\nr\ny\nC\na\nt\ne\ng\no\nr\ny\nC\na\nt\ne\ng\no\nr\ny\n</string>
+</resources>

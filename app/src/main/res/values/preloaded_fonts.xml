@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/alegreya_sc</item>
+        <item>@font/alegreya_sc_bold</item>
+        <item>@font/averia_sans_libre</item>
+        <item>@font/averia_sans_libre_bold</item>
+        <item>@font/averia_sans_libre_light</item>
+    </array>
+</resources>
