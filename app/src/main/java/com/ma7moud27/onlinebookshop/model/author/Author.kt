@@ -5,22 +5,22 @@ import com.ma7moud27.onlinebookshop.model.work.Link
 import com.ma7moud27.onlinebookshop.utils.Constants
 
 data class Author(
-    val key: String = "",
-    val name: String = "",
+    val key: String? = null,
+    val name: String? = null,
     @SerializedName("fuller_name")
-    val fullName: String = "",
+    val fullName: String? = null,
     @SerializedName("personal_name")
-    val personalName: String = "",
+    val personalName: String? = null,
     @SerializedName("alternate_names")
-    val alternateNames: List<String> = listOf(),
-    val bio: Bio = Bio(),
-    val photos: List<Int> = listOf(),
+    val alternateNames: List<String>? = null,
+    val bio: Bio? = Bio(),
+    val photos: List<Int>? = null,
     @SerializedName("birth_date")
-    val birthDate: String = "",
+    val birthDate: String? = null,
     @SerializedName("death_date")
-    val deathDate: String = "",
-    val title: String = "",
-    val wikipedia: String = "",
-    val links: List<Link> = listOf(),
+    val deathDate: String? = null,
+    val title: String? = null,
+    val wikipedia: String? = null,
+    val links: List<Link>? = null,
 )
 

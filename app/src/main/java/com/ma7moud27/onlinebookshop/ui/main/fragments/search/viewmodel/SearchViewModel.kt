@@ -1,4 +1,4 @@
-package com.ma7moud27.onlinebookshop.viewmodel
+package com.ma7moud27.onlinebookshop.ui.main.fragments.search.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ma7moud27.onlinebookshop.model.SearchAuthorResponse
 import com.ma7moud27.onlinebookshop.model.SearchBookResponse
-import com.ma7moud27.onlinebookshop.repository.search.SearchRepo
+import com.ma7moud27.onlinebookshop.ui.main.fragments.search.repository.SearchRepo
 import com.ma7moud27.onlinebookshop.utils.enums.*
 import kotlinx.coroutines.launch
 

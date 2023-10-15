@@ -31,7 +31,7 @@ class AuthorAdapter(
         holder.authorNameTextView.text = authorList[position].name
         Glide.with(context)
             .asBitmap()
-            .load(UtilMethods.createAuthorPicUrl(authorList[position].key, size = CoverSize.MEDIUM.query))
+            .load(UtilMethods.createAuthorPicUrl(authorList[position].key ?: "", size = CoverSize.MEDIUM.query))
             .into(holder.authorPicImageView)
     }
 

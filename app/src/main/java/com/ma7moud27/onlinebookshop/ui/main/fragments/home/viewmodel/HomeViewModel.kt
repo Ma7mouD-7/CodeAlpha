@@ -1,8 +1,14 @@
 package com.ma7moud27.onlinebookshop.ui.main.fragments.home.viewmodel
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.util.Log
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -14,7 +20,10 @@ import com.ma7moud27.onlinebookshop.ui.author.view.AuthorActivity
 import com.ma7moud27.onlinebookshop.ui.main.fragments.home.repository.HomeRepository
 import com.ma7moud27.onlinebookshop.ui.work.view.WorkActivity
 import com.ma7moud27.onlinebookshop.utils.Constants.Companion.AUTHOR_KEY
+import com.ma7moud27.onlinebookshop.utils.Constants.Companion.AUTHOR_LIST
 import com.ma7moud27.onlinebookshop.utils.Constants.Companion.BOOK_KEY
+import com.ma7moud27.onlinebookshop.utils.Constants.Companion.WORK_KEY
+import com.ma7moud27.onlinebookshop.utils.UtilMethods.Companion.extractIdFromKey
 import com.ma7moud27.onlinebookshop.utils.enums.*
 import kotlinx.coroutines.launch
 
@@ -54,14 +63,16 @@ class HomeViewModel(private val repository: HomeRepository) : ViewModel() {
                 1,
                 true,
                 BookSort.TOP_RATED.query,
-                Language.ALL.query,
-                5,
-            ).items[(0..4).random()]
-            val workID = searchBookItem.key.substringAfterLast("/")
+                Language.ENGLISH.query,
+                50,
+            ).items?.get((0..49).random())
+            val workID = searchBookItem?.key?.extractIdFromKey()?: ""
+            Log.d("MAHMOUD", "testRandomWorkID: $workID")
             viewModelScope.launch {
                 var work = repository.getWork(workID)
-                if(searchBookItem.lendingEditionKey.isNotEmpty()) work.book.key = searchBookItem.lendingEditionKey
-                if(searchBookItem.coverEditionKey.isNotEmpty()) work.book.key = searchBookItem.coverEditionKey
+                if(!searchBookItem!!.lendingEditionKey.isNullOrEmpty()) work.book?.key = searchBookItem.lendingEditionKey
+                else if(!searchBookItem.coverEditionKey.isNullOrEmpty()) work.book?.key = searchBookItem.coverEditionKey
+                work.author = searchBookItem.authorName
                 _randomBookListLiveData.value = work
             }
         }
@@ -99,11 +110,33 @@ class HomeViewModel(private val repository: HomeRepository) : ViewModel() {
         )
     }
 
-    fun handelRandomBook(context: Context) {
+    fun handelRandomBook(
+        context: Context,
+//        bannerImageView : ImageView,
+        titleTextView : TextView,
+//        authorTextView : TextView,
+//        yearTextView : TextView,
+        coverImageView : ImageView,
+    ) {
+        Log.d("MAHMOUD", "testRandomWorkmodel: ${_randomBookListLiveData.value?.key}")
+
+        var optionsCompat : ActivityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(
+            context as Activity,
+            Pair.create(titleTextView, "work_title_tn"),
+            Pair.create(coverImageView, "work_cover_tn")
+        )
+//            Pair.create(bannerImageView, "work_banner_tn"),
+//            Pair.create(, "work_s_curve_tn"),
+//            Pair.create(authorTextView, "work_author_tn"),
+//            Pair.create(yearTextView, "work_year_tn"),
+
         context.startActivity(
             Intent(context, WorkActivity::class.java).apply {
-                putExtra(BOOK_KEY,"OL82563W")
-            }
+                putExtra(WORK_KEY,_randomBookListLiveData.value?.key?.extractIdFromKey())
+                putExtra(BOOK_KEY,_randomBookListLiveData.value?.book?.key?.extractIdFromKey())
+                putExtra(AUTHOR_LIST,_randomBookListLiveData.value?.author?.joinToString(", "))
+            },
+            optionsCompat.toBundle()
         )
     }
 }

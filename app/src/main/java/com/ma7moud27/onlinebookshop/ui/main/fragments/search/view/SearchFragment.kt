@@ -1,4 +1,4 @@
-package com.ma7moud27.onlinebookshop.ui.main.fragments
+package com.ma7moud27.onlinebookshop.ui.main.fragments.search.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,9 +11,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.ma7moud27.onlinebookshop.R
 import com.ma7moud27.onlinebookshop.network.openlibrary.OpenLibApiClient
-import com.ma7moud27.onlinebookshop.repository.search.SearchRepoImpl
-import com.ma7moud27.onlinebookshop.viewmodel.SearchViewModel
-import com.ma7moud27.onlinebookshop.viewmodel.factory.SearchViewModelFactory
+import com.ma7moud27.onlinebookshop.ui.main.fragments.search.repository.SearchRepoImpl
+import com.ma7moud27.onlinebookshop.ui.main.fragments.search.viewmodel.SearchViewModel
+import com.ma7moud27.onlinebookshop.ui.main.fragments.search.viewmodel.SearchViewModelFactory
 
 class SearchFragment : Fragment() {
     private lateinit var textView: TextView

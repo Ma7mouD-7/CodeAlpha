@@ -7,39 +7,39 @@ import com.ma7moud27.onlinebookshop.model.book.Book
 import com.ma7moud27.onlinebookshop.model.rating.Rating
 
 data class Work(
-    val key: String = "",
+    val key: String? = null,
 
-    val title: String = "",
-    val description: Description? = null,
-    val links: List<Link> = listOf(),
+    val title: String? = null,
+    val description: Description? = Description(),
+    val links: List<Link>? = null,
 
     @SerializedName("subject_people")
-    val people: List<String> = listOf(),
+    val people: List<String>? = null,
     @SerializedName("subject_places")
-    val places: List<String> = listOf(),
-    val subjects: List<String> = listOf(),
+    val places: List<String>? = null,
+    val subjects: List<String>? = null,
 
-    val covers: List<Int> = listOf(),
+    val covers: List<Int>? = null,
 
-    val excerpts: List<Excerpt> = listOf(),
+    val excerpts: List<Excerpt>? = null,
     @SerializedName("first_publish_date")
-    val firstPublishDate: String = "",
+    val firstPublishDate: String? = null,
 
     @SerializedName("authors")
-    val authorsList: List<AuthorItem> = listOf(),
+    val authorsList: List<AuthorItem>? = null,
 
-    val ratings: Rating = Rating(),
-    val bookShelf: BookShelf = BookShelf(),
-    val book: Book = Book(),
-    val author: Author = Author(),
+    var ratings: Rating? = Rating(),
+    val bookShelf: BookShelf? = BookShelf(),
+    var book: Book? = Book(),
+    var author: List<String>? = null,
 )
 
 data class AuthorItem(
-    val author: AuthorData = AuthorData(),
+    val author: AuthorData? = null,
 )
 
 data class AuthorData(
-    val key: String = "",
+    val key: String? = null,
 )
 
 /*

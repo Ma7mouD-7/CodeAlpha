@@ -148,14 +148,14 @@ class AuthorActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     @RequiresApi(Build.VERSION_CODES.O)
     private fun updateAuthorViews(author: Author) {
-        authorNameTextView.text = author.name
-        authorFullNameTextView.text = author.fullName.ifEmpty { author.name }
+        authorNameTextView.text = author.name ?: author.fullName ?: ""
+        authorFullNameTextView.text = author.fullName ?: author.name ?: ""
         Glide.with(this)
             .asBitmap()
             .diskCacheStrategy(DiskCacheStrategy.DATA)
             .load(
                 UtilMethods.createAuthorPicUrl(
-                    author.photos.first().toString(),
+                    "${author.photos?.first() ?: -1}",
                     CoverKey.ID.name.lowercase(),
                     CoverSize.MEDIUM.query,
                 ),
@@ -167,7 +167,7 @@ class AuthorActivity : AppCompatActivity() {
             .diskCacheStrategy(DiskCacheStrategy.DATA)
             .load(
                 UtilMethods.createAuthorPicUrl(
-                    author.photos.first().toString(),
+                    "${author.photos?.first() ?: -1}",
                     CoverKey.ID.name.lowercase(),
                     CoverSize.MEDIUM.query,
                 ),
@@ -200,47 +200,48 @@ class AuthorActivity : AppCompatActivity() {
          })*/
 
         authorPersonalNameTextView.apply {
-            if (author.personalName.isNotEmpty()) {
-                text = author.personalName
-            } else {
+            if (author.personalName.isNullOrEmpty()) {
                 visibility = View.GONE; authorPersonalNamePlaceholder.visibility = View.GONE
+            } else {
+                text = author.personalName
             }
         }
         authorBirthDateTextView.apply {
-            if (author.birthDate.isEmpty()) {
+            if (author.birthDate.isNullOrEmpty()) {
                 visibility = View.GONE; authorBirthDatePlaceholder.visibility = View.GONE
             }
         }
 
-        if (author.deathDate.isNotEmpty()) {
+        if (author.deathDate.isNullOrEmpty()) {
+            authorBirthDateTextView.text =
+                "${author.birthDate}${UtilMethods.calculateAge(author.birthDate ?: "") ?: ""}"
+            authorDeathDateTextView.visibility = View.GONE
+            authorDeathDatePlaceholder.visibility = View.GONE
+        } else {
             authorBirthDateTextView.text = author.birthDate
             authorDeathDateTextView.text = "${author.deathDate}${
                 UtilMethods.calculateAge(
-                    author.birthDate,
+                    author.birthDate ?: "",
                     author.deathDate,
                 ) ?: ""
             }"
-        } else {
-            authorBirthDateTextView.text =
-                "${author.birthDate}${UtilMethods.calculateAge(author.birthDate) ?: ""}"
-            authorDeathDateTextView.visibility = View.GONE
-            authorDeathDatePlaceholder.visibility = View.GONE
         }
 
-        authorBioTextView.apply {
-            if (author.bio.value.isNotEmpty()) {
-                text = author.bio.value.clearSources()
+        author.bio.apply {
+            if (this == null) {
+                authorBioTextView.visibility = View.GONE
+                authorBioPlaceholder.visibility = View.GONE
             } else {
-                visibility = View.GONE; authorBioPlaceholder.visibility = View.GONE
+                authorBioTextView.text = this.value?.clearSources() ?: "No Bio"
             }
         }
-        authorAlternativeNamesTextView.apply {
-            if (author.alternateNames.isNotEmpty()) {
-                text = author.alternateNames.joinToString("\n")
-            } else {
-                visibility = View.GONE
+        author.alternateNames.apply {
+            if (this == null) {
+                authorAlternativeNamesTextView.visibility = View.GONE
                 authorAlternativeNamesPlaceholder.visibility = View.GONE
                 authorAlternativeNamesArrowImageView.visibility = View.GONE
+            } else {
+                authorAlternativeNamesTextView.text = this.joinToString("\n")
             }
         }
     }

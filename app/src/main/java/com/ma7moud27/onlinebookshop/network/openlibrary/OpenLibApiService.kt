@@ -4,6 +4,7 @@ import com.ma7moud27.onlinebookshop.model.BookShelf
 import com.ma7moud27.onlinebookshop.model.SearchAuthorResponse
 import com.ma7moud27.onlinebookshop.model.SearchBookResponse
 import com.ma7moud27.onlinebookshop.model.author.Author
+import com.ma7moud27.onlinebookshop.model.book.Book
 import com.ma7moud27.onlinebookshop.model.rating.Rating
 import com.ma7moud27.onlinebookshop.model.work.Work
 import okhttp3.ResponseBody
@@ -19,6 +20,9 @@ interface OpenLibApiService { // https://openlibrary.org/
 
     @GET("works/{workId}.json")
     suspend fun workResponse(@Path("workId") workId: String): Response<Work>
+
+    @GET("books/{bookId}.json")
+    suspend fun bookResponse(@Path("bookId") bookId: String): Response<Book>
 
     @GET("works/{workId}/ratings.json")
     suspend fun ratingResponse(@Path("workId") workId: String): Response<Rating>

@@ -4,11 +4,11 @@ import com.google.gson.annotations.SerializedName
 
 data class SearchAuthorItem(
     @SerializedName("birth_date")
-    val birthDate: String = "",
-    val key: String = "",
-    val name: String = "",
+    val birthDate: String? = null,
+    val key: String? = null,
+    val name: String? = null,
     @SerializedName("top_work")
-    val topWork: String = "",
+    val topWork: String? = null,
     @SerializedName("work_count")
-    val workCount: Int = 0
+    val workCount: Int? = null,
 )

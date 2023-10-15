@@ -8,11 +8,13 @@
     android:fitsSystemWindows="true">
 
     <ImageView
+        android:transitionName="work_banner_tn"
         android:id="@+id/work_banner_iv"
         android:layout_width="match_parent"
-        android:layout_height="230dp"
+        android:layout_height="250dp"
         android:adjustViewBounds="true"
-        android:foreground="@color/shadow"
+        android:foreground="@color/color_transparent"
+        android:foregroundTint="@color/shadow"
         android:foregroundTintMode="add"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,18 +23,18 @@
         tools:srcCompat="@drawable/ol26992991m_m" />
 
     <ImageView
+        android:transitionName="work_s_curve_tn"
         android:id="@+id/work_s_curve"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="-14dp"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="@+id/work_banner_iv"
+        android:src="@drawable/s_curve"
+        app:layout_constraintBottom_toTopOf="@+id/work_details_layout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:srcCompat="@drawable/s_curve" />
-
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:transitionName="work_title_tn"
         android:id="@+id/work_title_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -45,7 +47,6 @@
         android:gravity="start|bottom"
         android:lineSpacingExtra="0sp"
         android:maxLines="3"
-        android:text="Harry Potter and the deathly Hallow"
         android:textAlignment="gravity"
         android:textColor="@color/white"
         android:textSize="18sp"
@@ -55,57 +56,60 @@
         app:layout_constraintStart_toEndOf="@+id/work_cover_iv"
         app:layout_constraintTop_toTopOf="@+id/work_cover_iv"
         app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintVertical_chainStyle="spread_inside" />
+        app:layout_constraintVertical_chainStyle="spread"
+        tools:text="Harry Potter and the deathly Hallow" />
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:transitionName="work_author_tn"
         android:id="@+id/work_author_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
-        android:autoSizeMaxTextSize="12sp"
-        android:autoSizeMinTextSize="11sp"
+        android:autoSizeMaxTextSize="16sp"
+        android:autoSizeMinTextSize="12sp"
         android:autoSizeTextType="uniform"
-        android:maxLines="3"
-        android:text="by Mahmoud Mohammed"
         android:fontFamily="@font/averia_sans_libre_bold"
+        android:maxLines="3"
         android:textColor="@color/font_color"
-        android:textSize="12sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/work_year_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/work_cover_iv"
-        app:layout_constraintTop_toBottomOf="@+id/work_title_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/work_title_tv"
+        tools:text="by Mahmoud Mohammed" />
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:transitionName="work_year_tn"
         android:id="@+id/work_year_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
-        android:autoSizeMaxTextSize="12sp"
+        android:autoSizeMaxTextSize="16sp"
         android:autoSizeMinTextSize="11sp"
         android:autoSizeTextType="uniform"
         android:fontFamily="@font/averia_sans_libre"
         android:maxLines="1"
-        android:text="(2001)"
         android:textColor="@color/font_color"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/ratingBar"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/work_rating_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/work_cover_iv"
-        app:layout_constraintTop_toBottomOf="@+id/work_author_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/work_author_tv"
+        tools:text="(2001)" />
 
     <RatingBar
-        android:id="@+id/ratingBar"
+        android:id="@+id/work_rating_bar"
         style="@style/Widget.AppCompat.RatingBar.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
         android:layout_marginBottom="72dp"
-        android:max="5"
+        android:max="500"
         android:numStars="5"
-        android:progress="1"
-        android:stepSize="1"
+        android:progress="470"
+        android:stepSize="0.01"
         android:theme="@style/rating_bar_style"
         app:layout_constraintBottom_toBottomOf="@+id/work_cover_iv"
         app:layout_constraintEnd_toEndOf="parent"
@@ -113,47 +117,50 @@
         app:layout_constraintStart_toEndOf="@+id/work_cover_iv"
         app:layout_constraintTop_toBottomOf="@+id/work_year_tv" />
 
-    <ScrollView
-        android:id="@+id/work_details_layout"
+    <Button
+        android:id="@+id/work_add_to_list_btn"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/book_details_background"
-        android:paddingHorizontal="@dimen/horizontal_padding"
-        android:paddingVertical="@dimen/vertical_padding"
-        android:scrollbars="none"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="@dimen/horizontal_padding"
+        android:layout_marginBottom="8dp"
+        android:drawableTint="@color/on_variant_color"
+        android:drawableLeft="@drawable/ic_round_format_list_bulleted_24"
+        android:fontFamily="@font/md_grotesk_regular"
+        android:text="Add to List"
+        android:textAllCaps="false"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/work_s_curve">
+        app:layout_constraintEnd_toStartOf="@+id/work_fav_btn"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:ignore="ScrollViewSize">
-
-            <TextView
-                android:id="@+id/work_description_tv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos  sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam recusandae alias error harum maxime adipisci amet laborum. Perspiciatis  minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit  quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur  fugiat, temporibus enim commodi iusto libero magni deleniti quod quam  consequuntur! Commodi minima excepturi repudiandae velit hic maxime doloremque. Quaerat provident commodi consectetur veniam similique ad  earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo  fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore  suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab laudantium modi minima sunt esse temporibus sint culpa, recusandae aliquam numquam  totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam  quasi aliquam eligendi, placeat qui corporis!"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    <TextView
+        android:id="@+id/work_rating_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/averia_sans_libre_bold"
+        android:textColor="@color/font_color"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/work_rating_bar"
+        app:layout_constraintStart_toEndOf="@+id/work_rating_bar"
+        app:layout_constraintTop_toTopOf="@+id/work_rating_bar"
+        tools:text="(4.5)" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/work_cover_iv"
-        android:layout_width="140dp"
-        android:layout_height="220dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:elevation="4dp"
         android:maxWidth="140dp"
         android:maxHeight="220dp"
-        android:paddingHorizontal="10dp"
-        android:paddingVertical="10dp"
+        android:paddingHorizontal="4dp"
+        android:paddingVertical="4dp"
         android:scaleType="fitXY"
+        android:transitionName="work_cover_tn"
+        app:layout_constraintBottom_toBottomOf="@+id/work_s_curve"
+        app:layout_constraintDimensionRatio="7:11"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearance="@style/curved_image_view"
@@ -161,34 +168,205 @@
         app:strokeWidth="4dp"
         tools:srcCompat="@drawable/ol26992991m_m" />
 
-    <Button
-        android:id="@+id/button"
+    <ImageButton
+        android:id="@+id/work_fav_btn"
         android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="8dp"
-        android:drawableStart="@drawable/ic_round_format_list_bulleted_24"
-        android:fontFamily="@font/md_grotesk_regular"
-        android:text="Add to List"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="@+id/work_cover_iv"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/horizontal_padding"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/work_add_to_list_btn"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/work_cover_iv" />
+        app:layout_constraintTop_toTopOf="@+id/work_add_to_list_btn"
+        app:srcCompat="@drawable/ic_round_bookmarks_24" />
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/work_categories_tv"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="(4.5)"
-        android:fontFamily="@font/averia_sans_libre_bold"
-        android:textColor="@color/font_color"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/ratingBar"
-        app:layout_constraintStart_toEndOf="@+id/ratingBar"
-        app:layout_constraintTop_toTopOf="@+id/ratingBar" />
+        android:layout_marginEnd="32dp"
+        android:maxLines="2"
+        android:textSize="16sp"
+        android:autoSizeMaxTextSize="16sp"
+        android:autoSizeMinTextSize="11sp"
+        android:autoSizeTextType="uniform"
+        app:fontFamily="@font/rail_bold"
+        app:layout_constraintBottom_toBottomOf="@+id/work_cover_iv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/work_cover_iv"
+        app:layout_constraintTop_toTopOf="@+id/work_s_curve"
+        app:layout_constraintVertical_bias="0.8"
+        tools:text="Categories" />
+
+    <ScrollView
+        android:id="@+id/work_details_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="9dp"
+        android:background="@drawable/book_details_background"
+        android:paddingHorizontal="@dimen/horizontal_padding"
+        android:paddingVertical="8dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@+id/work_add_to_list_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/work_banner_iv">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/work_description_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/space_large"
+                android:textSize="16sp"
+                app:fontFamily="@font/averia_sans_libre_bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos  sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam recusandae alias error harum maxime adipisci amet laborum. Perspiciatis  minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit  quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur  fugiat, temporibus enim commodi iusto libero magni deleniti quod quam  consequuntur! Commodi minima excepturi repudiandae velit hic maxime doloremque. Quaerat provident commodi consectetur veniam similique ad  earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo  fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore  suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab laudantium modi minima sunt esse temporibus sint culpa, recusandae aliquam numquam  totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam  quasi aliquam eligendi, placeat qui corporis!" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/work_excerpt_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                app:fontFamily="@font/averia_sans_libre_bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/work_description_tv"
+                tools:text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga  " />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/work_excerpt_comment_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:textAlignment="viewEnd"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                android:paddingBottom="@dimen/space_large"
+                app:fontFamily="@font/averia_sans_libre_bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/work_excerpt_tv"
+                tools:text="- Lorem ipsum dolor" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/work_note_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/space_small"
+                android:textSize="16sp"
+                app:fontFamily="@font/averia_sans_libre_bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/work_excerpt_comment_tv"
+                tools:text="notes:" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/work_series_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/space_large"
+                android:textSize="16sp"
+                app:fontFamily="@font/averia_sans_libre_bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/work_note_tv"
+                tools:text="series:" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/work_covers_slider"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/space_small"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/work_series_tv"
+                tools:text="Covers" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/work_edition_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/space_small"
+                android:textSize="16sp"
+                app:fontFamily="@font/averia_sans_libre_bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/work_covers_slider"
+                tools:text="edition name" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/work_physical_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/space_small"
+                android:textSize="16sp"
+                app:fontFamily="@font/averia_sans_libre_bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/work_edition_tv"
+                tools:text="physical" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/work_pages_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/space_small"
+                android:textSize="16sp"
+                app:fontFamily="@font/averia_sans_libre_bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/work_physical_tv"
+                tools:text="pages:" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/work_publishers_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/space_small"
+                android:textSize="16sp"
+                app:fontFamily="@font/averia_sans_libre_bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/work_pages_tv"
+                tools:text="publishers:" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/work_contributors_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/space_small"
+                android:textSize="16sp"
+                app:fontFamily="@font/averia_sans_libre_bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/work_publishers_tv"
+                tools:text="contributors:" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/work_languages_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:visibility="gone"
+                app:fontFamily="@font/averia_sans_libre_bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/work_contributors_tv"
+                tools:text="language:" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

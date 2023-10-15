@@ -1,9 +1,8 @@
-package com.ma7moud27.onlinebookshop.viewmodel.factory
+package com.ma7moud27.onlinebookshop.ui.main.fragments.search.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.ma7moud27.onlinebookshop.repository.search.SearchRepo
-import com.ma7moud27.onlinebookshop.viewmodel.SearchViewModel
+import com.ma7moud27.onlinebookshop.ui.main.fragments.search.repository.SearchRepo
 
 class SearchViewModelFactory(private val searchRepo: SearchRepo) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

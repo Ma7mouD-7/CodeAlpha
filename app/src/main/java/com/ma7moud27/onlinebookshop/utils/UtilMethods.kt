@@ -40,10 +40,13 @@ class UtilMethods {
             }
         }
 
-        fun String.clearSources() = this.apply {
-            substringBefore("\r\n\r\n(")
-            substringBefore("\r\n([so")
-            substringBefore("<su")
-        }
+        fun String.clearSources() = this
+            .substringBefore("\\r\\n\\r\\n(")
+            .substringBefore("\\r\\n([so")
+            .substringBefore("\\r\\n\\r\\n([s")
+            .substringBefore("<su")
+            .substringBefore("---")
+
+        fun String.extractIdFromKey() = this.substringAfterLast("/")
     }
 }

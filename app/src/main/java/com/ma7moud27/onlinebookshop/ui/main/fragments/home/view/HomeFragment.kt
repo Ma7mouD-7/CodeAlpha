@@ -24,6 +24,7 @@ import com.ma7moud27.onlinebookshop.ui.main.fragments.home.repository.HomeReposi
 import com.ma7moud27.onlinebookshop.ui.main.fragments.home.viewmodel.HomeViewModel
 import com.ma7moud27.onlinebookshop.ui.main.fragments.home.viewmodel.HomeViewModelFactory
 import com.ma7moud27.onlinebookshop.utils.UtilMethods
+import com.ma7moud27.onlinebookshop.utils.UtilMethods.Companion.clearSources
 import com.ma7moud27.onlinebookshop.utils.enums.CoverKey
 import com.ma7moud27.onlinebookshop.utils.enums.CoverSize
 
@@ -65,7 +66,13 @@ class HomeFragment :
                 R.id.main_menu_categories,
             )
         }
-        randomButton.setOnClickListener { homeViewModel.handelRandomBook(this.requireContext()) }
+        randomButton.setOnClickListener {
+            homeViewModel.handelRandomBook(
+                this.requireContext(),
+                randomTitleTextView,
+                randomCoverImageView
+            )
+        }
         return view
     }
 
@@ -123,25 +130,37 @@ class HomeFragment :
         }
         homeViewModel.trendingListLiveData.observe(viewLifecycleOwner) {
             trendAdapter.setDataToAdapter(
-                it.items,
+                it.items!!,
             )
         }
         homeViewModel.randomBookListLiveData.observe(viewLifecycleOwner) {
             Log.d("MAHMOUD", "testRandomWork: $it")
             randomTitleTextView.text =
-                "${it.title} ${(it.firstPublishDate).let { year -> if (year.isNotEmpty()) "($year)" else "" }}"
-            randomDescriptionTextView.text =
-                it.description?.value?.substringBefore(".\\r\\n(")?.replace("\\r\\n\\r\\n", " ")
-                    ?: ""
+                "${it.title} ${(it.firstPublishDate).let { year -> if (year.isNullOrEmpty()) "" else "($year)" }}\n${
+                    it.author?.joinToString(
+                        ", "
+                    )
+                }"
+            randomDescriptionTextView.text = "${it.description?.value?.clearSources() ?: ""}"
+
+//
 
             Glide.with(this.requireContext())
                 .asBitmap()
                 .load(
-                    UtilMethods.createCoverUrl(
-                        it.covers.first().toString(),
-                        CoverKey.ID.name.lowercase(),
-                        CoverSize.MEDIUM.query,
-                    ),
+                    if (it.book?.key.isNullOrEmpty()) {
+                        UtilMethods.createCoverUrl(
+                            "${it.covers?.first() ?: -1}",
+                            CoverKey.ID.name.lowercase(),
+                            CoverSize.MEDIUM.query,
+                        )
+                    } else {
+                        UtilMethods.createCoverUrl(
+                            it.book?.key!!,
+                            CoverKey.OLID.name.lowercase(),
+                            CoverSize.MEDIUM.query,
+                        )
+                    },
                 )
                 .diskCacheStrategy(DiskCacheStrategy.DATA)
                 .into(randomCoverImageView)
@@ -152,7 +171,7 @@ class HomeFragment :
 
         homeViewModel.fetchCategoryList(11)
 //        homeViewModel.fetchTrendingBooks(Trending.TODAY, limit = 10)
-//        homeViewModel.fetchRandomBook()
+        homeViewModel.fetchRandomBook()
         homeViewModel.fetchAuthors(10)
     }
 

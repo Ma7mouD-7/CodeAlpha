@@ -32,23 +32,23 @@ class BookAdapter(
 
         holder.titleTextView.text =
             "${bookItems[position].title} (${bookItems[position].publishYear})"
-        holder.authorTextView.text = bookItems[position].authorName.joinToString(", ")
+        holder.authorTextView.text = bookItems[position].authorName!!.joinToString(", ")
 
         Glide.with(context)
             .asBitmap()
             .diskCacheStrategy(DiskCacheStrategy.DATA)
             .load(
                 bookItems[position].let {
-                    if (it.lendingEditionKey != "") {
+                    if (it.lendingEditionKey.isNullOrEmpty()) {
                         UtilMethods.createCoverUrl(
-                            it.lendingEditionKey,
-                            CoverKey.OLID.name.lowercase(),
+                            it.coverID.toString(),
+                            CoverKey.ID.name.lowercase(),
                             CoverSize.MEDIUM.query,
                         )
                     } else {
                         UtilMethods.createCoverUrl(
-                            it.coverID.toString(),
-                            CoverKey.ID.name.lowercase(),
+                            it.lendingEditionKey,
+                            CoverKey.OLID.name.lowercase(),
                             CoverSize.MEDIUM.query,
                         )
                     }

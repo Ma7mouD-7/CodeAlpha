@@ -1,9 +1,8 @@
-package com.ma7moud27.onlinebookshop.repository.search
+package com.ma7moud27.onlinebookshop.ui.main.fragments.search.repository
 
 import com.ma7moud27.onlinebookshop.model.SearchAuthorResponse
 import com.ma7moud27.onlinebookshop.model.SearchBookResponse
 import com.ma7moud27.onlinebookshop.network.RemoteDataSource
-import retrofit2.Response
 
 class SearchRepoImpl(private val dataSource: RemoteDataSource) : SearchRepo {
 

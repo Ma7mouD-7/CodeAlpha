@@ -4,6 +4,7 @@ import com.ma7moud27.onlinebookshop.model.BookShelf
 import com.ma7moud27.onlinebookshop.model.SearchAuthorResponse
 import com.ma7moud27.onlinebookshop.model.SearchBookResponse
 import com.ma7moud27.onlinebookshop.model.author.Author
+import com.ma7moud27.onlinebookshop.model.book.Book
 import com.ma7moud27.onlinebookshop.model.rating.Rating
 import com.ma7moud27.onlinebookshop.model.work.Work
 import com.ma7moud27.onlinebookshop.network.RemoteDataSource
@@ -17,6 +18,9 @@ object OpenLibApiClient : RemoteDataSource {
 
     override suspend fun getWork(workId: String): Response<Work> =
         OpenLibRetrofit.retrofit.create(OpenLibApiService::class.java).workResponse(workId)
+
+    override suspend fun getBook(bookId: String): Response<Book> =
+        OpenLibRetrofit.retrofit.create(OpenLibApiService::class.java).bookResponse(bookId)
 
     override suspend fun getRating(workId: String): Response<Rating> =
         OpenLibRetrofit.retrofit.create(OpenLibApiService::class.java).ratingResponse(workId)

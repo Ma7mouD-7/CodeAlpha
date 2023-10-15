@@ -16,6 +16,6 @@
     <color name="book">#55D647</color>
     <color name="item_book_background">#FFFBF7</color>
     <color name="color_transparent">#00FFFFFF</color>
-    <color name="shadow">#B3000000</color>
+    <color name="shadow">#B3222222</color>
     <color name="font_color">#D4D4D4</color>
 </resources>
