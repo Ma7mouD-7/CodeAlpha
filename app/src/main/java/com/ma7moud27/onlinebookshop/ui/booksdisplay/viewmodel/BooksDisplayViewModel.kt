@@ -55,45 +55,33 @@ class BooksDisplayViewModel(private val repository: BooksDisplayRepository) : Vi
     fun handelBookItemClick(
         context: Context,
         position: Int,
-//        bannerImageView : ImageView,
-        titleTextView : TextView,
-//        authorTextView : TextView,
-//        yearTextView : TextView,
-        coverImageView : ImageView,
+        titleTextView: TextView,
+        coverImageView: ImageView,
     ) {
-        var optionsCompat : ActivityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(
-            context as Activity,
-            Pair.create(titleTextView, "work_title_tn"),
-            Pair.create(coverImageView, "work_cover_tn")
-        )
         val searchBookItem = _booksItemsLiveData.value?.items!![position]
-        val workID = searchBookItem.key?.extractIdFromKey()?: ""
+        val workID = searchBookItem.key?.extractIdFromKey() ?: ""
         Log.d("MAHMOUD", "testRandomWorkID: $workID")
         viewModelScope.launch {
-            var work = repository.getWork(workID)
-            if(!searchBookItem.lendingEditionKey.isNullOrEmpty()) work.book?.key = searchBookItem.lendingEditionKey
-            else if(!searchBookItem.coverEditionKey.isNullOrEmpty()) work.book?.key = searchBookItem.coverEditionKey
+            val work = repository.getWork(workID)
+            if (!searchBookItem.lendingEditionKey.isNullOrEmpty()) {
+                work.book?.key = searchBookItem.lendingEditionKey
+            } else if (!searchBookItem.coverEditionKey.isNullOrEmpty()) work.book?.key = searchBookItem.coverEditionKey
             work.author = searchBookItem.authorName
             context.startActivity(
                 Intent(context, WorkActivity::class.java).apply {
-
                     putExtra(Constants.WORK_KEY, workID)
-                    putExtra(Constants.BOOK_KEY,work.book?.key?.extractIdFromKey())
-                    putExtra(Constants.AUTHOR_LIST,work.author?.joinToString(", "))
+                    putExtra(Constants.BOOK_KEY, work.book?.key?.extractIdFromKey())
+                    putExtra(Constants.AUTHOR_LIST, work.author?.joinToString(", "))
                 },
-                optionsCompat.toBundle()
+                ActivityOptionsCompat.makeSceneTransitionAnimation(
+                    context as Activity,
+                    Pair.create(titleTextView, "work_title_tn"),
+                    Pair.create(coverImageView, "work_cover_tn"),
+                ).toBundle(),
             )
         }
-
-//            Pair.create(bannerImageView, "work_banner_tn"),
-//            Pair.create(, "work_s_curve_tn"),
-//            Pair.create(authorTextView, "work_author_tn"),
-//            Pair.create(yearTextView, "work_year_tn"),
-
-
     }
 
     fun getCategory(categoryIndex: Int): String =
         repository.getCategoryList(Category.values().size)[categoryIndex].name.lowercase().replaceFirstChar { it.uppercase() }
-
 }

@@ -199,7 +199,7 @@ class HomeFragment :
     }
 
     override fun onBookItemClick(holder: BookAdapter.BookViewHolder, position: Int) {
-        homeViewModel.handelBookItemClick(this.requireContext(), position)
+        homeViewModel.handelBookItemClick(this.requireContext(), position,holder.titleTextView,holder.coverImageView)
     }
 
     override fun onAuthorItemClick(position: Int) {

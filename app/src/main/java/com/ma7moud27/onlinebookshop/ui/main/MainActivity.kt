@@ -9,6 +9,7 @@ import com.ismaeldivita.chipnavigation.ChipNavigationBar
 import com.ma7moud27.onlinebookshop.R
 import com.ma7moud27.onlinebookshop.ui.main.fragments.categories.view.CategoriesFragment
 import com.ma7moud27.onlinebookshop.ui.main.fragments.home.view.HomeFragment
+import com.ma7moud27.onlinebookshop.ui.main.fragments.lists.view.ListsFragment
 import com.ma7moud27.onlinebookshop.ui.main.fragments.search.view.SearchFragment
 
 class MainActivity : AppCompatActivity() {
@@ -45,9 +46,8 @@ class MainActivity : AppCompatActivity() {
         home = HomeFragment()
         categories = CategoriesFragment()
         search = SearchFragment()
-        lists = Fragment()
+        lists = ListsFragment()
     }
-
     fun replaceFragment(fragment: Fragment, mainMenuHome: Int? = null) {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fragment_frame, fragment)

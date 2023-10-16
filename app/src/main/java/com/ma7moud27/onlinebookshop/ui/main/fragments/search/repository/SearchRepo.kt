@@ -2,6 +2,7 @@ package com.ma7moud27.onlinebookshop.ui.main.fragments.search.repository
 
 import com.ma7moud27.onlinebookshop.model.SearchAuthorResponse
 import com.ma7moud27.onlinebookshop.model.SearchBookResponse
+import com.ma7moud27.onlinebookshop.model.work.Work
 
 interface SearchRepo {
     suspend fun searchBooks(
@@ -19,4 +20,6 @@ interface SearchRepo {
         page: Int,
         sort: String,
     ): SearchAuthorResponse
+
+    suspend fun getWork(workID: String): Work
 }

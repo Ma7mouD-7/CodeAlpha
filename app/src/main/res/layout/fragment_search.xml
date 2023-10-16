@@ -8,10 +8,11 @@
     android:paddingTop="@dimen/vertical_padding"
     android:paddingBottom="75dp">
 
-    <SearchView
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
 
+        android:layout_height="wrap_content"
         android:background="@drawable/bottom_navigation_background"
         android:clickable="true"
         android:clipToPadding="true"
@@ -19,9 +20,70 @@
         android:focusable="true"
         android:iconifiedByDefault="false"
         android:inputType="textCapWords"
-        android:padding="8dp"
 
+        android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/search_rv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewe"
+        tools:listitem="@layout/item_book_horizontal" />
+
+    <RadioGroup
+        android:id="@+id/search_type_group"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:text="Search Book by:"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/search_title_radio_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="Title" />
+
+        <RadioButton
+            android:id="@+id/search_author_radio_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Author" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textViewe"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:text="Number of books found: 150"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_type_group"
+        tools:visibility="gone" />
 </androidx.constraintlayout.widget.ConstraintLayout>
