@@ -72,19 +72,19 @@ class WorkActivity : AppCompatActivity() {
                 .asBitmap()
                 .diskCacheStrategy(DiskCacheStrategy.DATA)
                 .load(
-                    if (bookID.isEmpty()) {
+//                    if (bookID.isEmpty()) {
                         UtilMethods.createCoverUrl(
                             "${work.covers?.first() ?: -1}",
                             CoverKey.ID.name.lowercase(),
                             CoverSize.MEDIUM.query,
                         )
-                    } else {
-                        UtilMethods.createCoverUrl(
-                            bookID,
-                            CoverKey.OLID.name.lowercase(),
-                            CoverSize.MEDIUM.query,
-                        )
-                    },
+//                    } else {
+//                        UtilMethods.createCoverUrl(
+//                            bookID,
+//                            CoverKey.OLID.name.lowercase(),
+//                            CoverSize.MEDIUM.query,
+//                        )
+//                    },
                 )
                 .apply(RequestOptions.bitmapTransform(BlurTransformation(2, 3)))
                 .into(bannerImageView)
@@ -101,19 +101,19 @@ class WorkActivity : AppCompatActivity() {
                 .asBitmap()
                 .diskCacheStrategy(DiskCacheStrategy.DATA)
                 .load(
-                    if (bookID.isNullOrEmpty()) {
+//                    if (bookID.isNullOrEmpty()) {
                         UtilMethods.createCoverUrl(
                             "${work.covers?.first() ?: -1}",
                             CoverKey.ID.name.lowercase(),
                             CoverSize.MEDIUM.query,
                         )
-                    } else {
-                        UtilMethods.createCoverUrl(
-                            bookID,
-                            CoverKey.OLID.name.lowercase(),
-                            CoverSize.MEDIUM.query,
-                        )
-                    },
+//                    } else {
+//                        UtilMethods.createCoverUrl(
+//                            bookID,
+//                            CoverKey.OLID.name.lowercase(),
+//                            CoverSize.MEDIUM.query,
+//                        )
+//                    },
                 )
                 .into(coverImageView)
 

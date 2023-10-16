@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityOptionsCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.core.util.Pair
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -17,11 +18,17 @@ import com.ma7moud27.onlinebookshop.model.SearchBookResponse
 import com.ma7moud27.onlinebookshop.model.author.Author
 import com.ma7moud27.onlinebookshop.model.work.Work
 import com.ma7moud27.onlinebookshop.ui.author.view.AuthorActivity
+import com.ma7moud27.onlinebookshop.ui.booksdisplay.view.BooksDisplayActivity
 import com.ma7moud27.onlinebookshop.ui.main.fragments.home.repository.HomeRepository
+import com.ma7moud27.onlinebookshop.ui.profile.view.ProfileActivity
 import com.ma7moud27.onlinebookshop.ui.work.view.WorkActivity
+import com.ma7moud27.onlinebookshop.utils.Constants
 import com.ma7moud27.onlinebookshop.utils.Constants.Companion.AUTHOR_KEY
 import com.ma7moud27.onlinebookshop.utils.Constants.Companion.AUTHOR_LIST
 import com.ma7moud27.onlinebookshop.utils.Constants.Companion.BOOK_KEY
+import com.ma7moud27.onlinebookshop.utils.Constants.Companion.CATEGORIES
+import com.ma7moud27.onlinebookshop.utils.Constants.Companion.CATEGORY_IDX
+import com.ma7moud27.onlinebookshop.utils.Constants.Companion.SENDER
 import com.ma7moud27.onlinebookshop.utils.Constants.Companion.WORK_KEY
 import com.ma7moud27.onlinebookshop.utils.UtilMethods.Companion.extractIdFromKey
 import com.ma7moud27.onlinebookshop.utils.enums.*
@@ -48,7 +55,7 @@ class HomeViewModel(private val repository: HomeRepository) : ViewModel() {
     fun fetchTrendingBooks(
         trendTime: Trending,
         page: Int = 1,
-        limit: Int = 1,
+        limit: Int = 10,
     ) {
         viewModelScope.launch {
             _trendingListLiveData.value = repository.getTrending(trendTime.query, page, limit)
@@ -85,11 +92,12 @@ class HomeViewModel(private val repository: HomeRepository) : ViewModel() {
     }
 
     fun handelCategoryItemClick(context: Context, position: Int) {
-        Toast.makeText(
-            context,
-            categoryListLiveData.value?.get(position)?.query ?: "clicked",
-            Toast.LENGTH_SHORT,
-        ).show()
+        context.startActivity(
+            Intent(context, BooksDisplayActivity::class.java).apply{
+                putExtra(SENDER, CATEGORIES)
+                putExtra(CATEGORY_IDX, position)
+            },
+        )
     }
 
     fun handelBookItemClick(context: Context, position: Int) {

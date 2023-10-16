@@ -10,7 +10,7 @@
     android:layout_marginEnd="1dp">
 
     <ImageView
-        android:id="@+id/item_category_cover_iv"
+        android:id="@+id/item_category_book_cover_iv"
         android:layout_width="47dp"
         android:layout_height="250dp"
         android:background="@color/book"
@@ -24,7 +24,7 @@
         app:tint="@color/book" />
 
     <TextView
-        android:id="@+id/item_category_name_tv"
+        android:id="@+id/item_category_book_name_tv"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="50dp"
@@ -37,9 +37,9 @@
         android:textSize="12sp"
         android:textStyle="bold"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="@+id/item_category_cover_iv"
-        app:layout_constraintEnd_toEndOf="@+id/item_category_cover_iv"
-        app:layout_constraintStart_toStartOf="@+id/item_category_cover_iv"
-        app:layout_constraintTop_toTopOf="@+id/item_category_cover_iv" />
+        app:layout_constraintBottom_toBottomOf="@+id/item_category_book_cover_iv"
+        app:layout_constraintEnd_toEndOf="@+id/item_category_book_cover_iv"
+        app:layout_constraintStart_toStartOf="@+id/item_category_book_cover_iv"
+        app:layout_constraintTop_toTopOf="@+id/item_category_book_cover_iv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

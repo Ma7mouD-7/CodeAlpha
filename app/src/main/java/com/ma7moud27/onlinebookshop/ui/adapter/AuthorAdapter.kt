@@ -1,4 +1,4 @@
-package com.ma7moud27.onlinebookshop.ui.main.fragments.home.adapter
+package com.ma7moud27.onlinebookshop.ui.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context

@@ -12,14 +12,14 @@ class HomeRepositoryImp(
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource,
 ) : HomeRepository {
-    override fun getCategoryList(numOfItems: Int): List<Category> = Category.values().take(numOfItems)
+    override fun getCategoryList(numOfItems: Int): List<Category> = localDataSource.getCategoryList(numOfItems)
+    override suspend fun getAuthors(): List<Author> = localDataSource.getTopAuthors()
 
     override suspend fun getTrending(trendTime: String, page: Int, limit: Int): SearchBookResponse =
         remoteDataSource.getTrending(trendTime, page, limit).body() ?: SearchBookResponse()
 
     override suspend fun getWork(workID: String): Work = remoteDataSource.getWork(workID).body() ?: Work()
 
-    override suspend fun getAuthors(): List<Author> = localDataSource.getTopAuthors()
     override suspend fun getRandomWork(): ResponseBody = remoteDataSource.getRandomWork()
     override suspend fun searchBooks(
         query: String,

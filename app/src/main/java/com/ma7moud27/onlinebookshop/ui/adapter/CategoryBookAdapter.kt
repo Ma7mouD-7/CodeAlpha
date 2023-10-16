@@ -1,4 +1,4 @@
-package com.ma7moud27.onlinebookshop.ui.main.fragments.home.adapter
+package com.ma7moud27.onlinebookshop.ui.adapter
 
 import android.annotation.SuppressLint
 import android.content.res.ColorStateList
@@ -11,18 +11,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ma7moud27.onlinebookshop.R
 import com.ma7moud27.onlinebookshop.utils.enums.Category
 
-class CategoryAdapter(
+class CategoryBookAdapter(
     private var itemsList: List<Category>,
-    private val listener: OnCategoryItemClickListener,
-) : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
+    private val listener: OnCategoryBookClickListener,
+) : RecyclerView.Adapter<CategoryListAdapter.CategoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder =
         CategoryViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_category, parent, false),
+            LayoutInflater.from(parent.context).inflate(R.layout.item_category_book, parent, false),
         )
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        holder.itemView.setOnClickListener { listener.onCategoryItemClick(position) }
+        holder.itemView.setOnClickListener { listener.onCategoryBookClick(position) }
 
         holder.categoryCover.layoutParams.width =
             (holder.categoryCover.layoutParams.width * itemsList[position].width).toInt()
@@ -40,8 +40,8 @@ class CategoryAdapter(
         var categoryCover: ImageView
 
         init {
-            categoryName = itemView.findViewById(R.id.item_category_name_tv)
-            categoryCover = itemView.findViewById(R.id.item_category_cover_iv)
+            categoryName = itemView.findViewById(R.id.item_category_book_name_tv)
+            categoryCover = itemView.findViewById(R.id.item_category_book_cover_iv)
         }
     }
 
@@ -52,6 +52,6 @@ class CategoryAdapter(
     }
 }
 
-fun interface OnCategoryItemClickListener {
-    fun onCategoryItemClick(position: Int)
+fun interface OnCategoryBookClickListener {
+    fun onCategoryBookClick(position: Int)
 }

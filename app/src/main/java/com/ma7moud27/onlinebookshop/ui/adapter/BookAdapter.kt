@@ -1,4 +1,4 @@
-package com.ma7moud27.onlinebookshop.ui.main.fragments.home.adapter
+package com.ma7moud27.onlinebookshop.ui.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -20,18 +20,19 @@ class BookAdapter(
     private var bookItems: List<SearchBookItem>,
     private val listener: OnBookItemClickListener,
     private val context: Context,
+    private val itemBook: Int
 ) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder =
-        BookViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_book, parent, false),
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
+        return BookViewHolder(
+            LayoutInflater.from(parent.context).inflate(itemBook, parent, false),
         )
+    }
 
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
-        holder.itemView.setOnClickListener { listener.onBookItemClick(position) }
+        holder.itemView.setOnClickListener { listener.onBookItemClick(holder, position) }
 
-        holder.titleTextView.text =
-            "${bookItems[position].title} (${bookItems[position].publishYear})"
+        "${bookItems[position].title} (${bookItems[position].publishYear})".also { holder.titleTextView.text = it }
         holder.authorTextView.text = bookItems[position].authorName!!.joinToString(", ")
 
         Glide.with(context)
@@ -158,5 +159,5 @@ class BlurTransformation(private val radius: Float) : Transformation<Bitmap> {
 }
 
 interface OnBookItemClickListener {
-    fun onBookItemClick(position: Int)
+    fun onBookItemClick(holder: BookAdapter.BookViewHolder, position: Int)
 }

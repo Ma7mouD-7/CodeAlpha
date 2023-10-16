@@ -46,6 +46,8 @@ class UtilMethods {
             .substringBefore("\\r\\n\\r\\n([s")
             .substringBefore("<su")
             .substringBefore("---")
+            .substringBefore("\\r\\n\\r\\n\\r\\n  [1]:")
+            .substringBefore("[1]:")
 
         fun String.extractIdFromKey() = this.substringAfterLast("/")
     }

@@ -4,9 +4,9 @@ import com.google.gson.GsonBuilder
 import com.ma7moud27.onlinebookshop.model.author.Bio
 import com.ma7moud27.onlinebookshop.model.book.Notes
 import com.ma7moud27.onlinebookshop.model.work.Description
-import com.ma7moud27.onlinebookshop.utils.BioDeserializer
 import com.ma7moud27.onlinebookshop.utils.Constants
-import com.ma7moud27.onlinebookshop.utils.DescriptionDeserializer
+import com.ma7moud27.onlinebookshop.utils.deserializer.BioDeserializer
+import com.ma7moud27.onlinebookshop.utils.deserializer.DescriptionDeserializer
 import com.ma7moud27.onlinebookshop.utils.deserializer.NoteDeserializer
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -23,7 +23,7 @@ object OpenLibRetrofit {
         .create()
 
     private val httpLoggingInterceptor = HttpLoggingInterceptor().setLevel(
-        HttpLoggingInterceptor.Level.BODY,
+        HttpLoggingInterceptor.Level.NONE,
     )
 
     private val okHttpClient: OkHttpClient = OkHttpClient.Builder()

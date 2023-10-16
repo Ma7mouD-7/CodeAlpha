@@ -10,5 +10,11 @@ class Constants {
         const val AUTHOR_LIST = "author_list"
         const val WORK_KEY = "work_key"
         const val BOOK_KEY = "book_key"
+
+
+        const val SENDER = "sender"
+        const val TRENDING = "trending_list"
+        const val CATEGORIES = "categories_list"
+        const val CATEGORY_IDX = "category_index"
     }
 }

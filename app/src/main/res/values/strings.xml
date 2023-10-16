@@ -16,4 +16,6 @@
     <string name="more_info">More Info</string>
     <string name="search">Search</string>
     <string name="category">C\na\nt\ne\ng\no\nr\ny\nC\na\nt\ne\ng\no\nr\ny\nC\na\nt\ne\ng\no\nr\ny\n</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

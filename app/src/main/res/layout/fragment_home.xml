@@ -24,8 +24,12 @@
 
             <ImageButton
                 android:id="@+id/home_profile_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:padding="8dp"
+                android:scaleType="fitCenter"
+                app:layout_constraintDimensionRatio="1:1"
+                android:background="@android:color/transparent"
                 android:src="@drawable/ic_round_person_24"
                 app:layout_constraintBottom_toBottomOf="@+id/textView4"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -89,7 +93,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5"
                 tools:itemCount="1"
-                tools:listitem="@layout/item_category"
+                tools:listitem="@layout/item_category_book"
                 tools:visibility="gone" />
 
             <TextView
@@ -125,7 +129,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/home_trend_btn"
                 tools:itemCount="1"
-                tools:listitem="@layout/item_book"
+                tools:listitem="@layout/item_book_vertical"
                 tools:visibility="gone" />
 
             <TextView

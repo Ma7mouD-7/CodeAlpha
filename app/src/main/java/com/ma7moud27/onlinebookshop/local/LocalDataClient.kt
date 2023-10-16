@@ -1,8 +1,11 @@
 package com.ma7moud27.onlinebookshop.local
 
 import com.ma7moud27.onlinebookshop.model.author.Author
+import com.ma7moud27.onlinebookshop.utils.enums.Category
 
 object LocalDataClient : LocalDataSource {
+    override fun getCategoryList(numOfItems: Int): List<Category> = Category.values().take(numOfItems)
+
     override fun getTopAuthors(): List<Author> {
         return listOf(
             Author(name = "Leo Tolstoy", key = "OL26783A"),

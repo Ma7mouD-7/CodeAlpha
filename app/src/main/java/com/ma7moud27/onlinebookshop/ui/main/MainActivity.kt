@@ -15,7 +15,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var categories: Fragment
     private lateinit var search: Fragment
     private lateinit var lists: Fragment
-    private lateinit var profile: Fragment
 
     private lateinit var chipBottomNavBar: ChipNavigationBar
 
@@ -45,7 +44,6 @@ class MainActivity : AppCompatActivity() {
         home = HomeFragment()
         categories = Fragment()
         search = SearchFragment()
-        profile = Fragment()
         lists = Fragment()
     }
 

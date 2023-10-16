@@ -1,5 +1,6 @@
 package com.ma7moud27.onlinebookshop.ui.main.fragments.home.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -18,19 +19,24 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.ma7moud27.onlinebookshop.R
 import com.ma7moud27.onlinebookshop.local.LocalDataClient
 import com.ma7moud27.onlinebookshop.network.openlibrary.OpenLibApiClient
+import com.ma7moud27.onlinebookshop.ui.adapter.*
+import com.ma7moud27.onlinebookshop.ui.booksdisplay.view.BooksDisplayActivity
 import com.ma7moud27.onlinebookshop.ui.main.MainActivity
-import com.ma7moud27.onlinebookshop.ui.main.fragments.home.adapter.* // ktlint-disable no-wildcard-imports
 import com.ma7moud27.onlinebookshop.ui.main.fragments.home.repository.HomeRepositoryImp
 import com.ma7moud27.onlinebookshop.ui.main.fragments.home.viewmodel.HomeViewModel
 import com.ma7moud27.onlinebookshop.ui.main.fragments.home.viewmodel.HomeViewModelFactory
+import com.ma7moud27.onlinebookshop.ui.profile.view.ProfileActivity
+import com.ma7moud27.onlinebookshop.utils.Constants.Companion.SENDER
+import com.ma7moud27.onlinebookshop.utils.Constants.Companion.TRENDING
 import com.ma7moud27.onlinebookshop.utils.UtilMethods
 import com.ma7moud27.onlinebookshop.utils.UtilMethods.Companion.clearSources
 import com.ma7moud27.onlinebookshop.utils.enums.CoverKey
 import com.ma7moud27.onlinebookshop.utils.enums.CoverSize
+import com.ma7moud27.onlinebookshop.utils.enums.Trending
 
 class HomeFragment :
     Fragment(),
-    OnCategoryItemClickListener,
+    OnCategoryBookClickListener,
     OnBookItemClickListener,
     OnAuthorItemClickListener {
 
@@ -43,7 +49,7 @@ class HomeFragment :
     private lateinit var randomCoverImageView: ImageView
 
     private lateinit var categoryRecyclerView: RecyclerView
-    private lateinit var categoryAdapter: CategoryAdapter
+    private lateinit var categoryBookAdapter: CategoryBookAdapter
     private lateinit var trendRecyclerView: RecyclerView
     private lateinit var trendAdapter: BookAdapter
     private lateinit var authorRecyclerView: RecyclerView
@@ -60,6 +66,19 @@ class HomeFragment :
         prepareViewModel()
         initComponents(view)
         fetchData()
+
+        profileButton.setOnClickListener {
+            startActivity(
+                Intent(this.requireContext(), ProfileActivity::class.java)
+            )
+        }
+        trendButton.setOnClickListener {
+            startActivity(
+                Intent(this.requireContext(), BooksDisplayActivity::class.java).apply{
+                    putExtra(SENDER,TRENDING)
+                }
+            )
+        }
         categoryButton.setOnClickListener {
             (activity as MainActivity?)!!.replaceFragment(
                 (activity as MainActivity?)!!.categories,
@@ -70,7 +89,7 @@ class HomeFragment :
             homeViewModel.handelRandomBook(
                 this.requireContext(),
                 randomTitleTextView,
-                randomCoverImageView
+                randomCoverImageView,
             )
         }
         return view
@@ -104,14 +123,14 @@ class HomeFragment :
     private fun setupCategoryRecyclerView() {
         categoryRecyclerView.layoutManager =
             LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
-        categoryAdapter = CategoryAdapter(listOf(), this)
-        categoryRecyclerView.adapter = categoryAdapter
+        categoryBookAdapter = CategoryBookAdapter(listOf(), this)
+        categoryRecyclerView.adapter = categoryBookAdapter
     }
 
     private fun setupTrendRecyclerView() {
         trendRecyclerView.layoutManager =
             LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
-        trendAdapter = BookAdapter(listOf(), this, this.requireContext())
+        trendAdapter = BookAdapter(listOf(), this, this.requireContext(),R.layout.item_book_vertical)
         trendRecyclerView.adapter = trendAdapter
     }
 
@@ -124,7 +143,7 @@ class HomeFragment :
 
     private fun fetchData() {
         homeViewModel.categoryListLiveData.observe(viewLifecycleOwner) {
-            categoryAdapter.setDataToAdapter(
+            categoryBookAdapter.setDataToAdapter(
                 it,
             )
         }
@@ -138,7 +157,7 @@ class HomeFragment :
             randomTitleTextView.text =
                 "${it.title} ${(it.firstPublishDate).let { year -> if (year.isNullOrEmpty()) "" else "($year)" }}\n${
                     it.author?.joinToString(
-                        ", "
+                        ", ",
                     )
                 }"
             randomDescriptionTextView.text = "${it.description?.value?.clearSources() ?: ""}"
@@ -170,16 +189,16 @@ class HomeFragment :
         }
 
         homeViewModel.fetchCategoryList(11)
-//        homeViewModel.fetchTrendingBooks(Trending.TODAY, limit = 10)
+        homeViewModel.fetchTrendingBooks(Trending.TODAY, limit = 10)
         homeViewModel.fetchRandomBook()
         homeViewModel.fetchAuthors(10)
     }
 
-    override fun onCategoryItemClick(position: Int) {
+    override fun onCategoryBookClick(position: Int) {
         homeViewModel.handelCategoryItemClick(this.requireContext(), position)
     }
 
-    override fun onBookItemClick(position: Int) {
+    override fun onBookItemClick(holder: BookAdapter.BookViewHolder, position: Int) {
         homeViewModel.handelBookItemClick(this.requireContext(), position)
     }
 
