@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
 import com.ma7moud27.onlinebookshop.R
+import com.ma7moud27.onlinebookshop.ui.main.fragments.categories.view.CategoriesFragment
 import com.ma7moud27.onlinebookshop.ui.main.fragments.home.view.HomeFragment
 import com.ma7moud27.onlinebookshop.ui.main.fragments.search.view.SearchFragment
 
@@ -42,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initFragments() {
         home = HomeFragment()
-        categories = Fragment()
+        categories = CategoriesFragment()
         search = SearchFragment()
         lists = Fragment()
     }

@@ -14,7 +14,7 @@ import com.ma7moud27.onlinebookshop.utils.enums.Category
 class CategoryBookAdapter(
     private var itemsList: List<Category>,
     private val listener: OnCategoryBookClickListener,
-) : RecyclerView.Adapter<CategoryListAdapter.CategoryViewHolder>() {
+) : RecyclerView.Adapter<CategoryBookAdapter.CategoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder =
         CategoryViewHolder(

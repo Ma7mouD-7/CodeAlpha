@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:paddingHorizontal="@dimen/horizontal_padding"
+    android:paddingTop="@dimen/vertical_padding"
+    android:paddingBottom="75dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/lists_fav_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alegreya_sc_bold"
+            android:text="Favourites"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/lists_fav_num_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/md_grotesk_regular"
+            android:text="100"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:id="@+id/lists_fav_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:alpha="0.2"
+                tools:srcCompat="@drawable/ic_round_house_24" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/md_grotesk_regular"
+                android:gravity="center"
+                android:text="Your Favourites List is Empty"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lists_fav_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_book_small"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/lists_cur_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/alegreya_sc_bold"
+            android:text="Currently Reading"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/lists_cur_num_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/md_grotesk_regular"
+            android:text="100"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:id="@+id/lists_cur_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:alpha="0.2"
+                tools:srcCompat="@drawable/ic_round_house_24" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/md_grotesk_regular"
+                android:gravity="center"
+                android:text="Your Currently Reading List is Empty"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lists_cur_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_book_small"
+            android:visibility="gone">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <TextView
+            android:id="@+id/lists_plan_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/alegreya_sc_bold"
+            android:text="Plan to Read"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/lists_plan_num_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/md_grotesk_regular"
+            android:text="100"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:id="@+id/lists_plan_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:alpha="0.2"
+                tools:srcCompat="@drawable/ic_round_house_24" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/md_grotesk_regular"
+                android:gravity="center"
+                android:text="Your Plan to Read List is Empty"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lists_plan_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_book_small"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/lists_done_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/alegreya_sc_bold"
+            android:text="Done Reading"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/lists_done_num_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/md_grotesk_regular"
+            android:text="100"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:id="@+id/lists_done_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:alpha="0.2"
+                tools:srcCompat="@drawable/ic_round_house_24" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/md_grotesk_regular"
+                android:gravity="center"
+                android:text="Your Done Reading List is Empty"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lists_done_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_book_small"
+            android:visibility="gone" />
+    </LinearLayout>
+</ScrollView>

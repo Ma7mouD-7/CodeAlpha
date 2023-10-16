@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingStart="@dimen/horizontal_padding"
+    android:paddingHorizontal="@dimen/horizontal_padding"
     android:paddingTop="@dimen/vertical_padding"
-    android:paddingEnd="@dimen/horizontal_padding">
+    android:paddingBottom="75dp">
 
     <SearchView
         android:layout_width="0dp"
