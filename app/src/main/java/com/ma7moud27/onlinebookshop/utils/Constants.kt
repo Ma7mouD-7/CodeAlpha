@@ -16,5 +16,7 @@ class Constants {
         const val TRENDING = "trending_list"
         const val CATEGORIES = "categories_list"
         const val CATEGORY_IDX = "category_index"
+        const val AUTHOR = "author"
+        const val AUTHOR_NAME = "author_name"
     }
 }

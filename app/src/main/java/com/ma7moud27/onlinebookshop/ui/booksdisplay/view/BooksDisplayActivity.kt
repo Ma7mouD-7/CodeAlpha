@@ -15,6 +15,8 @@ import com.ma7moud27.onlinebookshop.ui.adapter.OnBookItemClickListener
 import com.ma7moud27.onlinebookshop.ui.booksdisplay.repository.BooksDisplayRepositoryImp
 import com.ma7moud27.onlinebookshop.ui.booksdisplay.viewmodel.BooksDisplayViewModel
 import com.ma7moud27.onlinebookshop.ui.booksdisplay.viewmodel.BooksDisplayViewModelFactory
+import com.ma7moud27.onlinebookshop.utils.Constants.Companion.AUTHOR
+import com.ma7moud27.onlinebookshop.utils.Constants.Companion.AUTHOR_NAME
 import com.ma7moud27.onlinebookshop.utils.Constants.Companion.CATEGORIES
 import com.ma7moud27.onlinebookshop.utils.Constants.Companion.CATEGORY_IDX
 import com.ma7moud27.onlinebookshop.utils.Constants.Companion.SENDER
@@ -29,6 +31,7 @@ class BooksDisplayActivity : AppCompatActivity(), OnBookItemClickListener {
 
     private lateinit var viewModel: BooksDisplayViewModel
     private lateinit var sender: String
+    private lateinit var authorName: String
     private var categoryIndex = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +48,10 @@ class BooksDisplayActivity : AppCompatActivity(), OnBookItemClickListener {
             CATEGORIES -> {
                 viewModel.fetchCategory(categoryIndex)
                 titleTextView.text = viewModel.getCategory(categoryIndex)
+            }
+            AUTHOR -> {
+                viewModel.fetchBookSearch(authorName)
+                "$authorName's Books".also { titleTextView.text = it }
             }
             else -> Log.d("TAG", "onCreate a")
         }
@@ -73,6 +80,7 @@ class BooksDisplayActivity : AppCompatActivity(), OnBookItemClickListener {
         intent.apply {
             sender = getStringExtra(SENDER) ?: ""
             categoryIndex = getIntExtra(CATEGORY_IDX, 0)
+            authorName = getStringExtra(AUTHOR_NAME) ?: ""
         }
     }
     private fun setupRecyclerView() {

@@ -2,11 +2,13 @@ package com.ma7moud27.onlinebookshop.ui.author.view
 
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.animation.AnticipateOvershootInterpolator
+import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
@@ -26,6 +28,8 @@ import com.ma7moud27.onlinebookshop.network.openlibrary.OpenLibApiClient
 import com.ma7moud27.onlinebookshop.ui.author.repository.AuthorRepoImpl
 import com.ma7moud27.onlinebookshop.ui.author.viewmodel.AuthorViewModel
 import com.ma7moud27.onlinebookshop.ui.author.viewmodel.AuthorViewModelFactory
+import com.ma7moud27.onlinebookshop.ui.booksdisplay.view.BooksDisplayActivity
+import com.ma7moud27.onlinebookshop.utils.Constants
 import com.ma7moud27.onlinebookshop.utils.Constants.Companion.AUTHOR_KEY
 import com.ma7moud27.onlinebookshop.utils.UtilMethods
 import com.ma7moud27.onlinebookshop.utils.UtilMethods.Companion.clearSources
@@ -56,6 +60,7 @@ class AuthorActivity : AppCompatActivity() {
     private lateinit var authorAlternativeNamesPlaceholder: TextView
     private lateinit var authorAlternativeNamesArrowImageView: ImageView
     private lateinit var authorAlternativeNamesTextView: TextView
+    private lateinit var authorBooksButton: Button
 
     private var margin: Float = 0F
     private var cashCollapseState: Pair<Int, Int>? = null
@@ -103,6 +108,15 @@ class AuthorActivity : AppCompatActivity() {
         authorAlternativeNamesPlaceholder.setOnClickListener(alternativeClickListener)
         authorAlternativeNamesTextView.setOnClickListener(alternativeClickListener)
 
+        authorBooksButton.setOnClickListener {
+            startActivity(
+                Intent(this, BooksDisplayActivity::class.java).apply {
+                    putExtra(Constants.SENDER, Constants.AUTHOR)
+                    putExtra(Constants.AUTHOR_NAME, authorNameTextView.text)
+                },
+            )
+        }
+
         authorViewModel.authorLiveData.observe(this) { updateAuthorViews(it) }
         authorViewModel.fetchAuthor(authorID)
     }
@@ -141,6 +155,7 @@ class AuthorActivity : AppCompatActivity() {
             findViewById(R.id.author_placeholder_alternative_Names_tv)
         authorAlternativeNamesArrowImageView = findViewById(R.id.author_alter_names_arrows_iv)
         authorAlternativeNamesTextView = findViewById(R.id.author_alternative_Names_tv)
+        authorBooksButton = findViewById(R.id.author_books_btn)
 
         authorID = intent.getStringExtra(AUTHOR_KEY) ?: ""
     }

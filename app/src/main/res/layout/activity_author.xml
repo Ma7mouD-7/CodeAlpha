@@ -290,4 +290,15 @@
 
     </androidx.core.widget.NestedScrollView>
 
+    <Button
+        android:id="@+id/author_books_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp"
+        android:paddingHorizontal="32dp"
+        android:paddingVertical="10dp"
+        android:text="Get Author's Books"
+        app:layout_anchor="@+id/nestedScrollView"
+        app:layout_anchorGravity="bottom|center" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

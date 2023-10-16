@@ -48,7 +48,21 @@ class BooksDisplayViewModel(private val repository: BooksDisplayRepository) : Vi
     ) {
         val category = repository.getCategoryList(Category.values().size)[position].query
         viewModelScope.launch {
-            _booksItemsLiveData.value = repository.searchBooks(BookSearch.SUBJECT.query + category, mode, page, isFullText, sort, language, limit)
+            _booksItemsLiveData.value = repository.searchBooks(BookSearch.SUBJECT.query + "\"$category\"", mode, page, isFullText, sort, language, limit)
+        }
+    }
+
+    fun fetchBookSearch(
+        authorName: String,
+        mode: String = "ebooks",
+        page: Int = 1,
+        isFullText: Boolean = true,
+        sort: String = BookSort.RELEVANCE.query,
+        language: String = "",
+        limit: Int = 100,
+    ) {
+        viewModelScope.launch {
+            _booksItemsLiveData.value = repository.searchBooks(BookSearch.AUTHOR.query + "\"$authorName\"", mode, page, isFullText, sort, language, limit)
         }
     }
 
