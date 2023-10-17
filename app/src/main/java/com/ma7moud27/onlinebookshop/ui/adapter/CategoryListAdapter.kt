@@ -27,7 +27,7 @@ class CategoryListAdapter(
             itemsList[position].name.replace("_", " ")
         holder.categoryDescription.text =
             itemsList[position].description
-        holder.categoryCover.setImageResource(R.drawable.ic_round_house_24)
+        holder.categoryCover.setImageResource(itemsList[position].icon)
     }
 
     override fun getItemCount(): Int = itemsList.size

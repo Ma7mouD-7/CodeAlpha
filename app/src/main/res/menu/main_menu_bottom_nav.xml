@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/main_menu_home"
-        android:icon="@drawable/ic_round_house_24"
+        android:icon="@drawable/navbar_home_selector"
         android:title="@string/home"
         app:cnb_backgroundColor="@color/primary_variant_color"
         app:cnb_iconColor="@color/on_variant_color"
@@ -12,7 +12,7 @@
 
     <item
         android:id="@+id/main_menu_search"
-        android:icon="@drawable/ic_round_search_24"
+        android:icon="@drawable/navbar_search_selector"
         android:title="@string/search"
         app:cnb_backgroundColor="@color/primary_variant_color"
         app:cnb_iconColor="@color/on_variant_color"
@@ -21,7 +21,7 @@
 
     <item
         android:id="@+id/main_menu_categories"
-        android:icon="@drawable/ic_round_category_24"
+        android:icon="@drawable/navbar_categories_selector"
         android:title="@string/categories"
         app:cnb_backgroundColor="@color/primary_variant_color"
         app:cnb_iconColor="@color/on_variant_color"
@@ -30,7 +30,7 @@
 
     <item
         android:id="@+id/main_menu_lists"
-        android:icon="@drawable/ic_round_bookmarks_24"
+        android:icon="@drawable/navbar_lists_selector"
         android:title="@string/lists"
         app:cnb_backgroundColor="@color/primary_variant_color"
         app:cnb_iconColor="@color/on_variant_color"

@@ -5,7 +5,7 @@
     android:id="@+id/cardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp">
+    android:layout_marginVertical="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -14,7 +14,8 @@
         android:layout_marginBottom="8dp"
         android:background="@color/primary_variant_color"
         android:elevation="2dp"
-        android:padding="8dp"
+        android:paddingVertical="8dp"
+        android:layout_marginHorizontal="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/item_book_cover_iv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -65,9 +66,9 @@
         android:id="@+id/item_book_cover_iv"
         android:layout_width="132dp"
         android:layout_height="200dp"
+        android:rotationY="20"
         android:elevation="2dp"
         android:padding="16dp"
-        android:rotationY="20"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

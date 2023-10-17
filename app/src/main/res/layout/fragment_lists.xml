@@ -42,8 +42,8 @@
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:alpha="0.2"
-                tools:srcCompat="@drawable/ic_round_house_24" />
+                android:alpha="0.5"
+                tools:srcCompat="@drawable/ic_empty" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -92,8 +92,8 @@
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:alpha="0.2"
-                tools:srcCompat="@drawable/ic_round_house_24" />
+                android:alpha="0.5"
+                tools:srcCompat="@drawable/ic_empty" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -144,8 +144,8 @@
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:alpha="0.2"
-                tools:srcCompat="@drawable/ic_round_house_24" />
+                android:alpha="0.5"
+                tools:srcCompat="@drawable/ic_empty" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -194,8 +194,8 @@
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:alpha="0.2"
-                tools:srcCompat="@drawable/ic_round_house_24" />
+                android:alpha="0.5"
+                tools:srcCompat="@drawable/ic_empty" />
 
             <TextView
                 android:layout_width="match_parent"

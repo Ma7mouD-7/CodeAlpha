@@ -5,10 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="@dimen/horizontal_padding"
-    android:paddingTop="@dimen/vertical_padding"
-    android:paddingBottom="75dp">
-
+    android:paddingHorizontal="@dimen/horizontal_padding">
 
     <TextView
         android:id="@+id/categories_title_tv"
@@ -20,7 +17,6 @@
         android:text="Categories"
         android:textColor="@color/on_variant_color"
         android:textSize="24sp"
-        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

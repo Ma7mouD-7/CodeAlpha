@@ -82,8 +82,8 @@
         android:paddingStart="16dp"
         android:text="Number of books found: 150"
         android:textSize="16sp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_type_group"
-        tools:visibility="gone" />
+        app:layout_constraintTop_toBottomOf="@+id/search_type_group" />
 </androidx.constraintlayout.widget.ConstraintLayout>

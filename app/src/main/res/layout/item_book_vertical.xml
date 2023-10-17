@@ -54,10 +54,9 @@
         <View
             android:id="@+id/textView0"
             android:layout_width="200dp"
-            android:layout_height="0dp"
+            android:layout_height="400dp"
             android:background="@drawable/book_item_background"
             android:elevation="-1dp"
-            android:text="TextView"
             app:layout_constraintDimensionRatio="1:2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -66,15 +65,13 @@
         <ImageView
             android:id="@+id/item_book_cover_iv"
             android:layout_width="200dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"
+            android:layout_height="400dp"
             android:elevation="2dp"
             android:rotationY="20"
             android:scaleType="fitCenter"
             app:layout_constraintDimensionRatio="1:2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/textView0"
+            app:layout_constraintStart_toStartOf="@+id/textView0"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@drawable/ol26992991m_m" />
 
