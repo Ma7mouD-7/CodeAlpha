@@ -7,9 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="primary_color">#F2D9BF</color>
+    <color name="primary_color">#FAE6D2</color>
     <color name="primary_variant_color">#FFFBF7</color>
-    <color name="on_variant_color">#B37B66</color>
+    <color name="on_variant_color">#D9A48F</color>
     <color name="secondary_color">#6D7A71</color>
     <color name="secondary_variant_color">#CCD8C4</color>
     <color name="on_secondary_color">#A4A5A4</color>
@@ -18,4 +18,13 @@
     <color name="color_transparent">#00FFFFFF</color>
     <color name="shadow">#B3222222</color>
     <color name="font_color">#D4D4D4</color>
+
+    <!--colors for modern ui-->
+    <color name="whiteTextColor">#fff</color>
+    <color name="primaryTextColor">#2661FA</color>
+    <color name="loginBkColor">#f0f0f0</color>
+
+    <!--colros for card-->
+    <color name="whiteCardColor">#fff</color>
+    <color name="error">#B73333</color>
 </resources>

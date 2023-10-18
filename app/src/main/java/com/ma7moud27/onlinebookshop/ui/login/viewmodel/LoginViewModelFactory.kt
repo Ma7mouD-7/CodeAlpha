@@ -2,6 +2,7 @@ package com.ma7moud27.onlinebookshop.ui.login.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.ma7moud27.onlinebookshop.ui.login.repository.LoginRepository
 
 class LoginViewModelFactory(private val repository: LoginRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

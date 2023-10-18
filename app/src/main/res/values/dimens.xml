@@ -10,4 +10,5 @@
     <dimen name="default_collapsed_image_size">45dp</dimen>
     <dimen name="space_small">8dp</dimen>
     <dimen name="space_large">16dp</dimen>
+
 </resources>
