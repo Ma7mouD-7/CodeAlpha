@@ -37,5 +37,5 @@ enum class Language(val query: String) {
     BENGALI("ben"),
     THAI("tha"),
     NORWEGIAN("nor"),
-    MULTIPLE_LANGUAGES("mul")
+    MULTIPLE_LANGUAGES("mul"),
 }

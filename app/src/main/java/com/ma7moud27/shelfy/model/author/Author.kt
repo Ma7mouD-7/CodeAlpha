@@ -6,20 +6,14 @@ import com.ma7moud27.shelfy.model.work.Link
 data class Author(
     val key: String? = null,
     val name: String? = null,
-    @SerializedName("fuller_name")
-    val fullName: String? = null,
-    @SerializedName("personal_name")
-    val personalName: String? = null,
-    @SerializedName("alternate_names")
-    val alternateNames: List<String>? = null,
+    @SerializedName("fuller_name") val fullName: String? = null,
+    @SerializedName("personal_name") val personalName: String? = null,
+    @SerializedName("alternate_names") val alternateNames: List<String>? = null,
     val bio: Bio? = Bio(),
     val photos: List<Int>? = null,
-    @SerializedName("birth_date")
-    val birthDate: String? = null,
-    @SerializedName("death_date")
-    val deathDate: String? = null,
+    @SerializedName("birth_date") val birthDate: String? = null,
+    @SerializedName("death_date") val deathDate: String? = null,
     val title: String? = null,
     val wikipedia: String? = null,
     val links: List<Link>? = null,
 )
-

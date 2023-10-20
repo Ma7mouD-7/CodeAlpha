@@ -56,6 +56,7 @@ class MainActivity : AppCompatActivity() {
         search = SearchFragment()
         lists = ListsFragment()
     }
+
     fun replaceFragment(fragment: Fragment, mainMenuHome: Int? = null) {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fragment_frame, fragment)

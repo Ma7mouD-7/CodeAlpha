@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ma7moud27.shelfy.R
 import com.ma7moud27.shelfy.local.LocalDataClient
-import com.ma7moud27.shelfy.network.openlibrary.OpenLibApiClient
 import com.ma7moud27.shelfy.ui.adapter.CategoryListAdapter
 import com.ma7moud27.shelfy.ui.adapter.OnCategoryListClickListener
 import com.ma7moud27.shelfy.ui.main.fragments.categories.repository.CategoriesRepositoryImp
@@ -39,7 +38,7 @@ class CategoriesFragment : Fragment(), OnCategoryListClickListener {
     }
 
     private fun prepareViewModel() {
-        val repository = CategoriesRepositoryImp(OpenLibApiClient, LocalDataClient)
+        val repository = CategoriesRepositoryImp(LocalDataClient)
         val viewModelFactory = CategoriesViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory)[CategoriesViewModel::class.java]
     }
@@ -47,7 +46,8 @@ class CategoriesFragment : Fragment(), OnCategoryListClickListener {
     private fun setupRecycleView(view: View) {
         recyclerView = view.findViewById(R.id.categories_rv)
         adapter = CategoryListAdapter(listOf(), this)
-        recyclerView.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
+        recyclerView.layoutManager =
+            LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
         recyclerView.adapter = adapter
     }
 

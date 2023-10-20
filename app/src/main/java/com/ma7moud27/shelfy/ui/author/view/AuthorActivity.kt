@@ -5,7 +5,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.animation.AnticipateOvershootInterpolator
 import android.widget.Button
@@ -64,7 +63,6 @@ class AuthorActivity : AppCompatActivity() {
 
     private var margin: Float = 0F
     private var cashCollapseState: Pair<Int, Int>? = null
-    private val mLowerLimitTransparently = ABROAD * 0.45
     private val mUpperLimitTransparently = ABROAD * 0.65
     private var startAvatarAnimatePointY: Float = 0F
     private var animateWeight: Float = 0F
@@ -80,8 +78,6 @@ class AuthorActivity : AppCompatActivity() {
         setContentView(R.layout.activity_author)
         prepareViewModel()
         initComponents()
-
-        Log.d("Mahmoud", "onCreate: $authorID")
 
         appBarLayout.addOnOffsetChangedListener { appBarLayout, i ->
             if (isCalculated.not()) {
@@ -165,29 +161,21 @@ class AuthorActivity : AppCompatActivity() {
     private fun updateAuthorViews(author: Author) {
         authorNameTextView.text = author.name ?: author.fullName ?: ""
         authorFullNameTextView.text = author.fullName ?: author.name ?: ""
-        Glide.with(this)
-            .asBitmap()
-            .diskCacheStrategy(DiskCacheStrategy.DATA)
-            .load(
-                UtilMethods.createAuthorPicUrl(
-                    "${author.photos?.first() ?: -1}",
-                    CoverKey.ID.name.lowercase(),
-                    CoverSize.MEDIUM.query,
-                ),
-            )
-            .into(authorPicImageView)
+        Glide.with(this).asBitmap().diskCacheStrategy(DiskCacheStrategy.DATA).load(
+            UtilMethods.createAuthorPicUrl(
+                "${author.photos?.first() ?: -1}",
+                CoverKey.ID.name.lowercase(),
+                CoverSize.MEDIUM.query,
+            ),
+        ).into(authorPicImageView)
 
-        Glide.with(this)
-            .asBitmap()
-            .diskCacheStrategy(DiskCacheStrategy.DATA)
-            .load(
-                UtilMethods.createAuthorPicUrl(
-                    "${author.photos?.first() ?: -1}",
-                    CoverKey.ID.name.lowercase(),
-                    CoverSize.MEDIUM.query,
-                ),
-            )
-            .apply(RequestOptions.bitmapTransform(BlurTransformation(2, 3)))
+        Glide.with(this).asBitmap().diskCacheStrategy(DiskCacheStrategy.DATA).load(
+            UtilMethods.createAuthorPicUrl(
+                "${author.photos?.first() ?: -1}",
+                CoverKey.ID.name.lowercase(),
+                CoverSize.MEDIUM.query,
+            ),
+        ).apply(RequestOptions.bitmapTransform(BlurTransformation(2, 3)))
             .into(authorBannerImageView)
         /* .listener(object : RequestListener<Bitmap> {
              override fun onLoadFailed(
@@ -337,11 +325,8 @@ class AuthorActivity : AppCompatActivity() {
                                 alpha = 0.2f
                                 this.translationX = width.toFloat() / 2
                                 animate().translationX(0f)
-                                    .setInterpolator(AnticipateOvershootInterpolator())
-                                    .alpha(1.0f)
-                                    .setStartDelay(69)
-                                    .setDuration(450)
-                                    .setListener(null)
+                                    .setInterpolator(AnticipateOvershootInterpolator()).alpha(1.0f)
+                                    .setStartDelay(69).setDuration(450).setListener(null)
                             }
                         }
                     }

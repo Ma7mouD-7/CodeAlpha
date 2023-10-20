@@ -10,7 +10,12 @@ import com.ma7moud27.shelfy.utils.Constants
 object FirebaseFirestoreClient {
     private val database: FirebaseFirestore by lazy { Firebase.firestore }
 
-    fun addUser(userID: String, user: User) = database.collection(Constants.USERS_DATABASE).document(userID).set(user)
-    fun getUser(userID: String) = database.collection(Constants.USERS_DATABASE).document(userID).get()
-    fun updateUser(userID: String, user: User) = database.collection(Constants.USERS_DATABASE).document(userID).set(user, SetOptions.merge())
+    fun addUser(userID: String, user: User) =
+        database.collection(Constants.USERS_DATABASE).document(userID).set(user)
+
+    fun getUser(userID: String) =
+        database.collection(Constants.USERS_DATABASE).document(userID).get()
+
+    fun updateUser(userID: String, user: User) =
+        database.collection(Constants.USERS_DATABASE).document(userID).set(user, SetOptions.merge())
 }

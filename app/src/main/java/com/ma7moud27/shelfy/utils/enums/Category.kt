@@ -4,7 +4,7 @@ import android.graphics.Color
 import androidx.annotation.ColorInt
 import com.ma7moud27.shelfy.R
 
-val white = "#FFFFFF"
+const val WHITE = "#FFFFFF"
 
 enum class Category(
     val query: String,
@@ -24,24 +24,24 @@ enum class Category(
     LITERATURE("literature", Color.parseColor("#9E7657"), 1.07, 1.1, "Collection of written works sharing characteristics in the same category", R.drawable.category_literature),
     HISTORY("history", Color.parseColor("#55D647"), 1.1, 1.5, "Focusing on educating and informing the reader, looking at all parts of the world at any given moment", R.drawable.category_history),
     BIOGRAPHY("biography", Color.parseColor("#7C7C7C"), 1.0, 1.3, "Serving as an official account of the details and events of a person's life span", R.drawable.category_biography),
-    SHORT_STORIES("short_stories", Color.parseColor(white), 1.0, 1.2, "Strictly tells through a specific theme and a series of brief scenes", R.drawable.category_story),
+    SHORT_STORIES("short_stories", Color.parseColor(WHITE), 1.0, 1.2, "Strictly tells through a specific theme and a series of brief scenes", R.drawable.category_story),
 
-    MUSIC("music", Color.parseColor(white), 1.0, 1.0, "Identifies pieces of music as belonging to a shared tradition or set of conventions", R.drawable.category_music),
-    FASHION("fashion", Color.parseColor(white), 1.0, 1.0, "About popular trends in clothing, make-up, styles, accessories, ornaments, and manner of behaviour", R.drawable.category_fashion),
-    FILM("film", Color.parseColor(white), 1.0, 1.0, "About films, documentaries, or the process of making a film or documentary", R.drawable.category_film),
-    ART("painting", Color.parseColor(white), 1.0, 1.0, "Tells about some sort of artistic forms: painting, sculpting", R.drawable.category_art),
+    MUSIC("music", Color.parseColor(WHITE), 1.0, 1.0, "Identifies pieces of music as belonging to a shared tradition or set of conventions", R.drawable.category_music),
+    FASHION("fashion", Color.parseColor(WHITE), 1.0, 1.0, "About popular trends in clothing, make-up, styles, accessories, ornaments, and manner of behaviour", R.drawable.category_fashion),
+    FILM("film", Color.parseColor(WHITE), 1.0, 1.0, "About films, documentaries, or the process of making a film or documentary", R.drawable.category_film),
+    ART("painting", Color.parseColor(WHITE), 1.0, 1.0, "Tells about some sort of artistic forms: painting, sculpting", R.drawable.category_art),
 
-    BIOLOGY("biology", Color.parseColor(white), 1.0, 1.0, "Branch of natural science that deals with living organisms and their vital processes", R.drawable.category_biology),
-    CHEMISTRY("chemistry", Color.parseColor(white), 1.0, 1.0, "Branch of natural science that deals principally with the properties of substances and their changes", R.drawable.category_chemistry),
-    MATHEMATICS("mathematics", Color.parseColor(white), 1.0, 1.0, "The science of structure, order, and relation that has evolved from elemental practices of counting measuring", R.drawable.category_math),
-    PHYSICS("physics", Color.parseColor(white), 1.0, 1.0, "Branch of natural science that deals with the structure of matter and how the fundamental constituents of the universe interact", R.drawable.category_physics),
-    PROGRAMMING("programming", Color.parseColor(white), 1.0, 1.0, "Language of machines, Focuses on how to deal with computers and how to use them", R.drawable.category_programming),
-    BUSINESS("business", Color.parseColor(white), 1.0, 1.0, "The management and running of a business, or in the financial aspects of a business", R.drawable.category_business),
-    TEXTBOOKS("textbooks", Color.parseColor(white), 1.0, 1.0, "Educational Books whose its primary purpose is to educate and inform people", R.drawable.category_textbook),
+    BIOLOGY("biology", Color.parseColor(WHITE), 1.0, 1.0, "Branch of natural science that deals with living organisms and their vital processes", R.drawable.category_biology),
+    CHEMISTRY("chemistry", Color.parseColor(WHITE), 1.0, 1.0, "Branch of natural science that deals principally with the properties of substances and their changes", R.drawable.category_chemistry),
+    MATHEMATICS("mathematics", Color.parseColor(WHITE), 1.0, 1.0, "The science of structure, order, and relation that has evolved from elemental practices of counting measuring", R.drawable.category_math),
+    PHYSICS("physics", Color.parseColor(WHITE), 1.0, 1.0, "Branch of natural science that deals with the structure of matter and how the fundamental constituents of the universe interact", R.drawable.category_physics),
+    PROGRAMMING("programming", Color.parseColor(WHITE), 1.0, 1.0, "Language of machines, Focuses on how to deal with computers and how to use them", R.drawable.category_programming),
+    BUSINESS("business", Color.parseColor(WHITE), 1.0, 1.0, "The management and running of a business, or in the financial aspects of a business", R.drawable.category_business),
+    TEXTBOOKS("textbooks", Color.parseColor(WHITE), 1.0, 1.0, "Educational Books whose its primary purpose is to educate and inform people", R.drawable.category_textbook),
 
-    PSYCHOLOGY("psychology", Color.parseColor(white), 1.0, 1.0, "Study of mind and behaviours in humans and non-humans, including feelings and thoughts", R.drawable.category_psychology),
-    COOKING("cooking", Color.parseColor(white), 1.0, 1.0, "Penned by professional chef, offers an appetizing collection of recipes, specific to a theme, cuisines", R.drawable.category_cooking),
+    PSYCHOLOGY("psychology", Color.parseColor(WHITE), 1.0, 1.0, "Study of mind and behaviours in humans and non-humans, including feelings and thoughts", R.drawable.category_psychology),
+    COOKING("cooking", Color.parseColor(WHITE), 1.0, 1.0, "Penned by professional chef, offers an appetizing collection of recipes, specific to a theme, cuisines", R.drawable.category_cooking),
 
-    POETRY("poetry", Color.parseColor(white), 1.0, 1.0, "Authors choose a particular rhythm and style to evoke and portray various emotions and ideas", R.drawable.category_poetry),
-    PLAYS("plays", Color.parseColor(white), 1.0, 1.0, "Form of drama that primarily consists of dialogue between characters and is intended for theatrical performances rather than more reading", R.drawable.category_plays),
+    POETRY("poetry", Color.parseColor(WHITE), 1.0, 1.0, "Authors choose a particular rhythm and style to evoke and portray various emotions and ideas", R.drawable.category_poetry),
+    PLAYS("plays", Color.parseColor(WHITE), 1.0, 1.0, "Form of drama that primarily consists of dialogue between characters and is intended for theatrical performances rather than more reading", R.drawable.category_plays),
 }

@@ -29,8 +29,9 @@ class SearchRepoImpl(private val remoteDataSource: RemoteDataSource) : SearchRep
         query: String,
         page: Int,
         sort: String,
-    ): SearchAuthorResponse = remoteDataSource.searchAuthors(query, page, sort).body() ?: SearchAuthorResponse()
+    ): SearchAuthorResponse =
+        remoteDataSource.searchAuthors(query, page, sort).body() ?: SearchAuthorResponse()
 
-    override suspend fun getWork(workID: String): Work = remoteDataSource.getWork(workID).body() ?: Work()
-
+    override suspend fun getWork(workID: String): Work =
+        remoteDataSource.getWork(workID).body() ?: Work()
 }

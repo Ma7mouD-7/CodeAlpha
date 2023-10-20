@@ -37,11 +37,9 @@ class RegisterActivity : AppCompatActivity() {
                         passwordEditText,
                         confirmPasswordEditText,
                     ),
-                ) &&
-                Validator.isNameValid(nameEditText) &&
-                Validator.isEmailValid(emailEditText) &&
-                Validator.isPasswordValid(passwordEditText) &&
-                Validator.isPasswordMatch(passwordEditText, confirmPasswordEditText)
+                ) && Validator.isNameValid(nameEditText) && Validator.isEmailValid(emailEditText) && Validator.isPasswordValid(
+                    passwordEditText,
+                ) && Validator.isPasswordMatch(passwordEditText, confirmPasswordEditText)
             ) {
                 viewModel.register(
                     this,

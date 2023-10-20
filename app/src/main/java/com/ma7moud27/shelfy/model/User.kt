@@ -1,7 +1,5 @@
 package com.ma7moud27.shelfy.model
 
-import com.ma7moud27.shelfy.model.work.Work
-
 data class User(
     val name: String = "",
     val email: String = "",

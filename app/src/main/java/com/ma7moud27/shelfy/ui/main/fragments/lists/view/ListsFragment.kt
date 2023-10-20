@@ -54,10 +54,46 @@ class ListsFragment : Fragment(), OnBookItemClickListener {
         val view = inflater.inflate(R.layout.fragment_lists, container, false)
         prepareViewModel()
         initComponents(view)
-        viewModel.favouriteLiveData.observe(viewLifecycleOwner) { observeData(it, favouritesRecyclerView, favouritesEmpty, favouritesNumTextView, favouritesShimmer, favouritesAdapter) }
-        viewModel.currentLiveData.observe(viewLifecycleOwner) { observeData(it, currentlyRecyclerView, currentlyEmpty, currentlyNumTextView, currentlyShimmer, currentlyAdapter) }
-        viewModel.planLiveData.observe(viewLifecycleOwner) { observeData(it, planRecyclerView, planEmpty, planNumTextView, planShimmer, planAdapter) }
-        viewModel.doneLiveData.observe(viewLifecycleOwner) { observeData(it, doneRecyclerView, doneEmpty, doneNumTextView, doneShimmer, doneAdapter) }
+        viewModel.favouriteLiveData.observe(viewLifecycleOwner) {
+            observeData(
+                it,
+                favouritesRecyclerView,
+                favouritesEmpty,
+                favouritesNumTextView,
+                favouritesShimmer,
+                favouritesAdapter,
+            )
+        }
+        viewModel.currentLiveData.observe(viewLifecycleOwner) {
+            observeData(
+                it,
+                currentlyRecyclerView,
+                currentlyEmpty,
+                currentlyNumTextView,
+                currentlyShimmer,
+                currentlyAdapter,
+            )
+        }
+        viewModel.planLiveData.observe(viewLifecycleOwner) {
+            observeData(
+                it,
+                planRecyclerView,
+                planEmpty,
+                planNumTextView,
+                planShimmer,
+                planAdapter,
+            )
+        }
+        viewModel.doneLiveData.observe(viewLifecycleOwner) {
+            observeData(
+                it,
+                doneRecyclerView,
+                doneEmpty,
+                doneNumTextView,
+                doneShimmer,
+                doneAdapter,
+            )
+        }
         viewModel.fetchLists()
 
         return view
@@ -154,7 +190,12 @@ class ListsFragment : Fragment(), OnBookItemClickListener {
     }
 
     override fun onBookItemClick(holder: BookAdapter.BookViewHolder, position: Int) {
-        viewModel.handelBookItemClick(this.requireContext(), position, holder.titleTextView, holder.coverImageView)
+        viewModel.handelBookItemClick(
+            this.requireContext(),
+            position,
+            holder.titleTextView,
+            holder.coverImageView,
+        )
     }
 
     override fun onResume() {

@@ -6,5 +6,5 @@ enum class Trending(val query: String) {
     THIS_WEEK("weekly"),
     THIS_MONTH("monthly"),
     THIS_YEAR("yearly"),
-    ALL_TIME("forever")
+    ALL_TIME("forever"),
 }

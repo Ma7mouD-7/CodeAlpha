@@ -35,9 +35,8 @@ object OpenLibApiClient : RemoteDataSource {
         sort: String,
         language: String,
         limit: Int,
-    ): Response<SearchBookResponse> =
-        OpenLibRetrofit.retrofit.create(OpenLibApiService::class.java)
-            .searchBooksResponse(query, mode, page, isFullText, sort, language, limit)
+    ): Response<SearchBookResponse> = OpenLibRetrofit.retrofit.create(OpenLibApiService::class.java)
+        .searchBooksResponse(query, mode, page, isFullText, sort, language, limit)
 
     override suspend fun searchAuthors(
         query: String,
@@ -51,8 +50,9 @@ object OpenLibApiClient : RemoteDataSource {
         trendTime: String,
         page: Int,
         limit: Int,
-    ): Response<SearchBookResponse> =
-        OpenLibRetrofit.retrofit.create(OpenLibApiService::class.java).trendingResponse(trendTime, page, limit)
+    ): Response<SearchBookResponse> = OpenLibRetrofit.retrofit.create(OpenLibApiService::class.java)
+        .trendingResponse(trendTime, page, limit)
 
-    override suspend fun getRandomWork(): ResponseBody = OpenLibRetrofit.retrofit.create(OpenLibApiService::class.java).getRandomWork()
+    override suspend fun getRandomWork(): ResponseBody =
+        OpenLibRetrofit.retrofit.create(OpenLibApiService::class.java).getRandomWork()
 }

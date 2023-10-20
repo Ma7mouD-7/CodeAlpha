@@ -3,11 +3,9 @@ package com.ma7moud27.shelfy.ui.main.fragments.home.viewmodel
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.app.ActivityOptionsCompat
-import androidx.core.content.ContextCompat
 import androidx.core.util.Pair
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -59,7 +57,8 @@ class HomeViewModel(private val repository: HomeRepository) : ViewModel() {
     ) {
         _trendingListLiveData.value = ServiceResponse.Loading()
         viewModelScope.launch {
-            _trendingListLiveData.value = ServiceResponse.Success(repository.getTrending(trendTime.query, page, limit))
+            _trendingListLiveData.value =
+                ServiceResponse.Success(repository.getTrending(trendTime.query, page, limit))
         }
     }
 
@@ -76,12 +75,13 @@ class HomeViewModel(private val repository: HomeRepository) : ViewModel() {
                 50,
             ).items?.get((0..49).random())
             val workID = searchBookItem?.key?.extractIdFromKey() ?: ""
-            Log.d("MAHMOUD", "testRandomWorkID: $workID")
             viewModelScope.launch {
                 var work = repository.getWork(workID)
                 if (!searchBookItem!!.lendingEditionKey.isNullOrEmpty()) {
                     work.book?.key = searchBookItem.lendingEditionKey
-                } else if (!searchBookItem.coverEditionKey.isNullOrEmpty()) work.book?.key = searchBookItem.coverEditionKey
+                } else if (!searchBookItem.coverEditionKey.isNullOrEmpty()) {
+                    work.book?.key = searchBookItem.coverEditionKey
+                }
                 work.author = searchBookItem.authorName
                 _randomBookListLiveData.value = ServiceResponse.Success(work)
             }
@@ -91,7 +91,8 @@ class HomeViewModel(private val repository: HomeRepository) : ViewModel() {
     fun fetchAuthors(noOfAuthors: Int) {
         _authorsListLiveData.value = ServiceResponse.Loading()
         viewModelScope.launch {
-            _authorsListLiveData.value = ServiceResponse.Success(repository.getAuthors().shuffled().take(noOfAuthors))
+            _authorsListLiveData.value =
+                ServiceResponse.Success(repository.getAuthors().shuffled().take(noOfAuthors))
         }
     }
 
@@ -112,12 +113,13 @@ class HomeViewModel(private val repository: HomeRepository) : ViewModel() {
     ) {
         val searchBookItem = _trendingListLiveData.value?.data?.items!![position]
         val workID = searchBookItem.key?.extractIdFromKey() ?: ""
-        Log.d("MAHMOUD", "testRandomWorkID: $workID")
         viewModelScope.launch {
             val work = repository.getWork(workID)
             if (!searchBookItem.lendingEditionKey.isNullOrEmpty()) {
                 work.book?.key = searchBookItem.lendingEditionKey
-            } else if (!searchBookItem.coverEditionKey.isNullOrEmpty()) work.book?.key = searchBookItem.coverEditionKey
+            } else if (!searchBookItem.coverEditionKey.isNullOrEmpty()) {
+                work.book?.key = searchBookItem.coverEditionKey
+            }
             work.author = searchBookItem.authorName
             context.startActivity(
                 Intent(context, WorkActivity::class.java).apply {
@@ -147,29 +149,28 @@ class HomeViewModel(private val repository: HomeRepository) : ViewModel() {
 
     fun handelRandomBook(
         context: Context,
-//        bannerImageView : ImageView,
         titleTextView: TextView,
-//        authorTextView : TextView,
-//        yearTextView : TextView,
         coverImageView: ImageView,
     ) {
-        Log.d("MAHMOUD", "testRandomWorkmodel: ${_randomBookListLiveData.value?.data?.key}")
 
-        var optionsCompat: ActivityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(
-            context as Activity,
-            Pair.create(titleTextView, "work_title_tn"),
-            Pair.create(coverImageView, "work_cover_tn"),
-        )
-//            Pair.create(bannerImageView, "work_banner_tn"),
-//            Pair.create(, "work_s_curve_tn"),
-//            Pair.create(authorTextView, "work_author_tn"),
-//            Pair.create(yearTextView, "work_year_tn"),
+        var optionsCompat: ActivityOptionsCompat =
+            ActivityOptionsCompat.makeSceneTransitionAnimation(
+                context as Activity,
+                Pair.create(titleTextView, "work_title_tn"),
+                Pair.create(coverImageView, "work_cover_tn"),
+            )
 
         context.startActivity(
             Intent(context, WorkActivity::class.java).apply {
                 putExtra(WORK_KEY, _randomBookListLiveData.value?.data?.key?.extractIdFromKey())
-                putExtra(BOOK_KEY, _randomBookListLiveData.value?.data?.book?.key?.extractIdFromKey())
-                putExtra(AUTHOR_LIST, _randomBookListLiveData.value?.data?.author?.joinToString(", "))
+                putExtra(
+                    BOOK_KEY,
+                    _randomBookListLiveData.value?.data?.book?.key?.extractIdFromKey(),
+                )
+                putExtra(
+                    AUTHOR_LIST,
+                    _randomBookListLiveData.value?.data?.author?.joinToString(", "),
+                )
             },
             optionsCompat.toBundle(),
         )
@@ -184,5 +185,4 @@ class HomeViewModel(private val repository: HomeRepository) : ViewModel() {
     }
 
     fun getName(): String? = repository.currentUser()?.displayName
-
 }

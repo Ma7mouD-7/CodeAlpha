@@ -20,5 +20,5 @@ class WorkRepoImpl(private val dataSource: RemoteDataSource) : WorkRepo {
 
     override fun getCurrentUser() = FirebaseAuthClient.currentUser()
     override suspend fun updateUser(userID: String, user: User) =
-        FirebaseFirestoreClient.updateUser(userID,user)
+        FirebaseFirestoreClient.updateUser(userID, user)
 }

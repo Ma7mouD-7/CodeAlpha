@@ -2,7 +2,6 @@ package com.ma7moud27.shelfy.ui.main.fragments.home.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -74,13 +73,11 @@ class HomeFragment :
         fetchData()
 
         logoutButton.setOnClickListener {
-            AlertDialog.Builder(this@HomeFragment.requireContext())
-                .setTitle("Logout")
+            AlertDialog.Builder(this@HomeFragment.requireContext()).setTitle("Logout")
                 .setMessage("You will be logged out from the application\nAre you sure?")
                 .setCancelable(false)
                 .setPositiveButton("Yes") { _, _ -> homeViewModel.logout(this@HomeFragment.requireContext()) }
-                .setNegativeButton("No", null)
-                .show()
+                .setNegativeButton("No", null).show()
         }
         trendButton.setOnClickListener {
             startActivity(
@@ -169,7 +166,7 @@ class HomeFragment :
         homeViewModel.trendingListLiveData.observe(viewLifecycleOwner) {
             when (it) {
                 is ServiceResponse.Loading -> shimmerTrendingLayout.startShimmer()
-                is ServiceResponse.Success -> {
+                else -> {
                     trendAdapter.setDataToAdapter(
                         it.data?.items!!,
                     )
@@ -178,14 +175,12 @@ class HomeFragment :
                         visibility = View.INVISIBLE
                     }
                 }
-                else -> {}
             }
         }
         homeViewModel.randomBookListLiveData.observe(viewLifecycleOwner) {
-            Log.d("MAHMOUD", "testRandomWork: $it")
             when (it) {
                 is ServiceResponse.Loading -> shimmerRandomLayout.startShimmer()
-                is ServiceResponse.Success -> {
+                else -> {
                     randomTitleTextView.text =
                         "${it.data?.title} ${(it.data?.firstPublishDate).let { year -> if (year.isNullOrEmpty()) "" else "($year)" }}\n${
                             it.data?.author?.joinToString(", ")
@@ -196,28 +191,23 @@ class HomeFragment :
                     shimmerRandomLayout.visibility = View.INVISIBLE
                     randomLayout.visibility = View.VISIBLE
                 }
-                else -> {}
             }
 
-            Glide.with(this.requireContext())
-                .asBitmap()
-                .load(
-                    if (it.data?.book?.key.isNullOrEmpty()) {
-                        UtilMethods.createCoverUrl(
-                            "${it.data?.covers?.first() ?: -1}",
-                            CoverKey.ID.name.lowercase(),
-                            CoverSize.MEDIUM.query,
-                        )
-                    } else {
-                        UtilMethods.createCoverUrl(
-                            it.data?.book?.key!!,
-                            CoverKey.OLID.name.lowercase(),
-                            CoverSize.MEDIUM.query,
-                        )
-                    },
-                )
-                .diskCacheStrategy(DiskCacheStrategy.DATA)
-                .into(randomCoverImageView)
+            Glide.with(this.requireContext()).asBitmap().load(
+                if (it.data?.book?.key.isNullOrEmpty()) {
+                    UtilMethods.createCoverUrl(
+                        "${it.data?.covers?.first() ?: -1}",
+                        CoverKey.ID.name.lowercase(),
+                        CoverSize.MEDIUM.query,
+                    )
+                } else {
+                    UtilMethods.createCoverUrl(
+                        it.data?.book?.key!!,
+                        CoverKey.OLID.name.lowercase(),
+                        CoverSize.MEDIUM.query,
+                    )
+                },
+            ).diskCacheStrategy(DiskCacheStrategy.DATA).into(randomCoverImageView)
         }
         homeViewModel.authorsListLiveData.observe(viewLifecycleOwner) {
             authorAdapter.setDataToAdapter(it.data!!)

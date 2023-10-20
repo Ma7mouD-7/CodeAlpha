@@ -1,7 +1,6 @@
 package com.ma7moud27.shelfy.ui.booksdisplay.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -58,7 +57,7 @@ class BooksDisplayActivity : AppCompatActivity(), OnBookItemClickListener {
                 viewModel.fetchBookSearch(authorName)
                 "$authorName's Books".also { titleTextView.text = it }
             }
-            else -> Log.d("TAG", "onCreate a")
+            else -> titleTextView.text = "Trending"
         }
 
         viewModel.booksItemsLiveData.observe(this) {
@@ -66,7 +65,7 @@ class BooksDisplayActivity : AppCompatActivity(), OnBookItemClickListener {
                 is ServiceResponse.Loading -> shimmerLayout.startShimmer()
                 else -> {
                     if (it.data?.items.isNullOrEmpty()) {
-                        Log.d("TAG", "onCreate a")
+                        itemsRecyclerView.visibility = View.GONE
                     } else {
                         itemsAdapter.setDataToAdapter(it.data?.items!!)
                     }
@@ -80,8 +79,7 @@ class BooksDisplayActivity : AppCompatActivity(), OnBookItemClickListener {
     private fun prepareViewModel() {
         val repository = BooksDisplayRepositoryImp(OpenLibApiClient, LocalDataClient)
         val viewModelFactory = BooksDisplayViewModelFactory(repository)
-        viewModel =
-            ViewModelProvider(this, viewModelFactory)[BooksDisplayViewModel::class.java]
+        viewModel = ViewModelProvider(this, viewModelFactory)[BooksDisplayViewModel::class.java]
     }
 
     private fun initComponents() {

@@ -19,12 +19,10 @@ import java.io.File
 import java.util.concurrent.TimeUnit
 
 object OpenLibRetrofit {
-    private val gson = GsonBuilder()
-        .serializeNulls()
+    private val gson = GsonBuilder().serializeNulls()
         .registerTypeAdapter(Description::class.java, DescriptionDeserializer())
         .registerTypeAdapter(Bio::class.java, BioDeserializer())
-        .registerTypeAdapter(Notes::class.java, NoteDeserializer())
-        .create()
+        .registerTypeAdapter(Notes::class.java, NoteDeserializer()).create()
 
     private val httpLoggingInterceptor =
         HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -32,25 +30,18 @@ object OpenLibRetrofit {
     private val onlineInterceptor = Interceptor { chain ->
         val response: Response = chain.proceed(chain.request())
         val maxAge = 60
-        response.newBuilder()
-            .header("Cache-Control", "public, max-age=$maxAge")
-            .removeHeader("Pragma")
-            .build()
+        response.newBuilder().header("Cache-Control", "public, max-age=$maxAge")
+            .removeHeader("Pragma").build()
     }
 
-    private val okHttpClient: OkHttpClient = OkHttpClient.Builder()
-        .addInterceptor(httpLoggingInterceptor)
-        .addNetworkInterceptor(onlineInterceptor)
-        .cache(Cache(File.createTempFile("cache", null), 10 * 1024 * 1024))
-        .connectTimeout(60, TimeUnit.SECONDS)
-        .readTimeout(60, TimeUnit.SECONDS)
-        .build()
+    private val okHttpClient: OkHttpClient =
+        OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor)
+            .addNetworkInterceptor(onlineInterceptor)
+            .cache(Cache(File.createTempFile("cache", null), 10 * 1024 * 1024))
+            .connectTimeout(60, TimeUnit.SECONDS).readTimeout(60, TimeUnit.SECONDS).build()
 
     val retrofit: Retrofit by lazy {
-        Retrofit.Builder()
-            .baseUrl(Constants.OPEN_LIBRARY_BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create(gson))
-            .client(okHttpClient)
-            .build()
+        Retrofit.Builder().baseUrl(Constants.OPEN_LIBRARY_BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create(gson)).client(okHttpClient).build()
     }
 }

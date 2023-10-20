@@ -3,7 +3,6 @@ package com.ma7moud27.shelfy.ui.booksdisplay.viewmodel
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.app.ActivityOptionsCompat
@@ -35,7 +34,8 @@ class BooksDisplayViewModel(private val repository: BooksDisplayRepository) : Vi
     ) {
         _booksItemsLiveData.value = ServiceResponse.Loading()
         viewModelScope.launch {
-            _booksItemsLiveData.value = ServiceResponse.Success(repository.getTrending(trendTime.query, page, limit))
+            _booksItemsLiveData.value =
+                ServiceResponse.Success(repository.getTrending(trendTime.query, page, limit))
         }
     }
 
@@ -51,7 +51,17 @@ class BooksDisplayViewModel(private val repository: BooksDisplayRepository) : Vi
         _booksItemsLiveData.value = ServiceResponse.Loading()
         val category = repository.getCategoryList(Category.values().size)[position].query
         viewModelScope.launch {
-            _booksItemsLiveData.value = ServiceResponse.Success(repository.searchBooks(BookSearch.SUBJECT.query + "\"$category\"", mode, page, isFullText, sort, language, limit))
+            _booksItemsLiveData.value = ServiceResponse.Success(
+                repository.searchBooks(
+                    BookSearch.SUBJECT.query + "\"$category\"",
+                    mode,
+                    page,
+                    isFullText,
+                    sort,
+                    language,
+                    limit,
+                ),
+            )
         }
     }
 
@@ -66,7 +76,17 @@ class BooksDisplayViewModel(private val repository: BooksDisplayRepository) : Vi
     ) {
         _booksItemsLiveData.value = ServiceResponse.Loading()
         viewModelScope.launch {
-            _booksItemsLiveData.value = ServiceResponse.Success(repository.searchBooks(BookSearch.AUTHOR.query + "\"$authorName\"", mode, page, isFullText, sort, language, limit))
+            _booksItemsLiveData.value = ServiceResponse.Success(
+                repository.searchBooks(
+                    BookSearch.AUTHOR.query + "\"$authorName\"",
+                    mode,
+                    page,
+                    isFullText,
+                    sort,
+                    language,
+                    limit,
+                ),
+            )
         }
     }
 
@@ -78,12 +98,13 @@ class BooksDisplayViewModel(private val repository: BooksDisplayRepository) : Vi
     ) {
         val searchBookItem = _booksItemsLiveData.value?.data?.items!![position]
         val workID = searchBookItem.key?.extractIdFromKey() ?: ""
-        Log.d("MAHMOUD", "testRandomWorkID: $workID")
         viewModelScope.launch {
             val work = repository.getWork(workID)
             if (!searchBookItem.lendingEditionKey.isNullOrEmpty()) {
                 work.book?.key = searchBookItem.lendingEditionKey
-            } else if (!searchBookItem.coverEditionKey.isNullOrEmpty()) work.book?.key = searchBookItem.coverEditionKey
+            } else if (!searchBookItem.coverEditionKey.isNullOrEmpty()) {
+                work.book?.key = searchBookItem.coverEditionKey
+            }
             work.author = searchBookItem.authorName
             context.startActivity(
                 Intent(context, WorkActivity::class.java).apply {
@@ -101,5 +122,6 @@ class BooksDisplayViewModel(private val repository: BooksDisplayRepository) : Vi
     }
 
     fun getCategory(categoryIndex: Int): String =
-        repository.getCategoryList(Category.values().size)[categoryIndex].name.lowercase().replaceFirstChar { it.uppercase() }
+        repository.getCategoryList(Category.values().size)[categoryIndex].name.lowercase()
+            .replaceFirstChar { it.uppercase() }
 }

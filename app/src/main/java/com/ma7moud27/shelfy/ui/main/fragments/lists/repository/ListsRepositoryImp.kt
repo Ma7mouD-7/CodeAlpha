@@ -10,7 +10,9 @@ class ListsRepositoryImp(
     val remoteDataSource: RemoteDataSource,
     val localDataSource: LocalDataSource,
 ) : ListsRepository {
-    override suspend fun getWork(workID: String): Work = remoteDataSource.getWork(workID).body() ?: Work()
+    override suspend fun getWork(workID: String): Work =
+        remoteDataSource.getWork(workID).body() ?: Work()
+
     override fun getCurrentUser() = FirebaseAuthClient.currentUser()
 
     override fun getUser(userID: String) = FirebaseFirestoreClient.getUser(userID)

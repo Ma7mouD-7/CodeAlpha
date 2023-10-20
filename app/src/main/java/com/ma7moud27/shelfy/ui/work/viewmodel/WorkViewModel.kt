@@ -1,6 +1,5 @@
 package com.ma7moud27.shelfy.ui.work.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -24,16 +23,12 @@ class WorkViewModel(private val repository: WorkRepo) : ViewModel() {
     fun fetchWork(workID: String, bookID: String, authorList: String) {
         viewModelScope.launch {
             val ratings = repository.getRatings(workID)
-            Log.d("MAHMOUD", "WorkViewModel 19 Rating: $ratings")
             val book = repository.getBook(bookID)
-            Log.d("MAHMOUD", "WorkViewModel 21 book: $book")
-
             viewModelScope.launch {
                 val work = repository.getWork(workID)
                 work.ratings = ratings
                 work.book = book
                 work.author = listOf(authorList)
-                Log.d("MAHMOUD", "WorkViewModel 27 work: $work")
                 _workListLiveData.value = work
             }
         }
@@ -42,16 +37,11 @@ class WorkViewModel(private val repository: WorkRepo) : ViewModel() {
 
     private fun fetchIsFav(workID: String = "") {
         val currentUser = repository.getCurrentUser()
-        Log.d("FETCH_LISTS", "fav icon:")
         viewModelScope.launch {
-            Log.d("FETCH_LISTS", "fav icon:launch")
-
             repository.getUser(currentUser!!.uid).addOnSuccessListener { documentSnapshot ->
                 val user = documentSnapshot.toObject<User>()
-                Log.d("FETCH_LISTS", "fav icon: $user")
                 val contains =
                     user?.favoriteList?.map { it.key?.extractIdFromKey() ?: "" }?.contains(workID)
-                Log.d("FETCH_LISTS", "fav icon contains: $contains")
                 _isFavouriteListLiveData.value = contains!!
             }
         }
@@ -63,10 +53,7 @@ class WorkViewModel(private val repository: WorkRepo) : ViewModel() {
             repository.getUser(currentUser!!.uid).addOnSuccessListener {
                 val user = it.toObject<User>()
                 val cWork = workListLiveData.value!!
-                Log.d("FETCH_LISTS", "handleLists: Work $cWork")
-                val inList = isInList(user!!, cWork, list)
-                Log.d("FETCH_LISTS", "handleLists: count $inList")
-                when (inList) {
+                when (isInList(user!!, cWork, list)) {
                     true -> addToList(currentUser, user, cWork, list)
                     false -> removeFromList(currentUser, user, cWork, list)
                 }
@@ -126,7 +113,6 @@ class WorkViewModel(private val repository: WorkRepo) : ViewModel() {
         viewModelScope.launch {
             repository.updateUser(currentUser.uid, user)
         }
-//        Toast.makeText(activity, "Added to $list", Toast.LENGTH_SHORT).show()
     }
 
     private fun removeFromList(
@@ -146,6 +132,5 @@ class WorkViewModel(private val repository: WorkRepo) : ViewModel() {
                 repository.updateUser(currentUser.uid, user)
             }
         }
-//        Toast.makeText(activity, "Removed from $list", Toast.LENGTH_SHORT).show()
     }
 }

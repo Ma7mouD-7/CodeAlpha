@@ -7,5 +7,5 @@ enum class BookSort(val query: String) {
     MOST_RECENT("new"),
     TOP_RATED("rating"),
     READING_LOG("readinglog"),
-    RANDOM("random")
+    RANDOM("random"),
 }

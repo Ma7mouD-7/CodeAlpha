@@ -29,10 +29,12 @@ class AuthorAdapter(
         holder.itemView.setOnClickListener { listener.onAuthorItemClick(position) }
 
         holder.authorNameTextView.text = authorList[position].name
-        Glide.with(context)
-            .asBitmap()
-            .load(UtilMethods.createAuthorPicUrl(authorList[position].key ?: "", size = CoverSize.MEDIUM.query))
-            .into(holder.authorPicImageView)
+        Glide.with(context).asBitmap().load(
+            UtilMethods.createAuthorPicUrl(
+                authorList[position].key ?: "",
+                size = CoverSize.MEDIUM.query,
+            ),
+        ).into(holder.authorPicImageView)
     }
 
     override fun getItemCount(): Int = authorList.size
@@ -46,6 +48,7 @@ class AuthorAdapter(
     class AuthorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val authorNameTextView: TextView
         val authorPicImageView: ImageView
+
         init {
             authorNameTextView = itemView.findViewById(R.id.home_author_name_tv)
             authorPicImageView = itemView.findViewById(R.id.home_author_pic_iv)

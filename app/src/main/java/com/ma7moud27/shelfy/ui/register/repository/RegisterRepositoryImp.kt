@@ -19,9 +19,7 @@ class RegisterRepositoryImp : RegisterRepository {
 
     override fun updateUserProfile(currentUser: FirebaseUser, name: String) =
         currentUser.updateProfile(
-            UserProfileChangeRequest.Builder()
-                .setDisplayName(name)
-                .build(),
+            UserProfileChangeRequest.Builder().setDisplayName(name).build(),
         )
 
     override fun logout() = FirebaseAuthClient.logout()

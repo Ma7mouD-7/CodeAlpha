@@ -4,7 +4,8 @@ import com.ma7moud27.shelfy.model.author.Author
 import com.ma7moud27.shelfy.utils.enums.Category
 
 object LocalDataClient : LocalDataSource {
-    override fun getCategoryList(numOfItems: Int): List<Category> = Category.values().take(numOfItems)
+    override fun getCategoryList(numOfItems: Int): List<Category> =
+        Category.values().take(numOfItems)
 
     override fun getTopAuthors(): List<Author> {
         return listOf(

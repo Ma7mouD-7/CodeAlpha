@@ -12,20 +12,16 @@ data class Work(
     val description: Description? = Description(),
     val links: List<Link>? = null,
 
-    @SerializedName("subject_people")
-    val people: List<String>? = null,
-    @SerializedName("subject_places")
-    val places: List<String>? = null,
+    @SerializedName("subject_people") val people: List<String>? = null,
+    @SerializedName("subject_places") val places: List<String>? = null,
     val subjects: List<String>? = null,
 
     val covers: List<Int>? = null,
 
     val excerpts: List<Excerpt>? = null,
-    @SerializedName("first_publish_date")
-    val firstPublishDate: String? = null,
+    @SerializedName("first_publish_date") val firstPublishDate: String? = null,
 
-    @SerializedName("authors")
-    val authorsList: List<AuthorItem>? = null,
+    @SerializedName("authors") val authorsList: List<AuthorItem>? = null,
 
     var ratings: Rating? = Rating(),
     val bookShelf: BookShelf? = BookShelf(),
@@ -40,12 +36,3 @@ data class AuthorItem(
 data class AuthorData(
     val key: String? = null,
 )
-
-/*
-"covers": [],
-"first_publish_date": "2003",
-
-"authors": [],
-"excerpts": [],
-
- */

@@ -17,6 +17,7 @@ class CategoriesViewModel(private val repository: CategoriesRepository) : ViewMo
     fun fetchCategoryList() {
         _categoryListLiveData.value = repository.getCategoryList(Category.values().size)
     }
+
     fun handelCategoryItemClick(context: Context, position: Int) {
         context.startActivity(
             Intent(context, BooksDisplayActivity::class.java).apply {

@@ -1,7 +1,5 @@
 package com.ma7moud27.shelfy.utils
 
-import android.content.Context
-import android.net.ConnectivityManager
 import android.os.Build
 import androidx.annotation.RequiresApi
 import com.ma7moud27.shelfy.utils.enums.CoverKey
@@ -13,8 +11,12 @@ class UtilMethods {
     companion object {
         fun createCoverUrl(id: String, key: String, size: String) =
             "${Constants.OPEN_LIBRARY_BOOK_COVER_BASE_URL}$key/$id-$size.jpg"
-        fun createAuthorPicUrl(id: String, key: String = CoverKey.OLID.name.lowercase(), size: String) =
-            "${Constants.OPEN_LIBRARY_AUTHOR_PIC_BASE_URL}$key/$id-$size.jpg"
+
+        fun createAuthorPicUrl(
+            id: String,
+            key: String = CoverKey.OLID.name.lowercase(),
+            size: String,
+        ) = "${Constants.OPEN_LIBRARY_AUTHOR_PIC_BASE_URL}$key/$id-$size.jpg"
 
         @RequiresApi(Build.VERSION_CODES.O)
         fun calculateAge(birthDate: String, deathDate: String): String? {
@@ -42,22 +44,11 @@ class UtilMethods {
             }
         }
 
-        fun String.clearSources() = this
-            .substringBefore("\\r\\n\\r\\n(")
-            .substringBefore("\\r\\n([so")
-            .substringBefore("\\r\\n\\r\\n([s")
-            .substringBefore("<su")
-            .substringBefore("---")
-            .substringBefore("\\r\\n\\r\\n\\r\\n  [1]:")
-            .substringBefore("[1]:")
+        fun String.clearSources() =
+            this.substringBefore("\\r\\n\\r\\n(").substringBefore("\\r\\n([so")
+                .substringBefore("\\r\\n\\r\\n([s").substringBefore("<su").substringBefore("---")
+                .substringBefore("\\r\\n\\r\\n\\r\\n  [1]:").substringBefore("[1]:")
 
         fun String.extractIdFromKey() = this.substringAfterLast("/")
-
-        fun isInternetAvailable(context: Context): Boolean {
-            val connectivityManager =
-                context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-            val activeNetworkInfo = connectivityManager.activeNetworkInfo
-            return activeNetworkInfo != null && activeNetworkInfo.isConnected
-        }
     }
 }

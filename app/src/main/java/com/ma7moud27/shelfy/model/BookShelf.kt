@@ -7,10 +7,7 @@ data class BookShelf(
 )
 
 data class Counts(
-    @SerializedName("want_to_read")
-    val countWantToRead: Int? = null,
-    @SerializedName("currently_reading")
-    val countCurrentlyReading: Int? = null,
-    @SerializedName("already_read")
-    val countAlreadyRead: Int? = null,
+    @SerializedName("want_to_read") val countWantToRead: Int? = null,
+    @SerializedName("currently_reading") val countCurrentlyReading: Int? = null,
+    @SerializedName("already_read") val countAlreadyRead: Int? = null,
 )

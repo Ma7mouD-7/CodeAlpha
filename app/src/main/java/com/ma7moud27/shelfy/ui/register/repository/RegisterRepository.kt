@@ -2,9 +2,7 @@ package com.ma7moud27.shelfy.ui.register.repository
 
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.firestore.FirebaseFirestore
 import com.ma7moud27.shelfy.model.User
 
 interface RegisterRepository {

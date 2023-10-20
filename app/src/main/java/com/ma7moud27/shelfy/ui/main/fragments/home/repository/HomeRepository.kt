@@ -14,6 +14,7 @@ interface HomeRepository {
         page: Int,
         limit: Int,
     ): SearchBookResponse
+
     suspend fun getWork(workID: String): Work
     suspend fun getAuthors(): List<Author>
     suspend fun getRandomWork(): ResponseBody
@@ -26,6 +27,7 @@ interface HomeRepository {
         language: String,
         limit: Int,
     ): SearchBookResponse
+
     fun logout()
     fun currentUser(): FirebaseUser?
 }

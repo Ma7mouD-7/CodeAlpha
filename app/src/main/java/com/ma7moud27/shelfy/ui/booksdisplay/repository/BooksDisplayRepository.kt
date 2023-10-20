@@ -10,6 +10,7 @@ interface BooksDisplayRepository {
         page: Int,
         limit: Int,
     ): SearchBookResponse
+
     suspend fun searchBooks(
         query: String,
         mode: String,
@@ -17,8 +18,9 @@ interface BooksDisplayRepository {
         isFullText: Boolean,
         sort: String,
         language: String,
-        limit: Int
+        limit: Int,
     ): SearchBookResponse
+
     fun getCategoryList(numOfItems: Int): List<Category>
     suspend fun getWork(workID: String): Work
 }

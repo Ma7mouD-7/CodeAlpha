@@ -35,9 +35,9 @@ object Validator {
     fun isPasswordValid(password: EditText): Boolean {
         var valid = true
         val content = password.text.toString()
-        val PASSWORD_PATTERN =
+        val passwordPattern =
             "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>\\.]).{8,64}$"
-        if (!Pattern.compile(PASSWORD_PATTERN).matcher(content).matches()) {
+        if (!Pattern.compile(passwordPattern).matcher(content).matches()) {
             password.error =
                 "Password must be a length of at least 8 characters\n-contains at least one digit\n-at least one lowercase character\n-at least one uppercase character\n-and at least one special character"
             valid = false

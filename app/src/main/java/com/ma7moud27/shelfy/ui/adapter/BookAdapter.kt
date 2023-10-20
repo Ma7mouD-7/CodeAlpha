@@ -36,34 +36,31 @@ class BookAdapter(
             if (this == null) {
                 "${bookItems[position].title}".also { holder.titleTextView.text = it }
             } else {
-                "${bookItems[position].title} (${bookItems[position].publishYear})".also { holder.titleTextView.text = it }
+                "${bookItems[position].title} (${bookItems[position].publishYear})".also {
+                    holder.titleTextView.text = it
+                }
             }
         }
 
         holder.authorTextView.text = bookItems[position].authorName!!.joinToString(", ")
 
-        Glide.with(context)
-            .asBitmap()
-            .diskCacheStrategy(DiskCacheStrategy.DATA)
-            .load(
-                bookItems[position].let {
-                    if (it.lendingEditionKey.isNullOrEmpty()) {
-                        UtilMethods.createCoverUrl(
-                            it.coverID.toString(),
-                            CoverKey.ID.name.lowercase(),
-                            CoverSize.MEDIUM.query,
-                        )
-                    } else {
-                        UtilMethods.createCoverUrl(
-                            it.lendingEditionKey,
-                            CoverKey.OLID.name.lowercase(),
-                            CoverSize.MEDIUM.query,
-                        )
-                    }
-                },
-            )
-            .into(holder.coverImageView)
-
+        Glide.with(context).asBitmap().diskCacheStrategy(DiskCacheStrategy.DATA).load(
+            bookItems[position].let {
+                if (it.lendingEditionKey.isNullOrEmpty()) {
+                    UtilMethods.createCoverUrl(
+                        it.coverID.toString(),
+                        CoverKey.ID.name.lowercase(),
+                        CoverSize.MEDIUM.query,
+                    )
+                } else {
+                    UtilMethods.createCoverUrl(
+                        it.lendingEditionKey,
+                        CoverKey.OLID.name.lowercase(),
+                        CoverSize.MEDIUM.query,
+                    )
+                }
+            },
+        ).into(holder.coverImageView)
     }
 
     override fun getItemCount(): Int = bookItems.size

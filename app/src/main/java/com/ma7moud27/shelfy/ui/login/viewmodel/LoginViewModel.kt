@@ -1,7 +1,6 @@
 package com.ma7moud27.shelfy.ui.login.viewmodel
 
 import android.content.Intent
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -20,12 +19,10 @@ class LoginViewModel(private val repository: LoginRepository) : ViewModel() {
 
     private fun isVerified(activity: AppCompatActivity, currentUser: FirebaseUser?, email: String) =
         if (currentUser?.isEmailVerified != true) {
-            AlertDialog.Builder(activity)
-                .setTitle("Your Email is not Verified")
+            AlertDialog.Builder(activity).setTitle("Your Email is not Verified")
                 .setMessage("You need to verify your email address before you can proceed.")
                 .setPositiveButton("Resend") { _, _ -> handleVerificationEmail(activity, email) }
-                .setNegativeButton("Cancel", null)
-                .show()
+                .setNegativeButton("Cancel", null).setCancelable(false).show()
             false
         } else {
             true
@@ -34,9 +31,14 @@ class LoginViewModel(private val repository: LoginRepository) : ViewModel() {
     private fun handleVerificationEmail(activity: AppCompatActivity, email: String) {
         repository.sendVerificationEmail()?.addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                Toast.makeText(activity, "Verification email sent to $email", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Verification email sent to $email", Toast.LENGTH_SHORT)
+                    .show()
             } else {
-                Toast.makeText(activity, task.exception?.message ?: "Error in Verification Email", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    activity,
+                    task.exception?.message ?: "Error in Verification Email",
+                    Toast.LENGTH_SHORT,
+                ).show()
             }
         }
     }
@@ -61,10 +63,13 @@ class LoginViewModel(private val repository: LoginRepository) : ViewModel() {
                     try {
                         throw task.exception!!
                     } catch (e: FirebaseAuthInvalidUserException) {
-                        Toast.makeText(activity, "User Not Found, Please Register First", Toast.LENGTH_LONG).show()
+                        Toast.makeText(
+                            activity,
+                            "User Not Found, Please Register First",
+                            Toast.LENGTH_LONG,
+                        ).show()
                     } catch (e: Exception) {
                         task.exception?.message?.let {
-                            Log.d("LOGIN_FAILED", it)
                             if (it.contains("INVALID_LOGIN_CREDENTIALS")) {
                                 Toast.makeText(
                                     activity,
@@ -78,7 +83,11 @@ class LoginViewModel(private val repository: LoginRepository) : ViewModel() {
                                     Toast.LENGTH_LONG,
                                 ).show()
                             } else {
-                                Toast.makeText(activity, "Error in Logging you in, Please try again", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    activity,
+                                    "Error in Logging you in, Please try again",
+                                    Toast.LENGTH_SHORT,
+                                ).show()
                             }
                         }
                     }

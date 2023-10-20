@@ -3,7 +3,6 @@ package com.ma7moud27.shelfy.ui.main.fragments.search.viewmodel
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.app.ActivityOptionsCompat
@@ -39,8 +38,17 @@ class SearchViewModel(private val repository: SearchRepo) : ViewModel() {
     ) {
         _searchBookLiveData.value = ServiceResponse.Loading()
         viewModelScope.launch {
-            _searchBookLiveData.value =
-                ServiceResponse.Success(repository.searchBooks(query, mode, page, isFullText, sort, language, limit))
+            _searchBookLiveData.value = ServiceResponse.Success(
+                repository.searchBooks(
+                    query,
+                    mode,
+                    page,
+                    isFullText,
+                    sort,
+                    language,
+                    limit,
+                ),
+            )
         }
     }
 
@@ -62,12 +70,13 @@ class SearchViewModel(private val repository: SearchRepo) : ViewModel() {
     ) {
         val searchBookItem = _searchBookLiveData.value?.data?.items!![position]
         val workID = searchBookItem.key?.extractIdFromKey() ?: ""
-        Log.d("MAHMOUD", "testRandomWorkID: $workID")
         viewModelScope.launch {
             val work = repository.getWork(workID)
             if (!searchBookItem.lendingEditionKey.isNullOrEmpty()) {
                 work.book?.key = searchBookItem.lendingEditionKey
-            } else if (!searchBookItem.coverEditionKey.isNullOrEmpty()) work.book?.key = searchBookItem.coverEditionKey
+            } else if (!searchBookItem.coverEditionKey.isNullOrEmpty()) {
+                work.book?.key = searchBookItem.coverEditionKey
+            }
             work.author = searchBookItem.authorName
             context.startActivity(
                 Intent(context, WorkActivity::class.java).apply {

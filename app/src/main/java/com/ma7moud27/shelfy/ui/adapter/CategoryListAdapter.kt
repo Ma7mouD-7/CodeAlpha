@@ -23,10 +23,8 @@ class CategoryListAdapter(
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         holder.itemView.setOnClickListener { listener.onCategoryListClick(position) }
 
-        holder.categoryName.text =
-            itemsList[position].name.replace("_", " ")
-        holder.categoryDescription.text =
-            itemsList[position].description
+        holder.categoryName.text = itemsList[position].name.replace("_", " ")
+        holder.categoryDescription.text = itemsList[position].description
         holder.categoryCover.setImageResource(itemsList[position].icon)
     }
 

@@ -9,6 +9,8 @@ object FirebaseAuthClient {
 
     fun currentUser() = auth.currentUser
     fun login(email: String, password: String) = auth.signInWithEmailAndPassword(email, password)
-    fun register(email: String, password: String) = auth.createUserWithEmailAndPassword(email, password)
+    fun register(email: String, password: String) =
+        auth.createUserWithEmailAndPassword(email, password)
+
     fun logout() = auth.signOut()
 }

@@ -12,7 +12,7 @@ interface SearchRepo {
         isFullText: Boolean,
         sort: String,
         language: String,
-        limit: Int
+        limit: Int,
     ): SearchBookResponse
 
     suspend fun searchAuthors(

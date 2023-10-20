@@ -41,18 +41,12 @@ class SearchFragment : Fragment(), OnBookItemClickListener {
         initComponents(view)
 
         search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            //            viewModel.fetchBookSearch(BookSearch.TITLE.query + "\"${search.query}\"")
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 val type = when (typesGroup.checkedRadioButtonId) {
                     R.id.search_title_radio_btn -> BookSearch.TITLE.query
                     R.id.search_author_radio_btn -> BookSearch.AUTHOR.query
                     else -> ""
                 }
-//                Toast.makeText(
-//                    this@SearchFragment.requireContext(),
-//                    "Search submit " + type + "\"${search.query}\"",
-//                    Toast.LENGTH_SHORT,
-//                ).show()
                 viewModel.fetchBookSearch(type + "\"${search.query}\"")
                 return false
             }
@@ -92,8 +86,7 @@ class SearchFragment : Fragment(), OnBookItemClickListener {
     private fun prepareViewModel() {
         val repository = SearchRepoImpl(OpenLibApiClient)
         val viewModelFactory = SearchViewModelFactory(repository)
-        viewModel =
-            ViewModelProvider(this, viewModelFactory)[SearchViewModel::class.java]
+        viewModel = ViewModelProvider(this, viewModelFactory)[SearchViewModel::class.java]
     }
 
     private fun initComponents(view: View) {
@@ -106,8 +99,7 @@ class SearchFragment : Fragment(), OnBookItemClickListener {
     }
 
     private fun setupRecyclerView() {
-        adapter =
-            BookAdapter(listOf(), this, this.requireContext(), R.layout.item_book_horizontal)
+        adapter = BookAdapter(listOf(), this, this.requireContext(), R.layout.item_book_horizontal)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this.requireContext())
     }

@@ -25,6 +25,5 @@ class Constants {
         const val CURRENT = "Currently Reading"
         const val DONE = "Done Reading"
         const val FAVOURITE = "Favourites"
-
     }
 }

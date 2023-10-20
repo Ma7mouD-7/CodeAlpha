@@ -15,7 +15,7 @@ class NoteDeserializer : JsonDeserializer<Notes> {
         return if (json.isJsonObject) {
             val jsonObject = json.asJsonObject
             val key = jsonObject.keySet().lastOrNull()
-            val value = jsonObject.get(key).asString
+            val value = jsonObject[key].asString
             Notes(value)
         } else {
             val value = json.asString

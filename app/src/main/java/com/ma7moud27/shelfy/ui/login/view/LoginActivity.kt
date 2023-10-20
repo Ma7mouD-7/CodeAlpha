@@ -2,7 +2,6 @@ package com.ma7moud27.shelfy.ui.login.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -35,7 +34,6 @@ class LoginActivity : AppCompatActivity() {
         prepareViewModel()
 
         if (viewModel.getUser() != null) {
-            Log.d("REGISTER_PROCESS", "LoginActivity  user ${viewModel.getUser()!!.uid}")
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
