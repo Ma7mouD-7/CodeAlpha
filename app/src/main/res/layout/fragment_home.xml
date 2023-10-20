@@ -28,9 +28,9 @@
                 android:layout_height="48dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="TODO"
-                android:padding="8dp"
+                android:padding="12dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/ic_options"
+                android:src="@drawable/ic_logout"
                 app:layout_constraintBottom_toBottomOf="@+id/textView4"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -118,11 +118,45 @@
                 app:layout_constraintBaseline_toBaselineOf="@+id/textView8"
                 app:layout_constraintEnd_toEndOf="parent" />
 
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/home_trending_shimmer_layout"
+                android:layout_width="0dp"
+                android:layout_height="559dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/home_trend_btn">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <include layout="@layout/item_book_vertical_shimmer" />
+
+                    <include layout="@layout/item_book_vertical_shimmer" />
+
+                    <include layout="@layout/item_book_vertical_shimmer" />
+
+                    <include layout="@layout/item_book_vertical_shimmer" />
+
+                    <include layout="@layout/item_book_vertical_shimmer" />
+
+                    <include layout="@layout/item_book_vertical_shimmer" />
+
+                    <include layout="@layout/item_book_vertical_shimmer" />
+
+                    <include layout="@layout/item_book_vertical_shimmer" />
+
+                    <include layout="@layout/item_book_vertical_shimmer" />
+
+                    <include layout="@layout/item_book_vertical_shimmer" />
+                </LinearLayout>
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/home_trend_rv"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="559dp"
                 android:layout_marginStart="1dp"
                 android:layout_marginEnd="1dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -141,43 +175,45 @@
                 android:text="@string/random"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/home_trend_rv" />
+                app:layout_constraintTop_toBottomOf="@+id/home_trending_shimmer_layout" />
 
-            <ImageView
-                android:id="@+id/home_random_cover_iv"
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/home_random_shimmer_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView10" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <include
+                    android:id="@+id/include"
+                    layout="@layout/item_random_book_shimmer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView10" />
+                </LinearLayout>
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <LinearLayout
+                android:id="@+id/home_random_layout"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
-                android:contentDescription="TODO"
-                android:rotationX="20"
-                android:scaleType="fitCenter"
-                android:elevation="8dp"
-                app:layout_constraintDimensionRatio="1.5:2"
-                app:layout_constraintEnd_toStartOf="@+id/space"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView10"
-                tools:srcCompat="@drawable/ol26992991m_m" />
+                app:layout_constraintTop_toBottomOf="@+id/textView10">
 
-            <TextView
-                android:id="@+id/imageView33"
-                android:layout_width="100dp"
-                android:layout_height="135dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="4dp"
-                android:background="@color/white"
-                android:elevation="6dp"
-                android:rotation="0."
-                android:rotationX="15"
-                android:scaleType="fitCenter"
-                app:layout_constraintBottom_toTopOf="@+id/home_random_btn"
-                app:layout_constraintDimensionRatio="1.5:2"
-                app:layout_constraintEnd_toStartOf="@+id/space"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView10"
-                tools:visibility="visible" />
+                <include layout="@layout/item_random_book" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/textView9"
@@ -188,67 +224,7 @@
                 android:text="@string/our_best_authors"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/home_random_btn" />
-
-
-            <View
-                android:id="@+id/space"
-                android:layout_width="1dp"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.4"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-            <TextView
-                android:id="@+id/home_random_title_tv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:fontFamily="@font/averia_sans_libre_bold"
-                android:maxLines="3"
-                android:text="@string/book_title"
-                android:textAlignment="center"
-                android:textSize="18sp"
-                app:autoSizeMinTextSize="18sp"
-                app:autoSizeTextType="uniform"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/home_random_cover_iv"
-                app:layout_constraintTop_toTopOf="@+id/home_random_cover_iv" />
-
-            <TextView
-                android:id="@+id/home_random_desc_tv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:ellipsize="end"
-                android:fontFamily="@font/md_grotesk_regular"
-                android:maxLines="12"
-                android:text="descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescridescriptiondescriptiondescriptiondescriptiondescriptionptiondescriptdescriptiondescriptiondescriptiondescriptionidescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescrdescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptioniptionondescription"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                app:autoSizeMinTextSize="14sp"
-                app:autoSizeTextType="uniform"
-                app:layout_constraintBottom_toBottomOf="@+id/home_random_btn"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/home_random_title_tv"
-                app:layout_constraintTop_toBottomOf="@+id/home_random_title_tv" />
-
-            <Button
-                android:id="@+id/home_random_btn"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                android:fontFamily="@font/averia_sans_libre_bold"
-                android:letterSpacing="0"
-                android:text="@string/more_info"
-                android:textAllCaps="false"
-                app:layout_constraintEnd_toEndOf="@+id/home_random_cover_iv"
-                app:layout_constraintStart_toStartOf="@+id/home_random_cover_iv"
-                app:layout_constraintTop_toBottomOf="@+id/home_random_cover_iv" />
+                app:layout_constraintTop_toBottomOf="@+id/home_random_shimmer_layout" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/home_authors_rv"

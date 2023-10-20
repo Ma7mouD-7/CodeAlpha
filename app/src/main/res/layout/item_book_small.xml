@@ -1,81 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="2dp">
+    android:layout_margin="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="@color/primary_variant_color"
+        android:elevation="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/item_book_cover_iv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:id="@+id/item_book_title_tv"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="60dp"
             android:layout_marginTop="8dp"
             android:ellipsize="end"
             android:fontFamily="@font/averia_sans_libre_bold"
+            android:gravity="start|center_vertical"
             android:maxLines="3"
-            android:text="Book Title Book Title Book Title Book Title Book Title Book Title"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            app:autoSizeMaxTextSize="18sp"
-            app:autoSizeMinTextSize="16sp"
+            android:text="Book Title Book Title Book Title Book Title Book Title Book Title Book Title "
+            android:textAlignment="gravity"
+            android:textSize="12sp"
+            app:autoSizeMaxTextSize="16sp"
+            app:autoSizeMinTextSize="12sp"
             app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/item_book_author_tv"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView0" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/item_book_author_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginBottom="4dp"
             android:ellipsize="end"
             android:fontFamily="@font/md_grotesk_regular"
+            android:gravity="start|center_vertical"
             android:maxLines="2"
-            android:text="Book Author Book Author Book Author Book Author"
-            android:textAlignment="center"
-            android:textSize="16sp"
-            app:autoSizeMaxTextSize="16sp"
+            android:text="Book Author Book Author Book Author"
+            android:textAlignment="gravity"
+            android:textSize="12sp"
+            app:autoSizeMaxTextSize="12sp"
             app:autoSizeTextType="none"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/item_book_title_tv"
             app:layout_constraintStart_toStartOf="@+id/item_book_title_tv"
-            app:layout_constraintTop_toBottomOf="@+id/item_book_title_tv" />
+            app:layout_constraintTop_toBottomOf="@+id/space2"
+            app:layout_constraintVertical_bias="1.0" />
 
-        <View
-            android:id="@+id/textView0"
-            android:layout_width="140dp"
-            android:layout_height="0dp"
-            android:background="@drawable/book_item_background"
-            android:elevation="-1dp"
-            android:text="TextView"
-            app:layout_constraintDimensionRatio="1:2"
+        <Space
+            android:id="@+id/space2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/item_book_cover_iv"
-            android:layout_width="140dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"
-            android:elevation="2dp"
-            android:rotationY="20"
-            android:scaleType="fitCenter"
-            app:layout_constraintDimensionRatio="1:2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/ol26992991m_m" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/item_book_cover_iv"
+        android:layout_width="52dp"
+        android:layout_height="80dp"
+        android:elevation="2dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/ol26992991m_m" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

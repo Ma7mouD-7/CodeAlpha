@@ -19,10 +19,7 @@
     <color name="shadow">#B3222222</color>
     <color name="font_color">#D4D4D4</color>
 
-    <!--colors for modern ui-->
-    <color name="whiteTextColor">#fff</color>
-    <color name="primaryTextColor">#2661FA</color>
-    <color name="loginBkColor">#f0f0f0</color>
+    <color name="shimmer_color">#C2C2C2</color>
 
     <!--colros for card-->
     <color name="whiteCardColor">#fff</color>

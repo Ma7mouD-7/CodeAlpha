@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputName"
+        android:id="@+id/register_name_layout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,8 +48,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:placeholderText="you@mail.com"
-        app:placeholderTextColor="@color/on_secondary_color"
         app:startIconDrawable="@drawable/ic_name"
         app:startIconMinSize="40dp"
         app:startIconScaleType="centerInside"
@@ -69,7 +67,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputEmail"
+        android:id="@+id/register_email_layout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -91,7 +89,7 @@
         app:hintTextColor="@color/secondary_variant_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputName"
+        app:layout_constraintTop_toBottomOf="@+id/register_name_layout"
         app:placeholderText="you@mail.com"
         app:placeholderTextColor="@color/on_secondary_color"
         app:startIconDrawable="@drawable/ic_email"
@@ -113,7 +111,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputPassword"
+        android:id="@+id/register_password_layout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -134,7 +132,7 @@
         app:hintTextColor="@color/secondary_variant_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEmail"
+        app:layout_constraintTop_toBottomOf="@+id/register_email_layout"
         app:passwordToggleEnabled="true"
         app:passwordToggleTint="@drawable/textinput_icon_selector"
         app:startIconDrawable="@drawable/ic_password"
@@ -156,7 +154,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputPasswordConfirm"
+        android:id="@+id/register_confirm_password_layout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -177,7 +175,7 @@
         app:hintTextColor="@color/secondary_variant_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputPassword"
+        app:layout_constraintTop_toBottomOf="@+id/register_password_layout"
         app:passwordToggleEnabled="true"
         app:passwordToggleTint="@drawable/textinput_icon_selector"
         app:startIconDrawable="@drawable/ic_password"
@@ -186,7 +184,7 @@
         app:startIconTint="@drawable/textinput_icon_selector">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/register_password__confirm_et"
+            android:id="@+id/register_confirm_password_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/md_grotesk_regular"
@@ -199,7 +197,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/cirRegisterButton"
+        android:id="@+id/register_submit_btn"
         android:layout_width="222dp"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
@@ -210,8 +208,8 @@
         android:textColor="@color/primary_variant_color"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/textInputPasswordConfirm"
-        app:layout_constraintTop_toBottomOf="@+id/textInputPasswordConfirm" />
+        app:layout_constraintEnd_toEndOf="@+id/register_confirm_password_layout"
+        app:layout_constraintTop_toBottomOf="@+id/register_confirm_password_layout" />
 
     <TextView
         android:id="@+id/register_signin_tv"
@@ -225,8 +223,8 @@
         android:textColor="@color/secondary_variant_color"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/cirRegisterButton"
-        app:layout_constraintStart_toStartOf="@+id/cirRegisterButton"
-        app:layout_constraintTop_toBottomOf="@+id/cirRegisterButton" />
+        app:layout_constraintEnd_toEndOf="@+id/register_submit_btn"
+        app:layout_constraintStart_toStartOf="@+id/register_submit_btn"
+        app:layout_constraintTop_toBottomOf="@+id/register_submit_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

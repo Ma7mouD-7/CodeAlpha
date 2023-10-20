@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+    <ImageView
+        android:id="@+id/home_random_cover_iv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:contentDescription="TODO"
+        android:rotationX="20"
+        android:scaleType="fitCenter"
+        android:elevation="8dp"
+        app:layout_constraintDimensionRatio="1.5:2"
+        app:layout_constraintEnd_toStartOf="@+id/space"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/ol26992991m_m" />
+
+    <TextView
+        android:id="@+id/imageView33"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="4dp"
+        android:background="@color/white"
+        android:elevation="2dp"
+        android:rotation="0."
+        android:rotationX="15"
+        android:scaleType="fitCenter"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/home_random_btn"
+        app:layout_constraintDimensionRatio="1.5:2"
+        app:layout_constraintEnd_toStartOf="@+id/space"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <View
+        android:id="@+id/space"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/home_random_title_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/averia_sans_libre_bold"
+        android:maxLines="3"
+        android:text="@string/book_title"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:autoSizeMinTextSize="18sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/home_random_cover_iv"
+        app:layout_constraintTop_toTopOf="@+id/home_random_cover_iv" />
+
+    <TextView
+        android:id="@+id/home_random_desc_tv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/md_grotesk_regular"
+        android:maxLines="8"
+        android:text="descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescridescriptiondescriptiondescriptiondescriptiondescriptionptiondescriptdescriptiondescriptiondescriptiondescriptionidescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescrdescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptioniptionondescription"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:autoSizeMinTextSize="14sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="@+id/home_random_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/home_random_title_tv"
+        app:layout_constraintTop_toBottomOf="@+id/home_random_title_tv" />
+
+    <Button
+        android:id="@+id/home_random_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/averia_sans_libre_bold"
+        android:letterSpacing="0"
+        android:text="@string/more_info"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@+id/home_random_cover_iv"
+        app:layout_constraintStart_toStartOf="@+id/home_random_cover_iv"
+        app:layout_constraintTop_toBottomOf="@+id/home_random_cover_iv" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -125,7 +125,7 @@
             android:paddingStart="@dimen/horizontal_padding"
             android:paddingTop="12dp"
             android:paddingEnd="@dimen/horizontal_padding"
-            android:paddingBottom="@dimen/vertical_padding">
+            android:paddingBottom="50dp">
 
             <TextView
                 android:id="@+id/author_placeholder_personal_name_tv"
@@ -257,7 +257,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/author_placeholder_alternative_Names_tv"
                 app:layout_constraintTop_toBottomOf="@+id/author_placeholder_alternative_Names_tv"
-                tools:visibility="visible">
+                tools:visibility="gone">
 
 
             </TextView>

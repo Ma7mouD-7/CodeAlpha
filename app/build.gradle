@@ -1,15 +1,16 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
 }
 
 android {
-    namespace 'com.ma7moud27.onlinebookshop'
+    namespace 'com.ma7moud27.shelfy'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.ma7moud27.onlinebookshop"
-        minSdk 23
+        applicationId "com.ma7moud27.shelfy"
+        minSdk 24
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -41,6 +42,8 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation "androidx.core:core-splashscreen:1.0.1"
 
     // Lifecycle & ViewModel
     def lifecycle_version = "2.6.2"
@@ -75,7 +78,14 @@ dependencies {
     implementation 'com.github.ismaeldivita:chip-navigation-bar:1.4.0'
     implementation 'com.github.irfaan008:IRBottomNavigationView:1.0.1'
     implementation 'org.jsoup:jsoup:1.14.3'
+    implementation 'com.facebook.shimmer:shimmer:0.4.0'
 
+    // Import the Firebase BoM
+    implementation(platform("com.google.firebase:firebase-bom:29.1.0"))
+
+    // When using the BoM, don't specify versions in Firebase dependencies
+    implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation("com.google.firebase:firebase-auth-ktx")
+    implementation("com.google.firebase:firebase-firestore-ktx")
 
 }
-

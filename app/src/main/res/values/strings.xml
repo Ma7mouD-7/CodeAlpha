@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Online Bookshop</string>
+    <string name="app_name">Shelfy</string>
     <string name="home">Home</string>
     <string name="categories">Categories</string>
     <string name="lists">Lists</string>
@@ -11,7 +11,7 @@
     <string name="trending_books_today">Trending Books Today</string>
     <string name="our_best_authors">Our Best Authors</string>
     <string name="random">Confused? There is a random book</string>
-    <string name="book_title">Book Title</string>
+    <string name="book_title">Book Title\nBook Title\nBook Title</string>
     <string name="description">Description</string>
     <string name="more_info">More Info</string>
     <string name="search">Search</string>

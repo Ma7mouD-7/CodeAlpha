@@ -23,6 +23,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/display_shimmer_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/display_title_tv">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/item_book_horizontal_shimmer" />
+
+            <include layout="@layout/item_book_horizontal_shimmer" />
+
+            <include layout="@layout/item_book_horizontal_shimmer" />
+
+            <include layout="@layout/item_book_horizontal_shimmer" />
+
+            <include layout="@layout/item_book_horizontal_shimmer" />
+
+            <include layout="@layout/item_book_horizontal_shimmer" />
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/display_rv"
         android:layout_width="0dp"
@@ -31,5 +61,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/display_title_tv"
-        tools:listitem="@layout/item_book_horizontal" />
+        tools:listitem="@layout/item_book_horizontal"
+        tools:visibility="gone" />
 </androidx.constraintlayout.widget.ConstraintLayout>

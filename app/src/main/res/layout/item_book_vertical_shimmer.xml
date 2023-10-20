@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="543dp"
+    android:layout_margin="8dp"
+    app:cardBackgroundColor="@color/item_book_background"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/item_book_title_tv"
+            android:layout_width="0dp"
+            android:layout_height="66dp"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/averia_sans_libre_bold"
+            android:maxLines="3"
+            android:background="@color/shimmer_color"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:autoSizeMaxTextSize="18sp"
+            app:autoSizeMinTextSize="16sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView0" />
+
+        <TextView
+            android:id="@+id/item_book_author_tv"
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/md_grotesk_regular"
+            android:maxLines="2"
+            android:background="@color/shimmer_color"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            app:autoSizeMaxTextSize="16sp"
+            app:autoSizeTextType="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/item_book_title_tv"
+            app:layout_constraintStart_toStartOf="@+id/item_book_title_tv"
+            app:layout_constraintTop_toBottomOf="@+id/item_book_title_tv" />
+
+        <View
+            android:id="@+id/textView0"
+            android:layout_width="200dp"
+            android:layout_height="400dp"
+            android:background="@color/shimmer_color"
+            android:elevation="-1dp"
+            app:layout_constraintDimensionRatio="1:2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
