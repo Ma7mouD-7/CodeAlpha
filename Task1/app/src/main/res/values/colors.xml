@@ -10,8 +10,8 @@
     <color name="primary_color">#FAE6D2</color>
     <color name="primary_variant_color">#FFFBF7</color>
     <color name="on_variant_color">#D9A48F</color>
-    <color name="secondary_color">#6D7A71</color>
-    <color name="secondary_variant_color">#CCD8C4</color>
+    <color name="secondary_color">#587761</color>
+    <color name="secondary_variant_color">#C0DDAD</color>
     <color name="on_secondary_color">#A4A5A4</color>
     <color name="book">#55D647</color>
     <color name="item_book_background">#FFFBF7</color>
@@ -21,7 +21,7 @@
 
     <color name="shimmer_color">#C2C2C2</color>
 
-    <!--colros for card-->
+    <!--colors for card-->
     <color name="whiteCardColor">#fff</color>
     <color name="error">#B73333</color>
 </resources>

@@ -6,14 +6,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.ViewModelProvider
-import com.google.firebase.FirebaseApp
 import com.ma7moud27.shelfy.R
 import com.ma7moud27.shelfy.ui.login.repository.LoginRepositoryImp
 import com.ma7moud27.shelfy.ui.login.viewmodel.LoginViewModel
 import com.ma7moud27.shelfy.ui.login.viewmodel.LoginViewModelFactory
-import com.ma7moud27.shelfy.ui.main.MainActivity
 import com.ma7moud27.shelfy.ui.register.view.RegisterActivity
 import com.ma7moud27.shelfy.utils.Validator
 
@@ -24,19 +21,12 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var forgotPasswordTextView: TextView
     private lateinit var loginButton: Button
 
-    lateinit var viewModel: LoginViewModel
+    private lateinit var viewModel: LoginViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        FirebaseApp.initializeApp(applicationContext)
-        installSplashScreen()
         setContentView(R.layout.activity_login)
         initComponents()
         prepareViewModel()
-
-        if (viewModel.getUser() != null) {
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
-        }
 
         loginButton.setOnClickListener {
             if (Validator.isFormValid(

@@ -31,6 +31,7 @@ import com.ma7moud27.shelfy.utils.UtilMethods.Companion.clearSources
 import com.ma7moud27.shelfy.utils.enums.CoverKey
 import com.ma7moud27.shelfy.utils.enums.CoverSize
 import com.ma7moud27.shelfy.utils.enums.Trending
+import java.util.Calendar
 
 class HomeFragment :
     Fragment(),
@@ -156,7 +157,7 @@ class HomeFragment :
 
     private fun fetchData() {
         greetingsTextView.text =
-            "Good Morning, ${homeViewModel.getName()?.split(" ")?.get(0) ?: ""}!"
+            "${greetings()}, ${homeViewModel.getName()?.split(" ")?.get(0) ?: ""}!"
 
         homeViewModel.categoryListLiveData.observe(viewLifecycleOwner) {
             categoryBookAdapter.setDataToAdapter(
@@ -218,6 +219,14 @@ class HomeFragment :
         homeViewModel.fetchRandomBook()
         homeViewModel.fetchAuthors(10)
     }
+
+    private fun greetings(): String =
+        Calendar.getInstance().get(Calendar.HOUR_OF_DAY).let {
+            if (it < 18  && it >= 6) "Good Moring"
+            else "Good Evening"
+        }
+
+
 
     override fun onCategoryBookClick(position: Int) {
         homeViewModel.handelCategoryItemClick(this.requireContext(), position)
