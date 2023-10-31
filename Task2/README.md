@@ -1,7 +1,7 @@
 <br/>
 <p align="center">
   <h3 align="center">Shelfy</h3>
-  <img src="https://i.imgur.com/Q85SMBq.jpg" height="500">
+  <img align="center" src="https://i.imgur.com/Q85SMBq.jpg" height="500">
   <p align="center">
     Keep Track of Your Campus Tasks and Deadlines
     <br/>
