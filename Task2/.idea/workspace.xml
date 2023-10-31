@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config>
+        <device id="pixel_4_xl" />
+      </config>
+    </shared>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7850bb64-670f-4cbe-b96f-ada1f5efdac7" name="Changes" comment="Task 2 Working Version">
+      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/example/collegealert/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/com/example/collegealert/ExampleUnitTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/ic_launcher_logo-playstore.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/adapter/ExamAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/creatorexam/CreatorExamActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/creatorexam/presenter/CreatorExamPresenter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/creatorexam/presenter/ICreatorExamPresenter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/creatorexam/view/CreatorExamView.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/utils/enums/QuestionType.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/drawable/blob_haikei.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/drawable/blob_haikei__1_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/drawable/blob_scene_haikei__1_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/drawable/blob_scene_haikei__2_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/drawable/blob_scene_haikei__3_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/drawable/button_gradiant.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/drawable/button_gradiant_rounded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/drawable/ic_email.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/drawable/ic_empty.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/drawable/ic_history.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/drawable/ic_launcher_logo_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/drawable/ic_logout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/drawable/ic_name.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/drawable/ic_password.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/drawable/logo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/drawable/textinput_icon_selector.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/drawable/wave.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/font/comfortaa.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/font/comfortaa_bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/font/modern_antiqua.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/font/notable.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/font/spicy_rice.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/font/wendy_one.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/activity_creator_exam.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/item_exam.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/mipmap-anydpi-v26/ic_launcher_logo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/mipmap-anydpi-v26/ic_launcher_logo_round.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/mipmap-hdpi/ic_launcher_logo.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/mipmap-hdpi/ic_launcher_logo_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/mipmap-mdpi/ic_launcher_logo.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/mipmap-mdpi/ic_launcher_logo_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/mipmap-xhdpi/ic_launcher_logo.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/mipmap-xhdpi/ic_launcher_logo_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/mipmap-xxhdpi/ic_launcher_logo.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/mipmap-xxhdpi/ic_launcher_logo_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/mipmap-xxxhdpi/ic_launcher_logo.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/mipmap-xxxhdpi/ic_launcher_logo_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/values-night/colors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/values/dimens.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/values/ic_launcher_logo_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/local/ExamDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/local/ExamDao.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/local/ResultDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/local/ResultDao.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/model/Converters.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/model/Converters.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/model/Question.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/model/Question.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/model/Result.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/model/Result.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/adapter/ChoicesAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/adapter/ChoicesAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/adapter/QuestionsAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/adapter/QuestionsAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examcreation/ExamCreationActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examcreation/ExamCreationActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examcreation/fragments/examinfo/ExamInfoFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examcreation/fragments/examinfo/ExamInfoFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examcreation/fragments/examinfo/presenter/ExamInfoPresenter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examcreation/fragments/examinfo/presenter/ExamInfoPresenter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examcreation/fragments/examinfo/presenter/IExamInfoPresenter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examcreation/fragments/examinfo/presenter/IExamInfoPresenter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examcreation/fragments/examquestion/ExamQuestionFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examcreation/fragments/examquestion/ExamQuestionFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examcreation/fragments/examquestion/presenter/ExamQuestionPresenter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examcreation/fragments/examquestion/presenter/ExamQuestionPresenter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examcreation/fragments/examreview/ExamReviewFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examcreation/fragments/examreview/ExamReviewFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examtaking/ExamTakingActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examtaking/ExamTakingActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examtaking/fragments/EssayQuestionFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examtaking/fragments/EssayQuestionFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examtaking/fragments/MultipleChoicesQuestionFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examtaking/fragments/MultipleChoicesQuestionFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examtaking/fragments/QuestionFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examtaking/fragments/QuestionFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examtaking/fragments/ShortAnswerQuestionFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examtaking/fragments/ShortAnswerQuestionFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examtaking/presenter/ExamTakingPresenter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examtaking/presenter/ExamTakingPresenter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examtaking/presenter/IExamTakingPresenter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examtaking/presenter/IExamTakingPresenter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examtaking/view/ExamTakingView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/examtaking/view/ExamTakingView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/login/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/login/LoginActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/login/presenter/LoginPresenter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/login/presenter/LoginPresenter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/login/view/LoginView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/login/view/LoginView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/main/presenter/IMainPresenter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/main/presenter/IMainPresenter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/main/presenter/MainPresenter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/main/presenter/MainPresenter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/main/view/MainView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/main/view/MainView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/register/RegisterActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/ui/register/RegisterActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/utils/Constants.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/utils/Constants.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/utils/UtilMethods.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/java/com/ma7moud27/exams/utils/UtilMethods.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/activity_exam_creation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/activity_exam_creation.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/activity_exam_taking.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/activity_exam_taking.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/activity_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/activity_register.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/exam_creation_fragment_info.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/exam_creation_fragment_info.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/exam_creation_fragment_question.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/exam_creation_fragment_question.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/exam_creation_fragment_review.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/exam_creation_fragment_review.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/exam_taking_fragment_essay.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/exam_taking_fragment_essay.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/exam_taking_fragment_multiple_choices.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/exam_taking_fragment_multiple_choices.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/exam_taking_fragment_short_answer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/exam_taking_fragment_short_answer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/item_choices.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/item_choices.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/item_question.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/item_question.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/progress_bar_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task3/app/src/main/res/layout/progress_bar_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/hs_err_pid11776.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/hs_err_pid12080.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/hs_err_pid13216.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/hs_err_pid16052.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/hs_err_pid6320.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/hs_err_pid6884.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/hs_err_pid7992.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/replay_pid11776.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task3/replay_pid12080.log" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[adb-GAJJYHVOGYFQTS8D-HpJoq6._adb-tls-connect._tcp]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dao File" />
+        <option value="Room Database.kt.child.1" />
+        <option value="Room Database.kt.child.0" />
+        <option value="Room Database" />
+        <option value="Kotlin Interface" />
+        <option value="Kotlin Object" />
+        <option value="ModelViewRepository.kt.child.0" />
+        <option value="ModelViewRepository.kt.child.1" />
+        <option value="ModelViewRepository.kt.child.2" />
+        <option value="ModelViewRepository.kt.child.3" />
+        <option value="ModelViewRepository" />
+        <option value="Recycler Adapter" />
+        <option value="valueResourceFile" />
+        <option value="Kotlin Enum" />
+        <option value="resourceFile" />
+        <option value="Kotlin Class" />
+        <option value="layoutResourceFile" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2XSN6BLU5rEVQGlO8PwAlZLeMMe" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "cidr.known.project.marker": "true",
+    "last_opened_file_path": "D:/Coding/Android/CodeAlpha/Internship/Tasks/Task2/app/src/main/java/com/example/collegealert/ui",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Coding\Android\CodeAlpha\Internship\Tasks\Task2\app\src\main\java\com\example\collegealert\ui" />
+      <recent name="D:\Coding\Android\CodeAlpha\Internship\Tasks\Task2\app\src\main\res\raw" />
+      <recent name="D:\Coding\Android\CodeAlpha\Internship\Tasks\Task2\app\src\main\res\drawable" />
+      <recent name="D:\Coding\Android\CodeAlpha\Internship\Tasks\Task2\app\src\main\res\font" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Coding\Android\CodeAlpha\Internship\Tasks\Task2\app\src\main\java\com\example\collegealert\ui\adapter" />
+    </key>
+    <key name="CreateKotlinClassDialog.RecentsKey">
+      <recent name="com.example.collegealert.utils" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.example.collegealert.utils.enums" />
+      <recent name="com.example.collegealert.ui.adapter" />
+      <recent name="com.example.collegealert.ui.main.viewmodel" />
+      <recent name="com.example.collegealert.ui.main.view" />
+    </key>
+    <key name="android.template.1965638484">
+      <recent name="com.example.collegealert.ui.task.view" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.example.collegealert.ui.main.fragments" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="College_Alert.app.main" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Hybrid>
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Java>
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7850bb64-670f-4cbe-b96f-ada1f5efdac7" name="Changes" comment="" />
+      <created>1698618348885</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1698618348885</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Task 2 Working Version">
+      <created>1698754760215</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1698754760215</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Task 2 Working Version">
+      <created>1698754807092</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1698754807092</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Task 2 Working Version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Task 2 Working Version" />
+  </component>
+</project>
