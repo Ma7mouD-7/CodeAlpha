@@ -24,6 +24,7 @@ with User-friendly GUI
 * XML
 * MVVM
 * Retrofit
+* Firebase
 
 
 ## Screenshots
