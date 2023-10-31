@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.CollegeAlert" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+         <item name="colorPrimary">@color/cyan_shade</item>
+         <item name="colorPrimaryVariant">@color/cyan</item>
+        <item name="android:fontFamily">@font/bilanger</item>
+    </style>
+
+    <style name="Theme.CollegeAlert" parent="Base.Theme.CollegeAlert" />
+    <style name="MineCustomTabText" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="fontFamily">@font/bilanger</item>
+    </style>
+    <style name="CustomTabSelectedText" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="fontFamily">@font/bilanger</item>
+        <item name="android:textColor">@color/brown</item>
+    </style>
+</resources>

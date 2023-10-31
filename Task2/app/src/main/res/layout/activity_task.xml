@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.task.view.TaskActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="8dp"
+        android:paddingVertical="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/space2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/task_title_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Task Name"
+            android:textColorHint="@color/cyan"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxCornerRadiusBottomEnd="@dimen/input_layout_corner_radius"
+            app:boxCornerRadiusBottomStart="@dimen/input_layout_corner_radius"
+            app:boxCornerRadiusTopEnd="@dimen/input_layout_corner_radius"
+            app:boxCornerRadiusTopStart="@dimen/input_layout_corner_radius"
+            app:boxStrokeColor="@color/grey"
+            app:boxStrokeErrorColor="@color/red"
+            app:boxStrokeWidth="0.2dp"
+            app:boxStrokeWidthFocused="0.5dp"
+            app:errorIconTint="@color/red"
+            app:errorTextColor="@color/red"
+            app:hintEnabled="true"
+            app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:hintTextColor="@color/grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:startIconMinSize="40dp"
+            app:startIconScaleType="centerInside"
+            app:startIconTint="@drawable/textinput_icon_selector">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/task_title_et"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="text|textCapWords|textMultiLine"
+                android:maxLines="2"
+                android:text="1\n2"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                app:hintAnimationEnabled="true"
+                app:hintEnabled="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/task_description_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:hint="Description"
+            android:textColorHint="@color/cyan"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxCornerRadiusBottomEnd="@dimen/input_layout_corner_radius"
+            app:boxCornerRadiusBottomStart="@dimen/input_layout_corner_radius"
+            app:boxCornerRadiusTopEnd="@dimen/input_layout_corner_radius"
+            app:boxCornerRadiusTopStart="@dimen/input_layout_corner_radius"
+            app:boxStrokeColor="@color/grey"
+            app:boxStrokeErrorColor="@color/red"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0.2dp"
+            app:errorIconTint="@color/red"
+            app:errorTextColor="@color/red"
+            app:hintEnabled="true"
+            app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:hintTextColor="@color/grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/task_title_layout"
+            app:startIconMinSize="40dp"
+            app:startIconScaleType="centerInside"
+            app:startIconTint="@drawable/textinput_icon_selector">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/task_description_et"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/cendra_medium"
+                android:inputType="text|textMultiLine"
+                android:lineSpacingExtra="2sp"
+                android:maxLines="8"
+                android:text="1abcded\n2\n3\n4\n5\n6\n7\n8"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:hintAnimationEnabled="true"
+                app:hintEnabled="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/task_location_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Location"
+            android:textColorHint="@color/cyan"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxCornerRadiusBottomEnd="@dimen/input_layout_corner_radius"
+            app:boxCornerRadiusBottomStart="@dimen/input_layout_corner_radius"
+            app:boxCornerRadiusTopEnd="@dimen/input_layout_corner_radius"
+            app:boxCornerRadiusTopStart="@dimen/input_layout_corner_radius"
+            app:boxStrokeColor="@color/grey"
+            app:boxStrokeErrorColor="@color/red"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0.2dp"
+            app:errorIconTint="@color/red"
+            app:errorTextColor="@color/red"
+            app:hintEnabled="true"
+            app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:hintTextColor="@color/grey"
+            app:layout_constraintTop_toBottomOf="@+id/task_description_layout"
+            app:startIconMinSize="40dp"
+            app:startIconScaleType="centerInside"
+            app:startIconTint="@drawable/textinput_icon_selector">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/task_location_et"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/cendra_medium"
+                android:inputType="text|textMultiLine"
+                android:lineSpacingExtra="2sp"
+                android:maxLines="2"
+                android:text="1abcded\n2\n3\n4\n5\n6\n7\n8"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:hintAnimationEnabled="true"
+                app:hintEnabled="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/background_gradiant_rounded"
+        android:elevation="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/task_save_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/task_date_layout"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/background_rounded"
+            android:elevation="2dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/space"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/task_date_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:src="@drawable/baseline_add_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/cyan" />
+
+            <TextView
+                android:id="@+id/task_date_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="20, Oct 2023"
+                android:textColor="@color/cyan"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/task_date_icon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/task_date_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Date"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/task_date_icon" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/task_reminder_layout"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/background_rounded"
+            android:elevation="2dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/space"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/task_reminder_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:src="@drawable/baseline_add_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/gold" />
+
+            <Spinner
+                android:id="@+id/task_reminder_spinner"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="3dp"
+                android:entries="@array/reminders"
+                android:spinnerMode="dropdown"
+                android:text="20, Oct 2023"
+                android:textColor="@color/gold"
+                app:layout_constraintBottom_toTopOf="@+id/task_reminder_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/task_reminder_icon"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/item_spinner" />
+
+            <TextView
+                android:id="@+id/task_reminder_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Reminder"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/task_reminder_icon" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/task_end_time_layout"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/background_rounded"
+            android:elevation="2dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/space"
+            app:layout_constraintTop_toBottomOf="@+id/task_reminder_layout">
+
+            <ImageView
+                android:id="@+id/task_end_time_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:src="@drawable/baseline_add_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/grey_blue" />
+
+            <TextView
+                android:id="@+id/task_end_time_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="6:30 PM"
+                android:textColor="@color/grey_blue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/task_end_time_icon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/task_end_time_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="End Time"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/task_end_time_icon" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/task_start_time_layout"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/background_rounded"
+            android:elevation="2dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/space"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/task_date_layout">
+
+            <ImageView
+                android:id="@+id/task_start_time_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:src="@drawable/baseline_add_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/brown" />
+
+            <TextView
+                android:id="@+id/task_start_time_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="7dp"
+                android:text="4:30 PM"
+                android:textColor="@color/brown"
+                app:layout_constraintBottom_toTopOf="@+id/task_start_time_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/task_start_time_icon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/task_start_time_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Start Time"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/task_start_time_icon" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Space
+            android:id="@+id/space"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <RadioGroup
+            android:id="@+id/task_field_group"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/background_rounded"
+            android:elevation="2dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp"
+            android:weightSum="3"
+            app:layout_constraintBottom_toTopOf="@+id/task_priority_group"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/space">
+
+            <RadioButton
+                android:id="@+id/task_field_lecture_radio_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Lecture"
+                android:textColor="@color/orange"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/task_field_milestone_radio_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Milestone"
+                android:textColor="@color/blue"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/task_field_exam_radio_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Exam"
+                android:textColor="@color/pink"
+                android:textSize="16sp" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/task_priority_group"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/background_rounded"
+            android:elevation="2dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp"
+            android:weightSum="3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <RadioButton
+                android:id="@+id/task_priority_important_radio_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Important"
+                android:textColor="@color/blue_shade"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/task_priority_normal_radio_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Normal"
+                android:textColor="@color/blue_shade"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/task_priority_not_radio_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Not Important"
+                android:textColor="@color/blue_shade"
+                android:textSize="14sp" />
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/task_save_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/background_gradiant_full_rounded"
+        android:textColor="@color/white"
+        android:text="Save Task"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Space
+        android:id="@+id/space2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.53" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

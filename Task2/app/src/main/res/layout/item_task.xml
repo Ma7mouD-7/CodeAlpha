@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="6dp"
+    app:cardBackgroundColor="#F5F5F5"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_task_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/item_task_priority_iv"
+            android:layout_width="8dp"
+            android:layout_height="0dp"
+            android:background="@color/red"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/item_task_title_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:drawablePadding="8dp"
+            android:ellipsize="end"
+            android:gravity="bottom"
+            android:maxLines="2"
+            android:padding="4dp"
+            android:text="Name"
+            android:textColor="@color/font"
+            android:textSize="22sp"
+            app:drawableStartCompat="@drawable/task"
+            app:drawableTint="@color/font"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/item_task_priority_iv"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/item_task_date_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:drawablePadding="8dp"
+            android:gravity="bottom"
+            android:padding="4dp"
+            android:text="dd/mm/yyyy HH:MM"
+            android:textColor="@color/font"
+            android:textSize="20sp"
+            app:drawableStartCompat="@drawable/schedule"
+            app:drawableTint="@color/font"
+            app:layout_constraintEnd_toEndOf="@+id/item_task_title_tv"
+            app:layout_constraintStart_toStartOf="@+id/item_task_title_tv"
+            app:layout_constraintTop_toBottomOf="@+id/item_task_title_tv" />
+
+        <TextView
+            android:id="@+id/item_task_location_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:drawablePadding="8dp"
+            android:gravity="bottom"
+            android:padding="4dp"
+            android:text="Location"
+            android:textColor="@color/font"
+            android:textSize="18sp"
+            app:drawableStartCompat="@drawable/location"
+            app:drawableTint="@color/font"
+            app:layout_constraintEnd_toEndOf="@+id/item_task_title_tv"
+            app:layout_constraintStart_toStartOf="@+id/item_task_title_tv"
+            app:layout_constraintTop_toBottomOf="@+id/item_task_date_tv" />
+
+        <TextView
+            android:id="@+id/item_task_desc_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:drawablePadding="8dp"
+            android:ellipsize="end"
+            android:gravity="bottom"
+            android:maxLines="2"
+            android:padding="4dp"
+            android:text="Description"
+            android:textColor="@color/font"
+            android:textSize="18sp"
+            app:drawableStartCompat="@drawable/description"
+            app:drawableTint="@color/font"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/item_task_type_tv"
+            app:layout_constraintStart_toStartOf="@+id/item_task_title_tv"
+            app:layout_constraintTop_toBottomOf="@+id/item_task_location_tv" />
+
+        <TextView
+            android:id="@+id/item_task_type_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="Exam"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/item_task_desc_tv"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
